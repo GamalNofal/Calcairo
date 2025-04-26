@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover your wrap personality — burrito, shawarma, lettuce wrap or more — based on your vibe." />
+  <title>Wrap Battle Personality | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="wrap-battle.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Wrap Battle Personality Calculator",
+    "description": "Find out what type of food wrap matches your life vibe: burrito, shawarma, lettuce wrap, and more.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "All",
+    "url": "https://calcairo.com/funny/wrap-battle-personality"
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Wrap Battle Personality</h1>
+    <p class="calculator-intro">Are you a burrito of chaos or a lettuce wrap of chill? Take the wrap test to find your vibe. 🌯</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="mood">What's your daily energy?</label>
+        <select id="mood">
+          <option value="calm">Chill and easygoing</option>
+          <option value="bold">Loud and confident</option>
+          <option value="focused">Serious and productive</option>
+          <option value="weird">Silly and unpredictable</option>
+          <option value="cozy">Comforting and soft</option>
+        </select>
+
+        <button id="generateBtn" class="cta-btn pulse">Reveal My Wrap 🌯</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Your Wrap Personality</h2>
+        <div id="resultBox">Loading your layers of flavor...</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="wrap-battle.js"></script>
+</body>
+</html>

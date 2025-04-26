@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Estimate your monthly food expenses based on daily spending and household size.">
+  <title>Food Budget Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="food-budget.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Food Budget Calculator",
+    "applicationCategory": "FinancialApplication",
+    "operatingSystem": "All",
+    "url": "https://calcairo.com/Categories/Cost/FoodBudget/food-budget.html",
+    "description": "Free tool to estimate monthly food expenses based on daily cost and number of people.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../about.html" class="nav-link">About</a>
+          <a href="../../../contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Food Budget Calculator</h1>
+    <p class="calculator-intro">Estimate your total monthly food expenses for your household or individual needs.</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="dailyCost">Daily Food Cost (USD)</label>
+        <input type="number" id="dailyCost" placeholder="e.g. 12" min="0" />
+
+        <label for="people">Number of People</label>
+        <input type="number" id="people" placeholder="e.g. 3" min="1" />
+
+        <label for="days">Days per Month</label>
+        <input type="number" id="days" value="30" min="1" max="31" />
+
+        <button id="calcBtn">Calculate Budget</button>
+      </div>
+
+      <div class="result-card light-green" id="resultBox">
+        <h2>Your Estimated Monthly Food Budget</h2>
+        <p>Enter your values and click calculate to see your result.</p>
+      </div>
+    </div>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../../scripts/header.js"></script>
+  <script src="food-budget.js"></script>
+</body>
+</html>

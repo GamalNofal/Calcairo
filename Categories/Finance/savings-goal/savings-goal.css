@@ -1,0 +1,132 @@
+:root {
+  --primary-green: #2d7d32;
+  --light-green: #f0faef;
+  --dark-text: #133c1e;
+  --input-bg: #f9fbfa;
+  --border-color: #ccc;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7f6;
+  color: var(--dark-text);
+}
+
+.calculator-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
+
+.calculator-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.calc-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.input-card,
+.result-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  flex: 1 1 380px;
+  max-width: 480px;
+}
+
+.input-card label {
+  display: block;
+  margin: 0.6rem 0 0.2rem;
+  font-weight: 600;
+}
+
+.input-card input,
+.input-card select {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--input-bg);
+  font-family: inherit;
+  margin-bottom: 0.5rem;
+}
+
+.input-card input:focus,
+.input-card select:focus {
+  border-color: var(--primary-green);
+  outline: none;
+}
+
+.cta-btn {
+  display: inline-block;
+  background-color: var(--primary-green);
+  color: #fff;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+.cta-btn:hover {
+  background-color: #256629;
+  transform: scale(1.03);
+}
+
+.result-card.light-green {
+  background: var(--light-green);
+  color: var(--dark-text);
+  transition: box-shadow 0.3s;
+}
+
+.result-card.highlight {
+  box-shadow: 0 0 0 4px #a4d7a1;
+}
+
+.result-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-card p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .calc-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-card,
+  .result-card {
+    max-width: 100%;
+  }
+
+  .calculator-container {
+    padding: 18px 2vw;
+  }
+
+  .page-title {
+    font-size: 1.7rem;
+  }
+}

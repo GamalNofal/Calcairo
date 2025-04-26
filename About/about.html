@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About CalCairo – Learn what makes CalCairo the best place for free, fast, and smart online calculators.">
+  <title>About CalCairo | Free Smart Calculators</title>
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../styles/main.css" />
+  
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="about.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CalCairo",
+      "url": "https://calcairo.com/about.html",
+      "description": "About CalCairo – Learn what makes CalCairo the best place for free, fast, and smart online calculators."
+    }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="about-container">
+    <h2>About CalCairo</h2>
+
+    <h3>Who We Are</h3>
+    <p>CalCairo is a curated collection of smart, free, and accurate calculators designed to help users make quick decisions and stay informed — whether it’s about health, money, love, learning, or daily life.</p>
+
+    <h3>Our Mission</h3>
+    <p>We believe that everyone deserves tools that are easy to use, reliable, and enjoyable. Our mission is to combine accuracy with simplicity — no clutter, no confusion, just answers.</p>
+
+    <h3>What We Offer</h3>
+    <ul>
+      <li>📊 Practical calculators for finance, health, productivity, and lifestyle</li>
+      <li>📱 100% mobile-friendly and ad-optimized experience</li>
+      <li>🎯 Fun tools like love testers, randomizers, and fortune generators</li>
+      <li>🔐 No logins, no accounts, just pure access</li>
+    </ul>
+
+    <h3>Disclaimer</h3>
+    <p>While our calculators are carefully built and tested, they are intended for informational and educational purposes only. They should not replace professional advice in medical, legal, or financial matters.</p>
+
+    <h3>Our Commitment</h3>
+    <p>We are continuously improving CalCairo based on user needs and feedback. Our focus is on speed, clarity, and user experience — all while keeping it fun and accessible to everyone.</p>
+
+    <h3>Questions or Feedback?</h3>
+    <p>We’d love to hear from you! Visit our <a href="../Contact/contact.html">Contact</a> page to share suggestions or get in touch with the team.</p>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../Partials/header.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    hamburger?.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+  });
+</script>
+</body>
+</html>

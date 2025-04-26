@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Discover how your elemental essence clashes against other forces in the universe. Will you emerge as a champion of fire, a whisper of air, or a shadow of destiny?" />
+  <title>Elemental Destiny Clash | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="elemental-clash.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Elemental Destiny Clash",
+      "description": "Discover your elemental power and how it stands in the cosmic balance. Fire? Water? Air? Light? The destiny awaits.",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "All",
+      "url": "https://calcairo.com/fun/elemental-clash"
+    }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Elemental Destiny Clash 🌌</h1>
+    <p class="calculator-intro">Choose your element and discover how you fare against the forces of the universe.</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <form id="clashForm">
+          <div class="input-group">
+            <label for="userElement">Select your element</label>
+            <select id="userElement">
+              <option value="fire">🔥 Fire</option>
+              <option value="water">💧 Water</option>
+              <option value="earth">🌍 Earth</option>
+              <option value="air">🌬️ Air</option>
+              <option value="light">✨ Light</option>
+              <option value="darkness">🌑 Darkness</option>
+              <option value="aether">🌌 Aether</option>
+              <option value="ice">🧊 Ice</option>
+              <option value="storm">🌩️ Storm</option>
+              <option value="metal">⚙️ Metal</option>
+            </select>
+          </div>
+          <button type="submit" id="clashBtn" class="cta-btn pulse">Unleash My Power</button>
+        </form>
+      </div>
+
+      <div class="result-card light-green" id="resultCard" style="display: none;">
+        <h2>🌟 Your Elemental Clash Result</h2>
+        <div id="clashResult" class="result-text"></div>
+        <button id="tryAgain" class="cta-btn" style="margin-top: 20px;">Try Again</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="elemental-clash.js"></script>
+</body>
+</html>

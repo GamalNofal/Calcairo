@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Calculate profit margin based on unit price, cost, and units sold. Get gross profit, COGS, and margin instantly.">
+  <title>Profit Margin Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="profit-margin.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Profit Margin Calculator",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "url": "https://calcairo.com/Categories/Finance/ProfitMargin/profit-margin.html",
+    "description": "Calculate your profit margin easily with our free online tool. Input your unit price, cost, and units sold to get instant profit margin analysis.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Profit Margin Calculator</h1>
+    <p class="calculator-intro">Calculate your profit margin, revenue, gross profit, and cost of goods sold.</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="unitPrice">Unit Price</label>
+        <input type="range" id="unitPrice" min="10" max="1000" value="200">
+        <input type="number" id="unitPriceInput" value="200" min="10" max="1000">
+        <div class="input-description">The selling price for each unit of the product.</div>
+
+        <label for="unitsSold">Units Sold</label>
+        <input type="range" id="unitsSold" min="1" max="1000" value="50">
+        <input type="number" id="unitsSoldInput" value="50" min="1" max="1000">
+        <div class="input-description">The total number of units sold.</div>
+
+        <label for="unitCost">Unit Cost</label>
+        <input type="range" id="unitCost" min="1" max="500" value="100">
+        <input type="number" id="unitCostInput" value="100" min="1" max="500">
+        <div class="input-description">The production cost for each unit of the product.</div>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h3>Revenue</h3>
+        <div class="bmi-result" id="revenue">$10,000</div>
+        <div class="bmi-label">Generated revenue based on unit price and units sold.</div>
+
+        <h3>Cost of Goods Sold (COGS)</h3>
+        <div class="bmi-result" id="cogs">$5,000</div>
+        <div class="bmi-label">Total cost of production based on unit cost and units sold.</div>
+
+        <h3>Gross Profit</h3>
+        <div class="bmi-result" id="grossProfit">$5,000</div>
+        <div class="bmi-label">Gross profit = Revenue - COGS</div>
+
+        <h3>Profit Margin</h3>
+        <div class="bmi-result" id="profitMargin">50.00%</div>
+        <div class="bmi-label">Profit margin = (Gross Profit / Revenue) * 100</div>
+
+        <h3>Boost Your Profit Margins</h3>
+        <p>Understand your profit margins better and take action to increase them. Get in touch with our experts for personalized advice.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../../scripts/header.js"></script>
+  <script src="profit-margin.js"></script>
+</body>
+</html>

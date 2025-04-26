@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore fun calculators like trivia, dice rolls, randomness generators, and more.">
+  <title>Fun Calculators | CalCairo</title>
+
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/categories.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../categories.html" class="nav-link">Categories</a>
+          <a href="../../about.html" class="nav-link">About</a>
+          <a href="../../contact.html" class="nav-link">Contact</a>
+          <a href="../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="cat-title">Fun Calculators</h1>
+    <p class="cat-subtitle">Quirky, silly, and surprising calculators for a smile.</p>
+
+    <section class="categories-grid">
+      <a href="LoveScore/love-score.html" class="category-card">
+        <span class="cat-icon">❤️</span>
+        <h2>Love Score</h2>
+        <p>Playful love percentage calculator</p>
+      </a>
+      <a href="FortuneTeller/fortune-teller.html" class="category-card">
+        <span class="cat-icon">🔮</span>
+        <h2>Fortune Teller</h2>
+        <p>Get your random fortune prediction</p>
+      </a>
+      <a href="WhatSpellAreYou/what-spell.html" class="category-card">
+        <span class="cat-icon">🧙‍♂️</span>
+        <h2>What Spell Are You?</h2>
+        <p>Discover your magical spell</p>
+      </a>
+      <a href="ElementalDestinyClash/elemental-clash.html" class="category-card">
+        <span class="cat-icon">🪄</span>
+        <h2>Elemental Destiny Clash</h2>
+        <p>Playful elemental clash calculator</p>
+      </a>
+      <a href="PlanetWeight/planet-weight.html" class="category-card">
+        <span class="cat-icon">🪐</span>
+        <h2>Planet Weight</h2>
+        <p>Calculate your weight on other planets</p>
+      </a>
+      <a href="Superpower/superpower-calculator.html" class="category-card">
+        <span class="cat-icon">🦸</span>
+        <h2>Superpower Calculator</h2>
+        <p>Discover your hidden superpower</p>
+      </a>
+      <a href="FriendshipStrength/friendship-strength.html" class="category-card">
+        <span class="cat-icon">🤝</span>
+        <h2>Friendship Strength</h2>
+        <p>Calculate your friendship strength</p>
+      </a>
+      <a href="LifetimeLaughter/lifetime-laughs.html" class="category-card">
+        <span class="cat-icon">😂</span>
+        <h2>Lifetime Laughter</h2>
+        <p>Calculate your lifetime laughter</p>
+      </a>
+      <a href="Pet’s Secret IQ/pet-iq.html" class="category-card">
+        <span class="cat-icon">🐶</span>
+        <h2>Pet’s Secret IQ</h2>
+        <p>Calculate your pet’s secret IQ</p>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../scripts/header.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

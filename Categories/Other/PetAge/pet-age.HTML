@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Pet Age Calculator – Convert your pet's age into human years. Fun and easy!">
+  <title>Pet Age Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="pet-age.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../about.html" class="nav-link">About</a>
+          <a href="../../../contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Pet Age Calculator 🐶🐱</h1>
+    <p class="calculator-intro">Convert your furry friend's age into human years!</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="petType">Pet Type</label>
+        <select id="petType">
+          <option value="dog">Dog</option>
+          <option value="cat">Cat</option>
+        </select>
+
+        <label for="petAge">Pet's Age (in years)</label>
+        <input type="number" id="petAge" value="1" min="0" step="0.1" />
+
+        <button id="calculateBtn">Convert to Human Years 🧠</button>
+      </div>
+
+      <div class="result-card light-green" id="resultBox">
+        <h2>Human Age Equivalent 🧍</h2>
+        <p>Enter your pet's info to see the result.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../../scripts/header.js"></script>
+  <script src="pet-age.js"></script>
+</body>
+</html>

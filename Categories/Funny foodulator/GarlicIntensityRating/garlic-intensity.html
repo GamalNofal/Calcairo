@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover your garlic intensity level with this fun and flavorful quiz." />
+  <title>Garlic Intensity Rating | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="garlic-intensity.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Garlic Intensity Rating</h1>
+    <p class="calculator-intro">How strong is your garlic aura? Answer a few questions and find out! 🧄</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="frequency">How often do you eat garlic?</label>
+        <select id="frequency">
+          <option value="0">Never</option>
+          <option value="1">Once a month</option>
+          <option value="2">Once a week</option>
+          <option value="3">Multiple times a week</option>
+          <option value="4">Every day</option>
+        </select>
+
+        <label for="raw">Would you eat raw garlic?</label>
+        <select id="raw">
+          <option value="0">Absolutely not</option>
+          <option value="1">Maybe a little</option>
+          <option value="2">Yes, I’ve done it</option>
+          <option value="3">I love raw garlic</option>
+        </select>
+
+        <label for="vampire">How would you handle a vampire visit?</label>
+        <select id="vampire">
+          <option value="0">Run and hide</option>
+          <option value="1">Offer garlic bread</option>
+          <option value="2">Wear a garlic necklace</option>
+          <option value="3">Invite them to your garlic lair</option>
+        </select>
+
+        <button id="calculateBtn" class="cta-btn pulse">Reveal My Garlic Level 🧄</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Your Garlic Rating</h2>
+        <div id="resultBox">Find out if you’re mild or mythical.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="garlic-intensity.js"></script>
+</body>
+</html>

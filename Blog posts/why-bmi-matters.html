@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Your BMI Still Matters in 2025 | CalCairo Blog</title>
+    <meta name="description" content="Learn why BMI is still important in 2025, when it matters, when it doesn't, and how to use it smartly for your health goals.">
+  
+    <!-- Main Styles (Fixed Paths) -->
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/blog-post.css"/>
+
+  <!-- Optional: Add BlogPosting Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Why Your BMI Still Matters in 2025",
+    "description": "Learn why BMI is still important in 2025, when it matters, when it doesn't, and how to use it smartly for your health goals.",
+    "author": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    },
+    "datePublished": "2025-04-26",
+    "image": "https://yourwebsite.com/path-to-blog-image.jpg"
+  }
+  </script>
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="blog-container">
+    <article class="blog-post">
+      <h1>Why Your BMI Still Matters in 2025</h1>
+      <p class="blog-meta">Published on April 26, 2025 by CalCairo</p>
+
+      <p>Body Mass Index (BMI) has been debated for years, but in 2025, it still holds surprising importance. Here's why understanding your BMI can help you reach smarter health goals...</p>
+
+      <h2>✅ When BMI is Useful</h2>
+      <p>BMI is a quick and simple tool to assess whether your weight is generally healthy for your height. For large populations, it's still one of the best initial indicators...</p>
+
+      <h2>⚠️ When BMI is Misleading</h2>
+      <p>However, BMI doesn't account for muscle mass, bone density, or fat distribution. Athletes, for example, may have a "high" BMI but very low body fat...</p>
+
+      <h2>💡 How to Use BMI Smartly</h2>
+      <p>Think of BMI as a starting point, not the final verdict. Use it along with other measurements like waist-to-hip ratio, body fat percentage, and overall fitness levels...</p>
+
+      <p>Ready to dive deeper into smart health tools? Check out our <a href="../Categories/Fitness/Fitness.html">Fitness Calculators</a>!</p>
+
+    </article>
+  </main>
+
+  <!-- Minimal Google Ad Banner (bottom) -->
+  <!--#include file="../partials/adsense-bottom.html" -->
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+    <p><a href="../Legal/privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../Partials/header.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger?.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+    });
+  </script>  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll('.blog-post p, .blog-post h2');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+  
+      elements.forEach(el => observer.observe(el));
+    });
+  </script>  
+</body>
+</html>

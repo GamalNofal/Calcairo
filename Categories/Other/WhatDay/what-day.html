@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Find out what day of the week any date falls on, plus zodiac sign, moon phase, and historic events." />
+  <title>What Day Was It Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="what-day.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "What Day Was It Calculator",
+      "description": "Discover the weekday, zodiac sign, moon phase, and historic events for any date.",
+      "applicationCategory": "Other Calculator",
+      "url": "https://calcairo.com/Other/WhatDay/what-day.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CalCairo"
+      }
+    }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">What Day Was It?</h1>
+    <p class="calculator-intro">Enter any date to discover the weekday, zodiac sign, moon phase, and famous events from that day.</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="dateInput">Select a Date</label>
+        <input type="date" id="dateInput" />
+        <button id="calculateBtn" class="cta-btn pulse">Find Out</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Results</h2>
+        <div id="resultBox">
+          <p>The results will appear here after you choose a date.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="what-day.js"></script>
+</body>
+</html>

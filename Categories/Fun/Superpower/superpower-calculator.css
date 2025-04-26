@@ -1,0 +1,168 @@
+/* superpower-calculator.css */
+
+:root {
+    --primary-green: #2e7d32;
+    --light-green-bg: #f0faef;
+    --dark-text: #212529;
+    --border-color: #ccc;
+    --input-bg: #f9f9f9;
+  }
+  
+  body {
+    background: #f4f7f6;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: var(--dark-text);
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #355c3a;
+    margin-top: 1.5rem;
+    text-shadow: 0 1px 0 #e8ede5;
+  }
+  
+  .calculator-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #6d7f6d;
+    margin: 0 0 2rem;
+  }
+  
+  .calc-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .input-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 520px;
+    width: 100%;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .input-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-group label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  select,
+  input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    font-size: 1rem;
+  }
+  
+  .cta-btn {
+    background: var(--primary-green);
+    color: white;
+    font-weight: 600;
+    padding: 14px;
+    border: none;
+    border-radius: 24px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .cta-btn:hover {
+    background-color: #1b5e20;
+    transform: scale(1.03) translateY(-2px);
+  }
+  
+  .result-card.light-green {
+    background: var(--light-green-bg);
+    color: #133c1e;
+    max-width: 520px;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .result-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .result-text {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+  
+  /* Glow Animation */
+  .glow {
+    animation: glowEffect 2s ease-out;
+  }
+  
+  @keyframes glowEffect {
+    0% {
+      box-shadow: 0 0 0 rgba(46, 125, 50, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(46, 125, 50, 0.25);
+    }
+    100% {
+      box-shadow: 0 0 0 rgba(46, 125, 50, 0.6);
+    }
+  }
+  
+  /* Light heroic aura */
+  .result-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation: heroicAura 6s infinite linear;
+    pointer-events: none;
+  }
+  
+  @keyframes heroicAura {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  footer {
+    text-align: center;
+    color: #8a8f99;
+    font-size: 1rem;
+    padding: 32px 0 16px;
+  }
+  
+  footer a {
+    color: #8a8f99;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  footer a:hover {
+    color: #2e7d32;
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore cost calculators like expense estimators, savings tools, and more.">
+  <title>Chemistry Calculators | CalCairo</title>
+
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/categories.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../categories.html" class="nav-link">Categories</a>
+          <a href="../../about.html" class="nav-link">About</a>
+          <a href="../../contact.html" class="nav-link">Contact</a>
+          <a href="../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="cat-title">Chemistry Calculators</h1>
+    <p class="cat-subtitle">Tools to estimate daily, monthly, or long-term costs.</p>
+
+    <section class="categories-grid">
+      <a href="pH-pOH/ph-poH-calculator.html" class="category-card">
+        <span class="cat-icon">🧪</span>
+        <h2>pH-pOH Calculator</h2>
+        <p>Calculate pH and pOH values</p>
+      </a>
+      <a href="Percent-Yield-Calculator/percent-yield-calculator.html" class="category-card">
+        <span class="cat-icon">🧪</span>
+        <h2>Percent Yield Calculator</h2>
+        <p>Calculate percent yield of a reaction</p>
+      </a>
+      <a href="MolarityCalculator/molarity-calculator.html" class="category-card">
+        <span class="cat-icon">🧪</span>
+        <h2>Molarity Calculator</h2>
+        <p>Calculate molarity of a solution</p>
+      </a>
+    </section>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../scripts/header.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

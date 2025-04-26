@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crack the Code: Understanding Your Ideal Weight | CalCairo Blog</title>
+  <meta name="description" content="What is your ideal weight? Learn about the different methods of finding a healthy weight goal beyond BMI.">
+  
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/blog-post.css" />
+
+  <!-- BlogPosting Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Crack the Code: Understanding Your Ideal Weight",
+    "description": "What is your ideal weight? Learn about the different methods of finding a healthy weight goal beyond BMI.",
+    "author": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    },
+    "datePublished": "2025-04-26",
+    "image": "https://yourwebsite.com/path-to-blog-image.jpg"
+  }
+  </script>
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="blog-container">
+    <article class="blog-post">
+      <h1>Crack the Code: Understanding Your Ideal Weight</h1>
+      <p class="blog-meta">Published on April 26, 2025 by CalCairo</p>
+
+      <p>Ideal weight isn't just about looking good — it's about feeling strong, healthy, and balanced. Forget one-size-fits-all numbers!</p>
+      
+      <p>There are many ways to estimate your healthy weight range, including BMI, waist-to-hip ratio, and body fat percentage. Each method provides a different piece of the puzzle.</p>
+
+      <p>Finding your ideal weight is personal — and it should be based on more than just a chart or calculator. Fitness, energy levels, and even genetics play a role!</p>
+
+      <p>🏋️‍♂️ Curious? Use our <a href="../Categories/Fitness/Fitness.html">Ideal Weight Calculator</a> to discover your personal healthy weight range!</p>
+    </article>
+  </main>
+
+  <!-- Minimal Google Ad Banner (bottom) -->
+  <!--#include file="../partials/adsense-bottom.html" -->
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+    <p><a href="../Legal/privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../Partials/header.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+      hamburger?.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+      });
+
+      const elements = document.querySelectorAll('.blog-post p, .blog-post h2');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      elements.forEach(el => observer.observe(el));
+    });
+  </script>
+</body>
+</html>

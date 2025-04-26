@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Convert your name into a reversed version and get an alien remix for fun." />
+  <title>Reverse Name Translator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="reverse-name.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Reverse Name Translator</h1>
+    <p class="calculator-intro">Type your name to see it flipped and receive your galactic alias!</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="nameInput">Enter Your Name</label>
+        <input type="text" id="nameInput" placeholder="e.g.Elon Musk" />
+        <button id="generateBtn" class="cta-btn pulse">Translate Name</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Your Reverse Identity</h2>
+        <div id="resultBox">A mirrored version of your name awaits...</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="reverse-name.js"></script>
+</body>
+</html>

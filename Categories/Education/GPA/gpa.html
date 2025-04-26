@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Advanced GPA Calculator – Easily calculate your Grade Point Average with support for weighted GPA, custom scales, and multiple courses.">
+  <title>GPA Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="gpa.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "GPA Calculator",
+    "url": "https://calcairo.com/Categories/Education/GPA/gpa.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "description": "Advanced GPA calculator supporting multiple classes, GPA scales, and weighted averages.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../about.html" class="nav-link">About</a>
+          <a href="../../../contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">GPA Calculator 🎓</h1>
+    <p class="calculator-intro">Calculate your Grade Point Average (GPA) by entering your courses, grades, and credit hours below.</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <div id="courseList">
+          <!-- Dynamic rows will go here -->
+        </div>
+        <button id="addCourseBtn" class="add-btn">+ Add Course</button>
+
+        <label for="scale">GPA Scale</label>
+        <select id="scale">
+          <option value="4">4.0 Scale</option>
+          <option value="5">5.0 Scale</option>
+        </select>
+
+        <button id="calculateGpaBtn">Calculate GPA</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Your GPA</h2>
+        <div class="bmi-result" id="gpaOutput">—</div>
+        <div class="bmi-label">Based on entered courses and GPA scale</div>
+        <p>Keep aiming high, success is built one class at a time!</p>
+      </div>
+    </div>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="gpa.js"></script>
+</body>
+</html>

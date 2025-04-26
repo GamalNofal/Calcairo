@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore cost calculators like expense estimators, savings tools, and more.">
+  <title>Cost Calculators | CalCairo</title>
+
+  <link rel="stylesheet" href="../../styles/main.css">
+  <link rel="stylesheet" href="../../styles/categories.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../categories.html" class="nav-link">Categories</a>
+          <a href="../../about.html" class="nav-link">About</a>
+          <a href="../../contact.html" class="nav-link">Contact</a>
+          <a href="../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="cat-title">Cost Calculators</h1>
+    <p class="cat-subtitle">Tools to estimate daily, monthly, or long-term costs.</p>
+
+    <section class="categories-grid">
+      <a href="FoodBudget/food-budget.html" class="category-card">
+        <span class="cat-icon">🍽️</span>
+        <h2>Food Budget</h2>
+        <p>Estimate monthly food expenses</p>
+      </a>
+      <a href="TripCost/trip-cost.html" class="category-card">
+        <span class="cat-icon">🧳</span>
+        <h2>Trip Cost</h2>
+        <p>Plan travel expenses ahead of time</p>
+      </a>
+      <a href="SubscriptionAnalyzer/subscription-analyzer.html" class="category-card">
+        <span class="cat-icon">💳</span>
+        <h2>Subscription Cost Analyzer</h2>
+        <p>Calculate your total monthly and yearly subscription costs</p>
+      </a>
+      <a href="ToiletPaper/toilet-paper-calculator.html" class="category-card">
+        <span class="cat-icon">🧻</span>
+        <h2>Toilet Paper Calculator</h2>
+        <p>Estimate how many rolls of TP you’ll go through in your lifetime</p>
+      </a>
+      <a href="NetPriceCal/net-price-calculator.html" class="category-card">
+        <span class="cat-icon">💰</span>
+        <h2>Net Price Calculator</h2>
+        <p>Calculate the final net price after discounts, taxes, and fees</p>
+      </a>
+      <a href="OpportunityCostAnalyzer/opportunity-cost-analyzer.html" class="category-card">
+        <span class="cat-icon">📊</span>
+        <h2>Opportunity Cost Analyzer</h2>
+        <p>Compare the cost of choices and potential returns</p>
+      </a>
+      <a href="EstimateCalculator/estimate-calculator.html" class="category-card">
+        <span class="cat-icon">📋💵</span>
+        <h2>Estimate Calculator</h2>
+        <p>Calculate total costs for projects or plans</p>
+      </a>
+      <a href="HourlySalaryConverter/hourly-to-salary.html" class="category-card">
+        <span class="cat-icon">⏱️</span>
+        <h2>Hourly to Salary Converter</h2>
+        <p>Convert your hourly wage into yearly, monthly, weekly, or daily salary</p>
+      </a>
+      <a href="SplitBill/split-bill-tip.html" class="category-card">
+        <span class="cat-icon">🍽️💰</span>
+        <h2>Split Bill + Tip Calculator</h2>
+        <p>Calculate exactly how much each person owes, including tip</p>
+      </a>
+      <a href="RetirementGapCalculator/retirement-gap.html" class="category-card">
+        <span class="cat-icon">🏖</span>
+        <h2>Retirement Gap Calculator</h2>
+        <p>Calculate the gap between your retirement savings and your retirement goal</p>
+      </a>
+      <a href="BooksCost/books-calculator.html" class="category-card">
+        <span class="cat-icon">📜</span>
+        <h2>Books Cost Calculator</h2>
+        <p>Calculate your yearly book budget</p>
+      </a>
+      <a href="HappinessCalculator/happiness-calculator.html" class="category-card">
+        <span class="cat-icon">😊</span>
+        <h2>Happiness Calculator</h2>
+        <p>Measure the joy of your purchases</p>
+      </a>
+    </section>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../scripts/header.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

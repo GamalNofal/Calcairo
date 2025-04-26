@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Compare two choices and calculate the opportunity cost. Find out what you're really giving up when you spend." />
+  <title>Opportunity Cost Analyzer | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="opportunity-cost.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Opportunity Cost Analyzer",
+    "description": "Calculate opportunity cost between spending choices. What are you giving up when you choose A over B?",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "url": "https://calcairo.com/cost/opportunity-cost-analyzer"
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Opportunity Cost Analyzer</h1>
+    <p class="calculator-intro">See what you're really giving up when you choose one expense over another — or skip saving entirely.</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="choiceA">Choice A Description</label>
+        <input type="text" id="choiceA" placeholder="e.g. Buy a PS5" />
+
+        <label for="costA">Cost of Choice A ($)</label>
+        <input type="number" id="costA" placeholder="e.g. 500" min="0" />
+
+        <label for="choiceB">Alternative (Choice B)</label>
+        <input type="text" id="choiceB" placeholder="e.g. Invest that $500 at 7% return" />
+
+        <label for="rate">Potential Annual Return (%)</label>
+        <input type="number" id="rate" placeholder="e.g. 7" min="0" max="50" />
+
+        <label for="years">Years to Compare</label>
+        <input type="number" id="years" placeholder="e.g. 10" min="1" max="100" />
+
+        <button id="calculateBtn" class="cta-btn pulse">Analyze Cost</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>📊 Opportunity Cost Result</h2>
+        <div id="resultBox">You'll see what you're giving up right here...</div>
+      </div>
+    </div>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="opportunity-cost.js"></script>
+</body>
+</html>

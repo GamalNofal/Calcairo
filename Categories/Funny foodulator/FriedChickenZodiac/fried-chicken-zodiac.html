@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Find your fried chicken zodiac sign based on astrology and flavor energy." />
+  <title>Fried Chicken Zodiac | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="fried-chicken-zodiac.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Fried Chicken Zodiac</h1>
+    <p class="calculator-intro">Find your crispy destiny based on your zodiac sign. 🍗✨</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="zodiacSign">Select Your Zodiac Sign</label>
+        <select id="zodiacSign">
+          <option value="">-- Choose Sign --</option>
+          <option value="aries">Aries</option>
+          <option value="taurus">Taurus</option>
+          <option value="gemini">Gemini</option>
+          <option value="cancer">Cancer</option>
+          <option value="leo">Leo</option>
+          <option value="virgo">Virgo</option>
+          <option value="libra">Libra</option>
+          <option value="scorpio">Scorpio</option>
+          <option value="sagittarius">Sagittarius</option>
+          <option value="capricorn">Capricorn</option>
+          <option value="aquarius">Aquarius</option>
+          <option value="pisces">Pisces</option>
+        </select>
+
+        <button id="generateBtn" class="cta-btn pulse">Reveal My Fried Chicken 🍗</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Your Fried Chicken Sign</h2>
+        <div id="resultBox">The chicken spirits are seasoning your chart...</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="fried-chicken-zodiac.js"></script>
+</body>
+</html>

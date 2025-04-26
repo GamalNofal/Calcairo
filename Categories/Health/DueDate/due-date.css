@@ -1,0 +1,103 @@
+:root {
+    --primary-green: #2e7d32;
+    --light-green-bg: #f0faef;
+    --dark-text: #212529;
+    --border-color: #ccc;
+    --input-bg: #f9f9f9;
+  }
+  
+  body {
+    background: #f6f9f7;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--dark-text);
+  }
+  
+  .page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+  }
+  
+  .calculator-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #444;
+  }
+  
+  .input-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .input-card label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .input-card input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .cta-btn {
+    background: var(--primary-green);
+    color: white;
+    font-weight: 600;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+  
+  .cta-btn:hover {
+    background-color: #256a2a;
+  }
+  
+  .result-card.light-green {
+    background: var(--light-green-bg);
+    color: #133c1e;
+    max-width: 480px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
+  }
+  
+  .result-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  
+  #resultBox {
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  .highlight {
+    animation: pulseFade 2s ease-in-out;
+  }
+  
+  @keyframes pulseFade {
+    0% { box-shadow: 0 0 0px rgba(46, 125, 50, 0.6); }
+    50% { box-shadow: 0 0 20px rgba(46, 125, 50, 0.25); }
+    100% { box-shadow: 0 0 0px rgba(46, 125, 50, 0.6); }
+  }
+  

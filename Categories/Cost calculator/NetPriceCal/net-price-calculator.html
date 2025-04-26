@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculate the final price after applying discounts, tax, and optional fees. Fast and easy net price calculator." />
+  <title>Net Price Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="net-price.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Net Price Calculator",
+    "description": "Calculate your final price after applying discounts, tax, and extra fees. A fast net price estimator tool.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "url": "https://calcairo.com/cost/net-price-calculator"
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Net Price Calculator</h1>
+    <p class="calculator-intro">Enter original price, discount, tax, and extra fees to find the final amount you’ll pay.</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="originalPrice">Original Price ($)</label>
+        <input type="number" id="originalPrice" placeholder="e.g. 100" min="0" />
+
+        <label for="discount">Discount (%)</label>
+        <input type="number" id="discount" placeholder="e.g. 20" min="0" max="100" />
+
+        <label for="tax">Tax Rate (%)</label>
+        <input type="number" id="tax" placeholder="e.g. 8.5" min="0" />
+
+        <label for="fees">Extra Fees ($)</label>
+        <input type="number" id="fees" placeholder="e.g. 5.00" min="0" />
+
+        <button id="calculateBtn" class="cta-btn pulse">Calculate Net Price</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Final Net Price</h2>
+        <div id="resultBox">Your result will appear here.</div>
+      </div>
+    </div>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="net-price.js"></script>
+</body>
+</html>

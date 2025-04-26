@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Website Ad Revenue Calculator – Estimate your monthly and annual website earnings based on traffic and RPM.">
+  <title>Website Ad Revenue Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="ad-revenue.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Website Ad Revenue Calculator",
+    "url": "https://calcairo.com/Categories/Finance/AdRevenue/ad-revenue.html",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "description": "Estimate how much revenue your website can earn from ads based on RPM and monthly traffic.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <main class="calculator-container">
+    <h1 class="page-title">Website Ad Revenue Calculator</h1>
+    <p class="calculator-intro">Estimate your potential ad earnings based on monthly traffic and RPM.</p>
+
+    <div class="calc-container">
+      <!-- Input -->
+      <div class="input-card">
+        <label for="traffic">Estimated Monthly Traffic</label>
+        <input type="range" id="traffic" min="1000" max="10000000" value="50000" step="1000">
+        <input type="number" id="trafficInput" value="50000" min="1000" max="10000000" step="1000">
+        <div class="input-description">Average monthly page views.</div>
+
+        <label for="rpm">Average RPM (Revenue per 1000 views)</label>
+        <input type="range" id="rpm" min="0.5" max="20" value="5" step="0.1">
+        <input type="number" id="rpmInput" value="5" min="0.5" max="20" step="0.1">
+        <div class="input-description">Estimated revenue per thousand views.</div>
+      </div>
+
+      <!-- Output -->
+      <div class="result-card light-green" id="resultCard">
+        <h2>Total Monthly Revenue</h2>
+        <div id="monthlyRevenue" class="bmi-result">$250</div>
+        <div class="bmi-label">Estimated earnings per month</div>
+
+        <h3>Annual Revenue</h3>
+        <div id="annualRevenue" class="bmi-result">$3,000</div>
+        <div class="bmi-label">Estimated yearly earnings</div>
+
+        <h3>Maximize Your Website's Revenue</h3>
+        <p>Discover strategies to improve your website monetization and RPM. Contact experts for optimization tips.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Minimal Google Ad Banner (bottom) -->
+  <!--#include file="../../../partials/adsense-bottom.html" -->
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="ad-revenue.js"></script>
+</body>
+</html>

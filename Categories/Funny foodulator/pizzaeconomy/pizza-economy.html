@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculate how many slices of pizza you could afford with your monthly income. The Pizza Economy Index is here!" />
+  <title>Pizza Economy Index | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="pizza-economy.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Pizza Economy Index</h1>
+    <p class="calculator-intro">Find out how many slices of pizza you could buy each month with your income. 🍕📈</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="income">Monthly Income</label>
+        <input type="number" id="income" placeholder="e.g. 2000" min="0" />
+
+        <label for="pizzaPrice">Pizza Price</label>
+        <input type="number" id="pizzaPrice" placeholder="e.g. 12.00" step="0.01" min="0.01" />
+
+        <div class="radio-group" style="margin-top: 1rem;">
+          <label><input type="radio" name="priceType" value="slice" checked /> Per Slice</label>
+          <label><input type="radio" name="priceType" value="pizza" /> Per Full Pizza</label>
+        </div>
+
+        <button id="calculateBtn" class="cta-btn pulse">Calculate My Pizza Power</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>Your Pizza Stats</h2>
+        <div id="resultBox">Your pizza purchasing power will appear here.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="pizza-economy.js"></script>
+</body>
+</html>

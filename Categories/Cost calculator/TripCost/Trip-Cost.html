@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Trip Cost Calculator – Estimate your total trip cost based on number of travelers, days, and daily expenses.">
+  <title>Trip Cost Calculator | CalCairo</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="trip-cost.css" />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Trip Cost Calculator",
+    "applicationCategory": "TravelApplication",
+    "operatingSystem": "All",
+    "url": "https://calcairo.com/Categories/Cost/TripCost/trip-cost.html",
+    "description": "Estimate your trip cost by entering travel days, people, and daily expenses. Great for budgeting!",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CalCairo"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../about.html" class="nav-link">About</a>
+          <a href="../../../contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Trip Cost Calculator</h1>
+    <p class="calculator-intro">Estimate your total trip cost by entering your travel group details and daily expenses.</p>
+
+    <div class="calc-container">
+      <!-- Inputs -->
+      <div class="input-card">
+        <label for="travelers">Number of Travelers</label>
+        <input type="number" id="travelers" value="2" min="1" />
+
+        <label for="days">Number of Days</label>
+        <input type="number" id="days" value="5" min="1" />
+
+        <label for="hotel">Hotel Cost per Night (per person)</label>
+        <input type="number" id="hotel" value="80" min="0" />
+
+        <label for="food">Daily Food Cost (per person)</label>
+        <input type="number" id="food" value="30" min="0" />
+
+        <label for="transport">Daily Transport Cost (per person)</label>
+        <input type="number" id="transport" value="20" min="0" />
+
+        <label for="extra">Other Costs (tickets, tours, etc.)</label>
+        <input type="number" id="extra" value="100" min="0" />
+
+        <button id="calculateBtn">Calculate Trip Cost 🧳</button>
+      </div>
+
+      <!-- Result -->
+      <div class="result-card light-green" id="resultCard">
+        <h2>Your Trip Cost Will Appear Here</h2>
+        <p>Fill in your trip details and click the button above to see your total cost.</p>
+      </div>
+    </div>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <script src="../../../scripts/header.js"></script>
+  <script src="trip-cost.js"></script>
+</body>
+</html>

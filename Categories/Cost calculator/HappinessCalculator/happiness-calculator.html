@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Discover how much happiness you're getting from your spending. Calculate your return on joy with this fun happiness calculator!" />
+  <title>Return on Happiness Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="happiness-calculator.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Return on Happiness Calculator",
+    "description": "Calculate how much happiness you're getting from your spending. Track joy-per-dollar and value your smiles.",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "All",
+    "url": "https://calcairo.com/fun/return-on-happiness"
+  }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Return on Happiness Calculator 😊</h1>
+    <p class="calculator-intro">Measure how much joy you got from a purchase or experience — and whether it was worth every cent!</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <label for="spending">How much did you spend? ($)</label>
+        <input type="number" id="spending" placeholder="e.g. 80" min="0" step="0.01" />
+
+        <label for="happiness">How happy did it make you? (1–10)</label>
+        <input type="number" id="happiness" placeholder="e.g. 9" min="1" max="10" />
+
+        <label for="duration">How long did the happiness last? (in days)</label>
+        <input type="number" id="duration" placeholder="e.g. 7" min="1" />
+
+        <button id="calculateBtn" class="cta-btn pulse">Calculate My Joy</button>
+      </div>
+
+      <div class="result-card light-green" id="resultCard">
+        <h2>😊 Happiness Return Summary</h2>
+        <div id="resultBox">Your joy-per-dollar insights will appear here.</div>
+      </div>
+    </div>
+  </main>
+
+<!-- Minimal Google Ad Banner (bottom) -->
+<!--#include file="../../partials/adsense-bottom.html" -->
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="happiness-calculator.js"></script>
+</body>
+</html>

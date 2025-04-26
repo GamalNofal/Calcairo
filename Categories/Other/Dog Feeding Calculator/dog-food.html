@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Dog Feeding Calculator – Calculate how much food your dog needs daily based on weight and activity level.">
+  <title>Dog Feeding Calculator | CalCairo</title>
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <!-- Calculator-specific styles -->
+  <link rel="stylesheet" href="dog-food.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../about.html" class="nav-link">About</a>
+          <a href="../../../Legal/privacy.html" class="nav-link">Privacy & Terms</a>
+          <a href="../../../contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Dog Feeding Calculator</h1>
+    <p class="calculator-intro">Estimate your dog's daily food intake and monthly food cost.</p>
+
+    <div class="calc-container">
+      <!-- Input Section -->
+      <div class="input-card">
+        <label for="weight">Dog Weight (kg)</label>
+        <input type="range" id="weight" min="1" max="50" value="10" />
+        <input type="number" id="weightInput" value="10" min="1" max="50" />
+        <div class="input-description">Enter your dog's weight.</div>
+
+        <label for="activity">Activity Level</label>
+        <input type="range" id="activity" min="1" max="3" value="2" />
+        <input type="number" id="activityInput" value="2" min="1" max="3" />
+        <div class="input-description">1 = Low, 2 = Medium, 3 = High</div>
+
+        <label for="cost">Cost per kg of Dog Food</label>
+        <input type="number" id="cost" value="5" min="1" step="0.1" />
+        <div class="input-description">Your cost per kilogram (e.g. $5)</div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="result-card light-green">
+        <h2>Daily Food Amount</h2>
+        <div id="foodAmount" class="bmi-result">300.00 grams</div>
+        <div class="bmi-label">Recommended daily intake</div>
+
+        <h3>Monthly Food Cost</h3>
+        <div id="monthlyCost" class="bmi-result">$45</div>
+        <div class="bmi-label">Estimated monthly expenditure</div>
+
+        <h3>Ensure Your Dog's Health</h3>
+        <p>Feed your dog the right amount for their health and well-being. Adjust based on vet recommendations and dog food labels.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../../partials/header.js"></script>
+  <script src="dog-food.js"></script>
+</body>
+</html>

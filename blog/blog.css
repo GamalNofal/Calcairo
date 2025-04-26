@@ -1,0 +1,117 @@
+.blog-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.blog-container h1 {
+  color: #2e7d32;
+  font-size: 2.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-subtitle {
+  font-size: 1.1rem;
+  color: #4c5b4c;
+  margin-bottom: 2rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.blog-card {
+  background: #f8fff8;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 8px rgba(0, 128, 0, 0.1);
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.2);
+}
+
+.blog-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.blog-card h2 a {
+  color: #2e7d32;
+  text-decoration: none;
+}
+
+.blog-card h2 a:hover {
+  text-decoration: underline;
+}
+
+.snippet {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #2e7d32;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+/* Inside blog.css, add at the bottom */
+
+.blog-post {
+  text-align: left;
+  background: #f8fff8;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 8px rgba(0, 128, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.blog-post h1 {
+  color: #2e7d32;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-meta {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.blog-post h2 {
+  color: #2e7d32;
+  font-size: 1.6rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blog-post p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.blog-post a {
+  color: #2e7d32;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.blog-post a:hover {
+  text-decoration: none;
+}

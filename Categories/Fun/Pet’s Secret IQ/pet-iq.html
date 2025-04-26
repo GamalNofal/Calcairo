@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover your pet's hidden IQ based on their favorite toy, nap habits, and age. How smart is your furry friend?" />
+  <title>Pet's Secret IQ Calculator | CalCairo</title>
+  <link rel="stylesheet" href="../../../styles/main.css" />
+  <link rel="stylesheet" href="pet-iq.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Pet's Secret IQ Calculator",
+      "description": "Estimate your pet's IQ score based on their habits and favorite activities. Fun and cute results!",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "All",
+      "url": "https://calcairo.com/fun/pet-iq"
+    }
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-flex">
+      <a href="../../../index.html" class="site-logo">CalCairo</a>
+      <nav class="main-nav">
+        <div class="nav-links">
+          <a href="../../../Categories/categories.html" class="nav-link">Categories</a>
+          <a href="../../../About/about.html" class="nav-link">About</a>
+          <a href="../../../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../../../blog/blog.html" class="nav-link">Blog</a>
+        </div>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="calculator-container">
+    <h1 class="page-title">Pet's Secret IQ Calculator 🐕🧠</h1>
+    <p class="calculator-intro">Find out your pet's hidden genius level based on their favorite activities!</p>
+
+    <div class="calc-container">
+      <div class="input-card">
+        <form id="petIqForm">
+          <div class="input-group">
+            <label for="petAge">Pet’s Age (in years)</label>
+            <input type="number" id="petAge" placeholder="e.g., 3" required />
+          </div>
+
+          <div class="input-group">
+            <label for="favoriteToy">Favorite Toy</label>
+            <select id="favoriteToy" required>
+              <option value="">Select...</option>
+              <option value="ball">Ball 🎾</option>
+              <option value="rope">Rope 🪢</option>
+              <option value="laser">Laser Pointer 🔦</option>
+              <option value="squeaky">Squeaky Toy 🧸</option>
+              <option value="stick">Stick 🌿</option>
+              <option value="sock">Sock 🧦</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label for="napHours">Nap Hours Per Day</label>
+            <input type="number" id="napHours" placeholder="e.g., 5" required />
+          </div>
+
+          <button type="submit" id="calculateBtn" class="cta-btn pulse">Calculate Pet IQ</button>
+        </form>
+      </div>
+
+      <div class="result-card light-green" id="resultCard" style="display: none;">
+        <h2>🐾 Your Pet's IQ Result</h2>
+        <div id="petIqResult" class="result-text"></div>
+        <button id="tryAgain" class="cta-btn" style="margin-top: 20px;">Try Again</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CalCairo. All rights reserved. <a href="../../../Legal/Privacy.html">Privacy & Terms</a></p>
+  </footer>
+
+  <script src="../../../partials/header.js"></script>
+  <script src="pet-iq.js"></script>
+</body>
+</html>
