@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الكتلة المولية | الآلات الحاسبة الشاملة</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="حاسبة الكتلة المولية - احسب الكتلة المولية للمركبات الكيميائية بسهولة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">حاسبة الكتلة المولية 🧪</h1>
+            
+            <div class="calculator-form">
+                <form id="molarMassForm">
+                    <div class="mb-3">
+                        <label for="formula" class="form-label">الصيغة الكيميائية</label>
+                        <input type="text" class="form-control" id="formula" required placeholder="مثال: H2O, NaCl, C6H12O6">
+                        <div class="form-text">أدخل الصيغة الكيميائية للمركب</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">احسب الكتلة المولية</button>
+                </form>
+
+                <div id="result" class="mt-4 d-none">
+                    <div class="result-card">
+                        <h3>النتيجة</h3>
+                        <p class="result-value mb-2">الكتلة المولية: <span id="molarMassValue">0</span> غرام/مول</p>
+                        <div class="breakdown mt-3">
+                            <h4>التفصيل:</h4>
+                            <div id="breakdown"></div>
+                        </div>
+                        <div id="chemFacts" class="mt-4">
+                            <h4>حقائق كيميائية مثيرة 🔬</h4>
+                            <div id="factsList" class="facts-list">
+                                <div class="fact-item">
+                                    <ul>
+                                        <li>الكتلة المولية هي كتلة مول واحد من المادة بالغرامات</li>
+                                        <li>المول الواحد يحتوي على 6.022 × 10²³ جزيء (عدد أفوجادرو)</li>
+                                        <li>تستخدم الكتلة المولية في حسابات التفاعلات الكيميائية</li>
+                                        <li>يمكن حساب الكتلة المولية بجمع الكتل الذرية للعناصر المكونة</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script>
+        const atomicMasses = {
+            'H': 1.008, 'He': 4.003, 'Li': 6.941, 'Be': 9.012, 'B': 10.811, 'C': 12.011,
+            'N': 14.007, 'O': 15.999, 'F': 18.998, 'Ne': 20.180, 'Na': 22.990, 'Mg': 24.305,
+            'Al': 26.982, 'Si': 28.086, 'P': 30.974, 'S': 32.065, 'Cl': 35.453, 'Ar': 39.948,
+            'K': 39.098, 'Ca': 40.078, 'Fe': 55.845, 'Cu': 63.546, 'Zn': 65.380, 'Ag': 107.868,
+            'Au': 196.967
+        };
+
+        const chemicalFacts = {
+            'H': ['الهيدروجين هو أخف عنصر في الجدول الدوري', 'يشكل 75% من كتلة الكون'],
+            'O': ['الأكسجين هو ثالث أكثر العناصر وفرة في الكون', 'يشكل حوالي 21% من الغلاف الجوي للأرض'],
+            'C': ['الكربون هو أساس الحياة على الأرض', 'يمكن أن يشكل حتى 10 ملايين مركب مختلف'],
+            'Na': ['الصوديوم يتفاعل بعنف مع الماء', 'ضروري لنقل الإشارات العصبية في الجسم'],
+            'Cl': ['الكلور يستخدم في تعقيم مياه الشرب', 'يوجد في معدة الإنسان كحمض الهيدروكلوريك'],
+            'Fe': ['الحديد هو العنصر الأكثر وفرة في نواة الأرض', 'ضروري لإنتاج الهيموجلوبين في الدم'],
+            'Au': ['الذهب من أكثر العناصر قابلية للطرق', 'لا يتفاعل مع معظم المواد الكيميائية'],
+            'H2O': ['الماء هو المركب الأكثر شيوعاً على سطح الأرض', 'يغطي 71% من سطح الأرض'],
+            'NaCl': ['ملح الطعام ضروري للحياة', 'استخدم قديماً كعملة في بعض الحضارات'],
+            'C6H12O6': ['الجلوكوز هو مصدر الطاقة الرئيسي للخلايا', 'يتم تخزينه في الكبد والعضلات كجليكوجين']
+        };
+
+        document.getElementById('molarMassForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formula = document.getElementById('formula').value;
+            calculateMolarMass(formula);
+        });
+
+        function calculateMolarMass(formula) {
+            let totalMass = 0;
+            let breakdown = {};
+            let currentElement = '';
+            let currentNumber = '';
+
+            for (let i = 0; i < formula.length; i++) {
+                const char = formula[i];
+                
+                if (char >= 'A' && char <= 'Z') {
+                    if (currentElement) {
+                        const num = currentNumber || '1';
+                        totalMass += atomicMasses[currentElement] * parseInt(num);
+                        breakdown[currentElement] = (breakdown[currentElement] || 0) + parseInt(num);
+                    }
+                    currentElement = char;
+                    currentNumber = '';
+                } else if (char >= 'a' && char <= 'z') {
+                    currentElement += char;
+                } else if (char >= '0' && char <= '9') {
+                    currentNumber += char;
+                }
+            }
+
+            if (currentElement) {
+                const num = currentNumber || '1';
+                totalMass += atomicMasses[currentElement] * parseInt(num);
+                breakdown[currentElement] = (breakdown[currentElement] || 0) + parseInt(num);
+            }
+
+            displayResult(totalMass, breakdown);
+            displayChemicalFacts(formula, breakdown);
+        }
+
+        function displayResult(totalMass, breakdown) {
+            document.getElementById('result').classList.remove('d-none');
+            document.getElementById('molarMassValue').textContent = totalMass.toFixed(3);
+            
+            let breakdownHtml = '';
+            for (let element in breakdown) {
+                breakdownHtml += `
+                    <div class="element-breakdown">
+                        <span class="element">${element}</span>
+                        <span class="count">×${breakdown[element]}</span>
+                        <span class="mass">${(atomicMasses[element] * breakdown[element]).toFixed(3)} غ/مول</span>
+                    </div>
+                `;
+            }
+            document.getElementById('breakdown').innerHTML = breakdownHtml;
+        }
+
+        function displayChemicalFacts(formula, elements) {
+            const chemFactsDiv = document.getElementById('chemFacts');
+            const factsListDiv = document.getElementById('factsList');
+            let factsHtml = '';
+
+            // Check for compound-specific facts first
+            if (chemicalFacts[formula]) {
+                factsHtml += `<div class="fact-item">
+                    <strong>${formula}:</strong>
+                    <ul>
+                        ${chemicalFacts[formula].map(fact => `<li>${fact}</li>`).join('')}
+                    </ul>
+                </div>`;
+            }
+
+            // Add facts about individual elements
+            for (let element in elements) {
+                if (chemicalFacts[element]) {
+                    factsHtml += `<div class="fact-item">
+                        <strong>${element}:</strong>
+                        <ul>
+                            ${chemicalFacts[element].map(fact => `<li>${fact}</li>`).join('')}
+                        </ul>
+                    </div>`;
+                }
+            }
+
+            if (factsHtml) {
+                chemFactsDiv.classList.remove('d-none');
+                factsListDiv.innerHTML = factsHtml;
+            } else {
+                chemFactsDiv.classList.add('d-none');
+            }
+        }
+    </script>
+
+    <style>
+        .facts-list {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        .fact-item {
+            margin-bottom: 1rem;
+        }
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+        .fact-item ul {
+            margin-top: 0.5rem;
+            padding-right: 1.5rem;
+        }
+        .fact-item li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</body>
+</html>

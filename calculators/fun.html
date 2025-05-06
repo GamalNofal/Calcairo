@@ -1,0 +1,131 @@
+<!-- حاسبة مطابقة المزاج -->
+<div class="col-md-4">
+    <div class="calculator-card">
+        <div class="card-icon">
+            <i class="bi bi-emoji-smile-fill"></i>
+        </div>
+        <h3>حاسبة مطابقة المزاج</h3>
+        <p class="card-description">
+            اكتشف مزاجك الحالي من خلال مجموعة من الأسئلة العشوائية الممتعة! تعرف على حالتك المزاجية بطريقة مرحة.
+        </p>
+        <a href="fun/mood-matcher.html" class="btn btn-primary w-100">
+            اكتشف مزاجك <i class="bi bi-arrow-left"></i>
+        </a>
+    </div>
+</div><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحاسبات المضحكة | مجموعة من الحاسبات المسلية</title>
+    <meta name="description" content="مجموعة من الحاسبات المضحكة والمسلية. اكتشف قوتك الخارقة، احسب وقتك المهدر، وتعرف على إحصائيات طعامك بطريقة مضحكة!">
+    <meta name="keywords" content="حاسبات مضحكة, حاسبة القوى الخارقة, حاسبة الوقت المهدر, حاسبة إحصائيات الطعام, حاسبات مسلية">
+    <meta name="author" content="الآلات الحاسبة الشاملة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/calculator.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="fun.html">الحاسبات المضحكة</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container py-5">
+            <h1 class="category-title mb-5">الحاسبات المضحكة 😄</h1>
+
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <!-- حاسبة القوى الخارقة -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-lightning-charge-fill display-4 text-success mb-3"></i>
+                            <h3 class="card-title h5">حاسبة القوى الخارقة</h3>
+                            <p class="card-text">اكتشف قوتك الخارقة المضحكة من خلال الإجابة على أسئلة ممتعة!</p>
+                            <a href="fun/superpower.html" class="btn btn-success">اكتشف قوتك الخارقة</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- حاسبة الوقت المهدر -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-hourglass-split display-4 text-success mb-3"></i>
+                            <h3 class="card-title h5">حاسبة الوقت المهدر</h3>
+                            <p class="card-text">احسب كم من الوقت تضيع في السوشيال ميديا والتسويف بطريقة مضحكة!</p>
+                            <a href="fun/time-waster.html" class="btn btn-success">احسب وقتك المهدر</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- حاسبة إحصائيات الطعام -->
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cup-hot-fill display-4 text-success mb-3"></i>
+                            <h3 class="card-title h5">حاسبة إحصائيات الطعام</h3>
+                            <p class="card-text">اكتشف إحصائيات طعامك السنوية بطريقة مضحكة!</p>
+                            <a href="fun/food-stats.html" class="btn btn-success">احسب إحصائيات طعامك</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box mt-5">
+                <h4>لماذا الحاسبات المضحكة؟</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">لأن الضحك يجعل الحياة أجمل! 😄</li>
+                    <li class="list-group-item">لأن الإحصائيات يمكن أن تكون ممتعة! 📊</li>
+                    <li class="list-group-item">لأن كل شخص يحتاج إلى جرعة من المرح! 🎈</li>
+                    <li class="list-group-item">لأن المعلومات المضحكة أسهل للتذكر! 🧠</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

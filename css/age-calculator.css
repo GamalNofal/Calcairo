@@ -1,0 +1,232 @@
+.age-calculator {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.age-calculator .form-label {
+    font-weight: 600;
+    color: var(--bs-gray-700);
+}
+
+.age-result {
+    background: var(--bs-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.age-result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.age-numbers {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.age-unit {
+    text-align: center;
+    min-width: 100px;
+}
+
+.age-unit .number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--bs-success);
+    display: block;
+}
+
+.age-unit .label {
+    font-size: 1rem;
+    color: var(--bs-gray-600);
+}
+
+.additional-info {
+    border-top: 1px solid var(--bs-gray-200);
+    padding-top: 1rem;
+}
+
+.additional-info p {
+    margin-bottom: 0.5rem;
+    color: var(--bs-gray-700);
+}
+
+.additional-info i {
+    margin-left: 0.5rem;
+    color: var(--bs-success);
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    border-bottom: none;
+}
+
+.form-control {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+}
+
+.btn-success {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.result-box {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.result-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.result-box h6 {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-box .h3 {
+    color: #198754;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.list-group-item {
+    padding: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    transition: all 0.3s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.badge {
+    padding: 0.5rem 0.75rem;
+    font-weight: 500;
+}
+
+#upcomingEvents li {
+    transition: all 0.3s ease;
+}
+
+#upcomingEvents li:hover {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+
+/* Dark theme support */
+[data-bs-theme="dark"] .age-result {
+    background: var(--bs-dark);
+}
+
+[data-bs-theme="dark"] .age-unit .number {
+    color: var(--bs-success);
+}
+
+[data-bs-theme="dark"] .age-unit .label,
+[data-bs-theme="dark"] .additional-info p {
+    color: var(--bs-gray-300);
+}
+
+[data-bs-theme="dark"] .additional-info {
+    border-color: var(--bs-gray-700);
+}
+
+[data-bs-theme="dark"] .result-box {
+    background-color: #212529;
+}
+
+[data-bs-theme="dark"] .result-box h6 {
+    color: #adb5bd;
+}
+
+[data-bs-theme="dark"] .result-box .h3 {
+    color: #198754;
+}
+
+[data-bs-theme="dark"] .list-group-item {
+    background-color: #212529;
+    border-color: #495057;
+}
+
+[data-bs-theme="dark"] .list-group-item:hover {
+    background-color: #2c3034;
+}
+
+[data-bs-theme="dark"] #upcomingEvents li:hover {
+    background-color: #2c3034;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .age-unit .number {
+        font-size: 2rem;
+    }
+    
+    .age-unit {
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .result-box {
+        padding: 1rem !important;
+    }
+    
+    .result-box h6 {
+        font-size: 0.75rem;
+    }
+    
+    .result-box .h3 {
+        font-size: 1.5rem;
+    }
+    
+    .list-group-item {
+        padding: 0.75rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#result {
+    animation: fadeIn 0.5s ease-out;
+}

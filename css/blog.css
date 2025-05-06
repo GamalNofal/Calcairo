@@ -1,0 +1,499 @@
+.hero-section {
+    background: linear-gradient(135deg, #2C693F 0%, #34C759 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('../images/pattern.png');
+    opacity: 0.1;
+}
+
+.hero-section .display-4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-section .lead {
+    font-size: 1.25rem;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.search-box .form-control {
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-box .btn {
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.blog-card {
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card .card-body {
+    padding: 1.5rem;
+}
+
+.blog-card .card-title, 
+.blog-card h2.h5 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #2C693F;
+}
+
+.blog-card .card-text {
+    color: #4A4A4A;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.badge {
+    padding: 0.5em 1em;
+    font-weight: 500;
+    background-color: #2C693F !important;
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    background-color: #2C693F;
+    border-color: #2C693F;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #225032;
+    border-color: #225032;
+    box-shadow: 0 2px 8px rgba(44, 105, 63, 0.2);
+}
+
+.category-filters {
+    margin-bottom: 2rem;
+}
+
+.category-filters .btn {
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    margin: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.category-filters .btn-outline-primary {
+    color: #2C693F;
+    border-color: #2C693F;
+}
+
+.category-filters .btn-outline-primary:hover,
+.category-filters .btn-outline-primary.active {
+    background-color: #2C693F;
+    border-color: #2C693F;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(44, 105, 63, 0.2);
+}
+
+.pagination .page-link {
+    color: #2C693F;
+    border-radius: 50%;
+    margin: 0 0.25rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #2C693F;
+    border-color: #2C693F;
+}
+
+.pagination .page-link:hover {
+    background-color: #f0f8f1;
+    color: #2C693F;
+}
+
+.blog-post {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-title {
+    color: #333;
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.blog-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.blog-content h2 {
+    color: #198754;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.blog-content .lead {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.blog-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.blog-content h1 {
+    color: #2E7D32;
+    margin-bottom: 2rem;
+}
+
+.blog-content p {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.blog-meta {
+    color: var(--bs-secondary-color);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.blog-meta i {
+    margin-left: 0.5rem;
+    color: #2E7D32;
+}
+
+.related-posts {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bs-border-color);
+}
+
+.related-posts h3 {
+    color: #2E7D32;
+}
+
+.alert-primary {
+    background-color: #E8F5E9;
+    border-color: #C8E6C9;
+    color: #2E7D32;
+}
+
+.alert-primary a {
+    color: #1B5E20;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.alert-primary a:hover {
+    text-decoration: underline;
+}
+
+.nav-link {
+    color: #666;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+    color: #198754;
+}
+
+.nav-link.active {
+    color: #198754;
+    font-weight: 600;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.tool-card {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+}
+
+.tool-card i {
+    font-size: 2rem;
+    color: #198754;
+    margin-bottom: 1rem;
+}
+
+.tool-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Enhanced Blog Cards */
+.blog-card {
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Reading Time Badge */
+.reading-time {
+    font-size: 0.85rem;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0.5rem 0;
+}
+
+.reading-time i {
+    font-size: 1rem;
+}
+
+/* Table of Contents */
+.toc {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.toc-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--success-color);
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-list li {
+    margin-bottom: 0.5rem;
+}
+
+.toc-list a {
+    color: #495057;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.toc-list a:hover {
+    color: var(--success-color);
+}
+
+/* Category Pills */
+.category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-pill {
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background: #f8f9fa;
+    color: #495057;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.category-pill:hover,
+.category-pill.active {
+    background: var(--success-color);
+    color: white;
+}
+
+/* Related Articles */
+.related-articles {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #dee2e6;
+}
+
+.related-articles-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--success-color);
+}
+
+.related-article-card {
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f8f9fa;
+    margin-bottom: 1rem;
+}
+
+.related-article-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.related-article-card .meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Article Meta */
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.article-meta > div {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 3rem 0;
+    }
+    
+    .hero-section .display-4 {
+        font-size: 2rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .blog-title {
+        font-size: 1.75rem;
+    }
+
+    .blog-content {
+        font-size: 1rem;
+    }
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-pills {
+        gap: 0.25rem;
+    }
+    
+    .category-pill {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .toc {
+        padding: 1rem;
+    }
+    
+    .related-articles {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+}
+
+/* Dark Mode Support */
+[data-bs-theme="dark"] {
+    .blog-card {
+        background: #2d2d2d;
+    }
+    
+    .toc {
+        background: #222;
+    }
+    
+    .toc-list a {
+        color: #e9ecef;
+    }
+    
+    .category-pill {
+        background: #222;
+        color: #e9ecef;
+    }
+    
+    .related-article-card {
+        background: #222;
+    }
+    
+    .blog-title {
+        color: #fff;
+    }
+    
+    .nav-link {
+        color: #adb5bd;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        color: #198754;
+    }
+    
+    .blog-content h2 {
+        color: #198754;
+    }
+    
+    .blog-content .lead {
+        color: #dee2e6;
+    }
+    
+    .tool-card {
+        background: #2d2d2d;
+    }
+}

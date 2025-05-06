@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة المثلثات - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حاسبة المثلثات لحساب الدوال المثلثية وحل المثلثات">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/logo.css">
+    <style>
+        .unit-circle {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            position: relative;
+            border: 2px solid #dee2e6;
+            border-radius: 50%;
+        }
+
+        .unit-circle-marker {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #dc3545;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .unit-circle-line {
+            position: absolute;
+            background-color: #6c757d;
+            transform-origin: left center;
+        }
+
+        .unit-circle-axis {
+            position: absolute;
+            background-color: #adb5bd;
+        }
+
+        .unit-circle-label {
+            position: absolute;
+            font-size: 0.8rem;
+            color: #495057;
+        }
+
+        .angle-input {
+            width: 80px !important;
+            display: inline-block !important;
+        }
+
+        .function-result {
+            font-family: monospace;
+            font-size: 1.1rem;
+        }
+
+        .triangle-canvas {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #dee2e6;
+            margin: 20px 0;
+        }
+
+        .nav-pills .nav-link {
+            color: #495057;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .tab-content {
+            padding: 20px 0;
+        }
+
+        .angle-mode-switch {
+            margin-bottom: 20px;
+        }
+
+        .result-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .triangle-solver-input {
+            max-width: 120px;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="bg-white shadow-sm mb-4">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="site-logo" href="../../index.html">
+                    <div class="logo-icon">
+                        <i class="bi bi-calculator-fill"></i>
+                    </div>
+                    <span class="logo-text">الآلات الحاسبة الشاملة</span>
+                </a>
+                <div class="time-display">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentTime"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="calculator-container">
+                    <h1 class="calculator-title">
+                        <i class="bi bi-triangle text-primary"></i>
+                        حاسبة المثلثات
+                    </h1>
+                    
+                    <div class="calculator-description">
+                        <p>حاسبة شاملة للدوال المثلثية وحل المثلثات مع دعم للتحويل بين الدرجات والراديان.</p>
+                    </div>
+
+                    <!-- Navigation Pills -->
+                    <ul class="nav nav-pills mb-3" id="trigTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#basicFunctions">
+                                الدوال الأساسية
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#inverseFunctions">
+                                الدوال العكسية
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#triangleSolver">
+                                حل المثلثات
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" data-bs-toggle="pill" data-bs-target="#unitCircle">
+                                الدائرة المثلثية
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Basic Functions Tab -->
+                        <div class="tab-pane fade show active" id="basicFunctions">
+                            <div class="angle-mode-switch">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="angleMode" id="degreesMode" value="degrees" checked>
+                                    <label class="form-check-label" for="degreesMode">درجات</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="angleMode" id="radiansMode" value="radians">
+                                    <label class="form-check-label" for="radiansMode">راديان</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">الزاوية</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="angle" step="any">
+                                    <span class="input-group-text angle-unit">درجة</span>
+                                </div>
+                            </div>
+
+                            <div class="result-box">
+                                <div class="mb-2">
+                                    <strong>جيب الزاوية (sin):</strong>
+                                    <span class="function-result" id="sinResult"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>جيب التمام (cos):</strong>
+                                    <span class="function-result" id="cosResult"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>الظل (tan):</strong>
+                                    <span class="function-result" id="tanResult"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Inverse Functions Tab -->
+                        <div class="tab-pane fade" id="inverseFunctions">
+                            <div class="mb-3">
+                                <label class="form-label">القيمة (بين -1 و 1 للجيب وجيب التمام)</label>
+                                <input type="number" class="form-control" id="inverseValue" step="any">
+                            </div>
+
+                            <div class="result-box">
+                                <div class="mb-2">
+                                    <strong>جيب الزاوية العكسي (arcsin):</strong>
+                                    <span class="function-result" id="arcsinResult"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>جيب التمام العكسي (arccos):</strong>
+                                    <span class="function-result" id="arccosResult"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>الظل العكسي (arctan):</strong>
+                                    <span class="function-result" id="arctanResult"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Triangle Solver Tab -->
+                        <div class="tab-pane fade" id="triangleSolver">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="mb-3">الأضلاع</h5>
+                                    <div class="mb-2">
+                                        <label class="form-label">الضلع a:</label>
+                                        <input type="number" class="form-control triangle-solver-input" id="sideA" step="any">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label">الضلع b:</label>
+                                        <input type="number" class="form-control triangle-solver-input" id="sideB" step="any">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label">الضلع c:</label>
+                                        <input type="number" class="form-control triangle-solver-input" id="sideC" step="any">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="mb-3">الزوايا</h5>
+                                    <div class="mb-2">
+                                        <label class="form-label">الزاوية A:</label>
+                                        <input type="number" class="form-control triangle-solver-input" id="angleA" step="any">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label">الزاوية B:</label>
+                                        <input type="number" class="form-control triangle-solver-input" id="angleB" step="any">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label class="form-label">الزاوية C:</label>
+                                        <input type="number" class="form-control triangle-solver-input" id="angleC" step="any">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary mt-3" id="solveTriangle">حل المثلث</button>
+
+                            <canvas class="triangle-canvas" id="triangleCanvas"></canvas>
+
+                            <div id="triangleResults" class="result-box" style="display: none;">
+                                <h5>نتائج الحل</h5>
+                                <div id="triangleSolution"></div>
+                            </div>
+                        </div>
+
+                        <!-- Unit Circle Tab -->
+                        <div class="tab-pane fade" id="unitCircle">
+                            <div class="unit-circle" id="unitCircle">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">الزاوية:</label>
+                                <input type="range" class="form-range" id="unitCircleAngle" min="0" max="360" value="0">
+                                <div class="text-center" id="unitCircleAngleValue">0°</div>
+                            </div>
+
+                            <div class="result-box">
+                                <div class="mb-2">
+                                    <strong>الإحداثي س (cos θ):</strong>
+                                    <span id="unitCircleCos"></span>
+                                </div>
+                                <div class="mb-2">
+                                    <strong>الإحداثي ص (sin θ):</strong>
+                                    <span id="unitCircleSin"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-section mt-4">
+                        <h4>معلومات مفيدة</h4>
+                        <ul>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>الدائرة المثلثية هي دائرة نصف قطرها 1 وحدة</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>π راديان = 180 درجة</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>مجموع زوايا المثلث = 180 درجة</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>نظرية فيثاغورس: a² + b² = c²</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>قانون الجيوب: a/sin(A) = b/sin(B) = c/sin(C)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="trigonometry.js"></script>
+</body>
+</html>
+

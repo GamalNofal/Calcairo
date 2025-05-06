@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة قوانين الغازات | الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حاسبة قوانين الغازات - احسب العلاقة بين الضغط والحجم ودرجة الحرارة للغازات المثالية">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EG5T75NQHF');
+    </script>
+    <style>
+        .law-description {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .law-equation {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .facts-list {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        .fact-item {
+            margin-bottom: 1rem;
+        }
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+        .fact-item ul {
+            margin-top: 0.5rem;
+            padding-right: 1.5rem;
+            list-style-type: none;
+        }
+        .fact-item li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .fact-item li:before {
+            content: "•";
+            position: absolute;
+            right: -1.2rem;
+            color: #198754;
+        }
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">حاسبة قوانين الغازات 🌡️</h1>
+            
+            <div class="calculator-form">
+                <div class="law-description">
+                    <h3>قانون الغاز المثالي</h3>
+                    <p class="law-equation">PV = nRT</p>
+                    <p>حيث:</p>
+                    <ul>
+                        <li>P = الضغط (atm)</li>
+                        <li>V = الحجم (L)</li>
+                        <li>n = عدد المولات (mol)</li>
+                        <li>R = ثابت الغاز المثالي (0.0821 L⋅atm/mol⋅K)</li>
+                        <li>T = درجة الحرارة (K)</li>
+                    </ul>
+                </div>
+
+                <form id="gasLawForm">
+                    <div class="mb-3">
+                        <label class="form-label">اختر المتغير المطلوب:</label>
+                        <select class="form-select" id="targetVariable">
+                            <option value="P">الضغط (P)</option>
+                            <option value="V">الحجم (V)</option>
+                            <option value="n">عدد المولات (n)</option>
+                            <option value="T">درجة الحرارة (T)</option>
+                        </select>
+                    </div>
+
+                    <div id="inputFields">
+                        <!-- Dynamic input fields will be added here -->
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">احسب</button>
+                </form>
+
+                <div id="result" class="mt-4 d-none">
+                    <div class="result-card">
+                        <h3>النتيجة</h3>
+                        <p class="result-value mb-2" id="resultValue"></p>
+                        <div id="gasLawFacts" class="mt-4">
+                            <h4>حقائق عن قوانين الغازات 🌡️</h4>
+                            <div id="factsList" class="facts-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script>
+        const R = 0.0821; // L⋅atm/mol⋅K
+
+        const targetVariable = document.getElementById('targetVariable');
+        const inputFields = document.getElementById('inputFields');
+        
+        function updateInputFields() {
+            const target = targetVariable.value;
+            const variables = ['P', 'V', 'n', 'T'];
+            const labels = {
+                'P': 'الضغط (atm)',
+                'V': 'الحجم (L)',
+                'n': 'عدد المولات (mol)',
+                'T': 'درجة الحرارة (K)'
+            };
+            
+            inputFields.innerHTML = '';
+            
+            variables.forEach(variable => {
+                if (variable !== target) {
+                    inputFields.innerHTML += `
+                        <div class="mb-3">
+                            <label class="form-label">${labels[variable]}</label>
+                            <input type="number" step="any" class="form-control" id="${variable}" required>
+                        </div>
+                    `;
+                }
+            });
+        }
+        
+        targetVariable.addEventListener('change', updateInputFields);
+        updateInputFields();
+
+        const gasLawFacts = {
+            'boyles': [
+                'قانون بويل: الضغط يتناسب عكسياً مع الحجم عند ثبوت درجة الحرارة',
+                'اكتشف روبرت بويل هذا القانون عام 1662',
+                'يستخدم في تصميم أجهزة التنفس الاصطناعي'
+            ],
+            'charles': [
+                'قانون تشارلز: الحجم يتناسب طردياً مع درجة الحرارة المطلقة عند ثبوت الضغط',
+                'اكتشف جاك تشارلز هذا القانون عام 1787',
+                'يفسر عمل البالونات الهوائية الساخنة'
+            ],
+            'gay_lussac': [
+                'قانون جاي لوساك: الضغط يتناسب طردياً مع درجة الحرارة المطلقة عند ثبوت الحجم',
+                'اكتشف جوزيف لوي جاي لوساك هذا القانون عام 1808',
+                'يستخدم في تصميم أنظمة تكييف الهواء'
+            ],
+            'combined': [
+                'القانون العام للغازات يجمع بين قوانين بويل وتشارلز وجاي لوساك',
+                'يستخدم لحساب تغيرات الضغط والحجم ودرجة الحرارة معاً',
+                'يطبق على الغازات المثالية في الظروف العادية'
+            ]
+        };
+
+        document.getElementById('gasLawForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            try {
+                const temperature = parseFloat(document.getElementById('temperature').value);
+                if (isNaN(temperature) || temperature <= 0) {
+                    throw new Error('يرجى إدخال درجة حرارة صحيحة (أكبر من الصفر المطلق)');
+                }
+
+                // Calculate pressure
+                const pressure = calculatePressure(temperature);
+                
+                // Display result
+                const resultDiv = document.getElementById('result');
+                const resultValue = document.getElementById('resultValue');
+                resultDiv.classList.remove('d-none');
+                resultValue.textContent = `P = ${pressure.toFixed(4)} atm`;
+                resultValue.style.color = '#198754';
+
+                // Display facts
+                const factsList = document.getElementById('factsList');
+                const lawType = temperature < 273.15 ? 'charles' : 'gay_lussac';
+                let factsHtml = `<div class="fact-item">
+                    <ul>
+                        ${gasLawFacts[lawType].map(fact => `<li>${fact}</li>`).join('')}
+                    </ul>
+                </div>`;
+                factsList.innerHTML = factsHtml;
+
+            } catch (error) {
+                const resultDiv = document.getElementById('result');
+                const resultValue = document.getElementById('resultValue');
+                resultDiv.classList.remove('d-none');
+                resultValue.textContent = error.message;
+                resultValue.style.color = '#dc3545';
+            }
+        });
+
+        function calculatePressure(temperature) {
+            // Convert temperature to Kelvin if needed
+            const T = temperature < 273.15 ? temperature + 273.15 : temperature;
+            
+            // Using Gay-Lussac's law: P1/T1 = P2/T2
+            const P1 = 1.0; // Standard pressure in atm
+            const T1 = 273.15; // Standard temperature in K
+            
+            return (P1 * T) / T1;
+        }
+    </script>
+</body>
+</html>

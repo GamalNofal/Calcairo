@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عداد شاي الكرك | احسب استهلاكك من الكرك</title>
+    <meta name="description" content="احسب استهلاكك من شاي الكرك! اكتشف حقائق مثيرة عن علاقتك بالمشروب المفضل في الخليج">
+    <meta name="keywords" content="شاي كرك, كرك, شاي حليب, مشروبات خليجية, شاي هندي, كافيين">
+    <meta name="author" content="الآلات الحاسبة الشاملة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .karak-icon {
+            font-size: 2.5rem;
+            color: #8B4513;
+        }
+        .achievement {
+            border: 2px solid #8B4513;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: rgba(139, 69, 19, 0.1);
+        }
+        .achievement-locked {
+            filter: grayscale(1);
+            opacity: 0.5;
+        }
+        .stats-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        .karak-type-btn {
+            border: 2px solid #8B4513;
+            transition: all 0.3s ease;
+        }
+        .karak-type-btn.active {
+            background-color: #8B4513;
+            color: white;
+        }
+        .fun-fact {
+            background-color: #f8f9fa;
+            border-right: 4px solid #8B4513;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../arabic-food.html">حاسبات المأكولات العربية</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">عداد شاي الكرك ☕</h1>
+            
+            <div class="karak-calculator">
+                <div class="type-selection mb-4">
+                    <h3 class="mb-3">اختر نوع الكرك المفضل لديك</h3>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <button class="btn karak-type-btn active" data-type="classic" data-calories="130" 
+                                data-bs-toggle="tooltip" data-bs-html="true" 
+                                title="كوب كرك عادي (200 مل):
+                                سعرات: 130
+                                كافيين: 40 ملغ
+                                سكر: 15 جرام">
+                            <i class="bi bi-cup-hot"></i> كرك عادي
+                        </button>
+                        <button class="btn karak-type-btn" data-type="zafran" data-calories="140" 
+                                data-bs-toggle="tooltip" data-bs-html="true"
+                                title="كوب كرك بالزعفران (200 مل):
+                                سعرات: 140
+                                كافيين: 40 ملغ
+                                سكر: 15 جرام">
+                            <i class="bi bi-cup-hot"></i> كرك بالزعفران
+                        </button>
+                        <button class="btn karak-type-btn" data-type="special" data-calories="150" 
+                                data-bs-toggle="tooltip" data-bs-html="true"
+                                title="كوب كرك سبيشل (200 مل):
+                                سعرات: 150
+                                كافيين: 40 ملغ
+                                سكر: 18 جرام">
+                            <i class="bi bi-cup-hot"></i> كرك سبيشل
+                        </button>
+                    </div>
+                    <div class="mt-3 text-muted small">
+                        <i class="bi bi-info-circle"></i> معلومات عن شاي الكرك:
+                        <ul class="mt-2 small">
+                            <li>شاي أسود مع حليب مركز وتوابل</li>
+                            <li>يحتوي على مضادات أكسدة</li>
+                            <li>غني بالكالسيوم من الحليب</li>
+                            <li>الهيل والزنجبيل مفيدان للهضم</li>
+                        </ul>
+                        <p class="mb-0">* القيم الغذائية تقريبية وتعتمد على طريقة التحضير والإضافات</p>
+                    </div>
+                </div>
+
+                <div class="consumption-input mb-4">
+                    <h3 class="mb-3">كم كوب كرك تشرب في اليوم؟</h3>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="number" id="dailyCount" class="form-control" min="0" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="calculateBtn" class="btn btn-primary w-100 mb-4">احسب إحصائياتك! ☕</button>
+
+                <div id="results" class="results mt-4" style="display: none;">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card stats-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-calendar-check karak-icon"></i>
+                                    <h5 class="card-title mt-3">استهلاكك السنوي</h5>
+                                    <p class="display-4" id="yearlyCount">0</p>
+                                    <p class="text-muted">كوب كرك</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card stats-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-lightning karak-icon"></i>
+                                    <h5 class="card-title mt-3">الكافيين السنوي</h5>
+                                    <p class="display-4" id="yearlyCaffeine">0</p>
+                                    <p class="text-muted">ملغ كافيين</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card stats-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-droplet karak-icon"></i>
+                                    <h5 class="card-title mt-3">الحليب المستخدم</h5>
+                                    <p class="display-4" id="yearlyMilk">0</p>
+                                    <p class="text-muted">لتر</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievements mt-4">
+                        <h3 class="mb-3">مستوى إدمانك للكرك 🏆</h3>
+                        <div id="achievementsList"></div>
+                    </div>
+
+                    <div class="fun-facts mt-4">
+                        <h3 class="mb-3">حقائق مضحكة عن كرك حياتك 😄</h3>
+                        <div id="funFacts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="text-center">
+                <p>جميع الحقوق محفوظة © 2024 الآلات الحاسبة الشاملة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const karakTypes = document.querySelectorAll('.karak-type-btn');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const results = document.getElementById('results');
+
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl, {
+                    placement: 'bottom'
+                })
+            })
+
+            // Type selection
+            karakTypes.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    karakTypes.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            const achievements = [
+                { title: 'مبتدئ الكرك', description: 'بدأت رحلتك مع الكرك', threshold: 1 },
+                { title: 'عاشق الكرك', description: 'لا تستطيع بدء يومك بدون كرك', threshold: 3 },
+                { title: 'مدمن الكرك', description: 'تعرف أفضل محلات الكرك في المدينة', threshold: 5 },
+                { title: 'أسطورة الكرك', description: 'البائع يجهز كركك قبل وصولك', threshold: 8 }
+            ];
+
+            const funFactsTemplate = [
+                count => `لو جمعت كل أكواب الكرك التي شربتها، لملأت ${Math.floor(count * 0.2)} حوض سباحة صغير! 🏊‍♂️`,
+                milk => `كمية الحليب المستخدمة في كرك سنتك تكفي ${Math.floor(milk * 10)} قطة! 🐱`,
+                count => `الوقت الذي قضيته في انتظار الكرك: ${Math.floor(count * 2 / 60)} ساعة! ⏰`,
+                caffeine => `كمية الكافيين التي استهلكتها تكفي لإبقاء ${Math.floor(caffeine / 1000)} شخص مستيقظاً طوال الليل! 😳`,
+                count => `عدد أكياس الشاي المستخدمة في كركك: ${count * 2} كيس! 🫖`,
+                count => `لو كل كوب كرك أعطاك فكرة، لكان عندك ${count * 3} فكرة عبقرية! 💡`,
+                count => `عدد حبات الهيل المستخدمة في كركك السنوي: ${count * 4} حبة! 🌱`,
+                count => `مرات قولك "هذا أفضل كرك في حياتي": ${Math.floor(count * 0.3)} مرة! 🗣️`,
+                count => `عدد الصور التي التقطتها لكركك: ${Math.floor(count * 0.1)} صورة! 📸`,
+                count => `لو كل كوب كرك كان درجة حرارة، لكنت أسخن من ${count > 365 ? 'الشمس! 🌞' : 'الصحراء! 🏜️'}`
+            ];
+
+            calculateBtn.addEventListener('click', () => {
+                const dailyCount = parseInt(document.getElementById('dailyCount').value) || 0;
+                const selectedType = document.querySelector('.karak-type-btn.active');
+                const caloriesPerCup = parseInt(selectedType.dataset.calories);
+
+                const yearlyCount = dailyCount * 365;
+                const yearlyCaffeine = yearlyCount * 40; // 40mg caffeine per cup
+                const yearlyMilk = Math.floor(yearlyCount * 0.1); // 100ml milk per cup = 0.1L
+
+                document.getElementById('yearlyCount').textContent = yearlyCount.toLocaleString();
+                document.getElementById('yearlyCaffeine').textContent = yearlyCaffeine.toLocaleString();
+                document.getElementById('yearlyMilk').textContent = yearlyMilk.toLocaleString();
+
+                // Update achievements
+                const achievementsList = document.getElementById('achievementsList');
+                achievementsList.innerHTML = achievements.map(achievement => `
+                    <div class="achievement ${dailyCount >= achievement.threshold ? '' : 'achievement-locked'}">
+                        <h5>${achievement.title} ${dailyCount >= achievement.threshold ? '🏆' : '🔒'}</h5>
+                        <p class="mb-0">${achievement.description}</p>
+                    </div>
+                `).join('');
+
+                // Show random fun facts
+                const funFacts = document.getElementById('funFacts');
+                const shuffledFacts = [...funFactsTemplate]
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 5); // Show 5 random facts
+
+                funFacts.innerHTML = shuffledFacts.map(fact => `
+                    <div class="fun-fact">
+                        <i class="bi bi-lightbulb"></i> ${fact(yearlyCount, yearlyCaffeine, yearlyMilk)}
+                    </div>
+                `).join('');
+
+                results.style.display = 'block';
+            });
+
+            // Theme toggling
+            const themeToggle = document.getElementById('theme-toggle');
+            const darkIcon = document.querySelector('.theme-icon-dark');
+            const lightIcon = document.querySelector('.theme-icon-light');
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                darkIcon.style.display = document.body.classList.contains('dark-theme') ? 'none' : 'inline';
+                lightIcon.style.display = document.body.classList.contains('dark-theme') ? 'inline' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

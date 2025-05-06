@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة العمر بالقطط | احسب عمرك بسنوات القطط</title>
+    <meta name="description" content="احسب عمرك بسنوات القطط! اكتشف كم يبلغ عمرك لو كنت قطة بطريقة مضحكة ومسلية">
+    <meta name="keywords" content="حاسبة العمر بالقطط, عمر القطط, حاسبة مضحكة, تحويل العمر">
+    <meta name="author" content="الآلات الحاسبة الشاملة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/cat-age.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../fun.html">الحاسبات المضحكة</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h1 class="category-title">حاسبة العمر بالقطط 🐱</h1>
+            
+            <div class="cat-calculator">
+                <form id="catAgeForm" class="calculator-form">
+                    <div class="mb-4">
+                        <label for="humanAge" class="form-label">كم عمرك بالسنوات؟</label>
+                        <input type="number" 
+                               class="form-control" 
+                               id="humanAge" 
+                               min="1" 
+                               max="120" 
+                               placeholder="أدخل عمرك..."
+                               required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">هل أنت محب للقطط؟</label>
+                        <select class="form-select" id="catLover" required>
+                            <option value="">اختر إجابتك...</option>
+                            <option value="yes">نعم، أعشق القطط! 😻</option>
+                            <option value="sometimes">أحياناً... 😺</option>
+                            <option value="no">لا، أفضل الكلاب 🐶</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">ما هو نشاطك المفضل؟</label>
+                        <select class="form-select" id="activity" required>
+                            <option value="">اختر نشاطك...</option>
+                            <option value="sleep">النوم 😴</option>
+                            <option value="play">اللعب 🎮</option>
+                            <option value="eat">الأكل 🍽️</option>
+                            <option value="explore">استكشاف أماكن جديدة 🗺️</option>
+                            <option value="social">التواصل الاجتماعي 📱</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">احسب عمرك بالقطط! 🐱</button>
+                </form>
+
+                <div id="result" style="display: none;">
+                    <!-- النتائج ستظهر هنا -->
+                </div>
+
+                <div class="info-box mt-5">
+                    <h4>حقائق مضحكة عن القطط</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">القطط تنام 70% من حياتها! 😴</li>
+                        <li class="list-group-item">القطط لا تموء إلا للتواصل مع البشر! 😺</li>
+                        <li class="list-group-item">بصمة أنف القط فريدة مثل بصمة الإنسان! 🐾</li>
+                        <li class="list-group-item">القطط تستطيع القفز 6 مرات أطول من طولها! 🦘</li>
+                        <li class="list-group-item">القطط لديها ذاكرة أفضل من الكلاب! 🧠</li>
+                        <li class="list-group-item">القطط تستطيع رؤية في الظلام أفضل 6 مرات من البشر! 👁️</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="../../js/cat-age.js"></script>
+    <script src="../../js/theme.js"></script>
+</body>
+</html>
+

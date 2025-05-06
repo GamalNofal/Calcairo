@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة إدمان القهوة | احسب استهلاكك من الكافيين</title>
+    <meta name="description" content="احسب استهلاكك من القهوة والكافيين! اكتشف حقائق مثيرة عن علاقتك بالقهوة وتأثيرها على حياتك اليومية">
+    <meta name="keywords" content="حاسبة القهوة, قهوة عربية, كافيين, قهوة, حاسبة الكافيين, إدمان القهوة">
+    <meta name="author" content="الآلات الحاسبة الشاملة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .coffee-icon {
+            font-size: 2.5rem;
+            color: #6F4E37;
+        }
+        .achievement {
+            border: 2px solid #6F4E37;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: rgba(111, 78, 55, 0.1);
+        }
+        .achievement-locked {
+            filter: grayscale(1);
+            opacity: 0.5;
+        }
+        .stats-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        .coffee-type-btn {
+            border: 2px solid #6F4E37;
+            transition: all 0.3s ease;
+        }
+        .coffee-type-btn.active {
+            background-color: #6F4E37;
+            color: white;
+        }
+        .fun-fact {
+            background-color: #f8f9fa;
+            border-right: 4px solid #6F4E37;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../arabic-food.html">حاسبات المأكولات العربية</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">حاسبة إدمان القهوة ☕</h1>
+            
+            <div class="coffee-calculator">
+                <div class="type-selection mb-4">
+                    <h3 class="mb-3">اختر نوع القهوة المفضل لديك</h3>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <button class="btn coffee-type-btn active" data-type="arabic" data-caffeine="70" 
+                                data-bs-toggle="tooltip" data-bs-html="true" 
+                                title="فنجان قهوة عربية (80 مل):
+                                كافيين: 70 ملغ
+                                سعرات حرارية: 5">
+                            <i class="bi bi-cup-hot"></i> قهوة عربية
+                        </button>
+                        <button class="btn coffee-type-btn" data-type="american" data-caffeine="95" 
+                                data-bs-toggle="tooltip" data-bs-html="true"
+                                title="كوب قهوة أمريكية (240 مل):
+                                كافيين: 95 ملغ
+                                سعرات حرارية: 2">
+                            <i class="bi bi-cup"></i> قهوة أمريكية
+                        </button>
+                        <button class="btn coffee-type-btn" data-type="espresso" data-caffeine="63" 
+                                data-bs-toggle="tooltip" data-bs-html="true"
+                                title="شوت اسبريسو (30 مل):
+                                كافيين: 63 ملغ
+                                سعرات حرارية: 1">
+                            <i class="bi bi-cup-fill"></i> اسبريسو
+                        </button>
+                    </div>
+                    <div class="mt-3 text-muted small">
+                        <i class="bi bi-info-circle"></i> معلومات عن الكافيين:
+                        <ul class="mt-2 small">
+                            <li>فنجان قهوة عربية (80 مل): 70 ملغ كافيين</li>
+                            <li>كوب قهوة أمريكية (240 مل): 95 ملغ كافيين</li>
+                            <li>شوت اسبريسو (30 مل): 63 ملغ كافيين</li>
+                            <li>الحد الآمن اليومي للكافيين: 400 ملغ</li>
+                        </ul>
+                        <p class="mb-0">* القيم مبنية على متوسط تركيز الكافيين في القهوة المحضرة بالطريقة التقليدية</p>
+                    </div>
+                </div>
+
+                <div class="consumption-input mb-4">
+                    <h3 class="mb-3">كم فنجان قهوة تشرب في اليوم؟</h3>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <input type="number" id="dailyCount" class="form-control" min="0" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="calculateBtn" class="btn btn-primary w-100 mb-4">احسب إحصائياتك! ☕</button>
+
+                <div id="results" class="results mt-4" style="display: none;">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card stats-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-calendar-check coffee-icon"></i>
+                                    <h5 class="card-title mt-3">استهلاكك السنوي</h5>
+                                    <p class="display-4" id="yearlyCount">0</p>
+                                    <p class="text-muted">فنجان قهوة</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card stats-card h-100">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-lightning coffee-icon"></i>
+                                    <h5 class="card-title mt-3">الكافيين اليومي</h5>
+                                    <p class="display-4" id="dailyCaffeine">0</p>
+                                    <p class="text-muted">ملغ كافيين</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievements mt-4">
+                        <h3 class="mb-3">مستوى إدمانك للقهوة ⭐</h3>
+                        <div id="achievementsList"></div>
+                    </div>
+
+                    <div class="fun-facts mt-4">
+                        <h3 class="mb-3">حقائق مضحكة عن قهوتك 😄</h3>
+                        <div id="funFacts"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="text-center">
+                <p>جميع الحقوق محفوظة © 2024 الآلات الحاسبة الشاملة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const coffeeTypes = document.querySelectorAll('.coffee-type-btn');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const results = document.getElementById('results');
+
+            // Initialize tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl, {
+                    placement: 'bottom'
+                })
+            })
+
+            // Type selection
+            coffeeTypes.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    coffeeTypes.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            const achievements = [
+                { title: 'مبتدئ القهوة', description: 'تشرب 1-2 فنجان يومياً', threshold: 1 },
+                { title: 'عاشق القهوة', description: 'لا يبدأ يومك بدون فنجان قهوة', threshold: 3 },
+                { title: 'مدمن القهوة', description: 'القهوة جزء أساسي من حياتك', threshold: 5 },
+                { title: 'بركان القهوة', description: 'تجري القهوة في عروقك بدل الدم', threshold: 8 }
+            ];
+
+            const funFactsTemplate = [
+                count => `لو جمعت كل فناجين قهوتك السنوية، ستملأ ${Math.floor(count * 0.08)} لتر! ☕`,
+                count => `الوقت الذي تقضيه في تحضير قهوتك سنوياً: ${Math.floor(count * 3 / 60)} ساعة ⏰`,
+                caffeine => `كمية الكافيين التي تستهلكها تعادل ${Math.floor(caffeine / 80)} مشروب طاقة! ⚡`,
+                count => `لو وفرت ثمن قهوتك السنوية، يمكنك شراء ${Math.floor(count * 5 / 1000)} آلة قهوة فاخرة! 💰`,
+                count => `عدد حبوب البن التي طحنت من أجل قهوتك: ${count * 50} حبة! 🫘`,
+                count => `لو كانت فناجين قهوتك السنوية أشجار بن، لكان عندك مزرعة بمساحة ${Math.floor(count / 100)} متر مربع! 🌱`,
+                caffeine => `مستوى يقظتك يعادل ${caffeine > 400 ? 'خفاش ليلي! 🦇' : 'إنسان طبيعي 👤'}`,
+                count => `عدد المرات التي قلت فيها "ما أقدر أبدأ يومي بدون قهوة": ${count * 50} مرة! 🗣️`,
+                count => `لو كل فنجان قهوة أعطاك فكرة عبقرية، لكنت اخترعت ${count * 2} اختراع هذه السنة! 💡`,
+                count => `عدد المرات التي تأخر فيها غداؤك بسبب القهوة: ${Math.floor(count * 0.3 * 365)} مرة! 🍽️`
+            ];
+
+            calculateBtn.addEventListener('click', () => {
+                const dailyCount = parseInt(document.getElementById('dailyCount').value) || 0;
+                const selectedType = document.querySelector('.coffee-type-btn.active');
+                const caffeinePerCup = parseInt(selectedType.dataset.caffeine);
+
+                const yearlyCount = dailyCount * 365;
+                const dailyCaffeine = dailyCount * caffeinePerCup;
+
+                document.getElementById('yearlyCount').textContent = yearlyCount.toLocaleString();
+                document.getElementById('dailyCaffeine').textContent = dailyCaffeine.toLocaleString();
+
+                // Update achievements
+                const achievementsList = document.getElementById('achievementsList');
+                achievementsList.innerHTML = achievements.map(achievement => `
+                    <div class="achievement ${dailyCount >= achievement.threshold ? '' : 'achievement-locked'}">
+                        <h5>${achievement.title} ${dailyCount >= achievement.threshold ? '⭐' : '🔒'}</h5>
+                        <p class="mb-0">${achievement.description}</p>
+                    </div>
+                `).join('');
+
+                // Show random fun facts
+                const funFacts = document.getElementById('funFacts');
+                const shuffledFacts = [...funFactsTemplate]
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 5); // Show 5 random facts
+
+                funFacts.innerHTML = shuffledFacts.map(fact => `
+                    <div class="fun-fact">
+                        <i class="bi bi-lightbulb"></i> ${fact(yearlyCount, dailyCaffeine)}
+                    </div>
+                `).join('');
+
+                results.style.display = 'block';
+            });
+
+            // Theme toggling
+            const themeToggle = document.getElementById('theme-toggle');
+            const darkIcon = document.querySelector('.theme-icon-dark');
+            const lightIcon = document.querySelector('.theme-icon-light');
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                darkIcon.style.display = document.body.classList.contains('dark-theme') ? 'none' : 'inline';
+                lightIcon.style.display = document.body.classList.contains('dark-theme') ? 'inline' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

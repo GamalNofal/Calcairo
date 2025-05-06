@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة التركيز المولاري | الآلات الحاسبة الشاملة</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="حاسبة التركيز المولاري - احسب تركيز المحاليل الكيميائية بدقة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">حاسبة التركيز المولاري 🧪</h1>
+            
+            <div class="calculator-form">
+                <form id="concentrationForm">
+                    <div class="mb-3">
+                        <label for="concentrationType" class="form-label">نوع التركيز</label>
+                        <select class="form-select" id="concentrationType" required>
+                            <option value="molarity">المولارية (M)</option>
+                            <option value="molality">المولالية (m)</option>
+                            <option value="normality">النورمالية (N)</option>
+                            <option value="ppm">جزء في المليون (PPM)</option>
+                        </select>
+                    </div>
+
+                    <div id="molarityInputs" class="input-group mb-3">
+                        <div class="mb-3">
+                            <label for="moles" class="form-label">عدد المولات (مول)</label>
+                            <input type="number" step="any" class="form-control" id="moles" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="volume" class="form-label">الحجم (لتر)</label>
+                            <input type="number" step="any" class="form-control" id="volume" required>
+                        </div>
+                    </div>
+
+                    <div id="molalityInputs" class="input-group mb-3 d-none">
+                        <div class="mb-3">
+                            <label for="molesM" class="form-label">عدد المولات (مول)</label>
+                            <input type="number" step="any" class="form-control" id="molesM">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mass" class="form-label">كتلة المذيب (كجم)</label>
+                            <input type="number" step="any" class="form-control" id="mass">
+                        </div>
+                    </div>
+
+                    <div id="normalityInputs" class="input-group mb-3 d-none">
+                        <div class="mb-3">
+                            <label for="molesN" class="form-label">عدد المولات (مول)</label>
+                            <input type="number" step="any" class="form-control" id="molesN">
+                        </div>
+                        <div class="mb-3">
+                            <label for="volumeN" class="form-label">الحجم (لتر)</label>
+                            <input type="number" step="any" class="form-control" id="volumeN">
+                        </div>
+                        <div class="mb-3">
+                            <label for="equivalents" class="form-label">عدد المكافئات</label>
+                            <input type="number" step="any" class="form-control" id="equivalents">
+                        </div>
+                    </div>
+
+                    <div id="ppmInputs" class="input-group mb-3 d-none">
+                        <div class="mb-3">
+                            <label for="massP" class="form-label">كتلة المذاب (جرام)</label>
+                            <input type="number" step="any" class="form-control" id="massP">
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalMass" class="form-label">الكتلة الكلية (جرام)</label>
+                            <input type="number" step="any" class="form-control" id="totalMass">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">احسب</button>
+                </form>
+
+                <div id="result" class="mt-4 d-none">
+                    <h3>النتيجة</h3>
+                    <p class="result-value mb-2" id="resultValue"></p>
+                    <div id="concentrationFacts" class="mt-4">
+                        <h4>حقائق عن التركيز 🧪</h4>
+                        <div id="factsList" class="facts-list">
+                            <div class="fact-item">
+                                <ul>
+                                    <li>التركيز هو مقياس لكمية المذاب في المحلول</li>
+                                    <li>هناك عدة طرق لقياس التركيز: المولارية، المولالية، النورمالية، وجزء في المليون</li>
+                                    <li>يستخدم التركيز في المختبرات والصناعات الكيميائية</li>
+                                    <li>اختيار وحدة التركيز يعتمد على نوع التطبيق والدقة المطلوبة</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script>
+        const concentrationFacts = {
+            'molarity': [
+                'المولارية هي عدد المولات من المذاب في لتر واحد من المحلول',
+                'تستخدم المولارية في المختبرات الكيميائية بشكل واسع',
+                'تتغير المولارية مع تغير درجة الحرارة بسبب تمدد المحلول'
+            ],
+            'molality': [
+                'المولالية هي عدد المولات من المذاب في كيلوجرام واحد من المذيب',
+                'المولالية لا تتغير مع تغير درجة الحرارة',
+                'تستخدم المولالية في دراسة الخواص الجامعة للمحاليل'
+            ],
+            'normality': [
+                'النورمالية تعتمد على عدد المكافئات الجرامية في لتر من المحلول',
+                'تستخدم في حسابات التعادل الحمضي القاعدي',
+                'النورمالية = المولارية × عدد المكافئات'
+            ],
+            'ppm': [
+                'جزء في المليون يستخدم لقياس التراكيز المنخفضة جداً',
+                'يستخدم في تحليل الملوثات البيئية',
+                'مثال: قياس نسبة الكلور في مياه الشرب'
+            ]
+        };
+
+        // Show/hide inputs based on concentration type
+        document.getElementById('concentrationType').addEventListener('change', function() {
+            const type = this.value;
+            // Hide all input groups
+            document.querySelectorAll('[id$="Inputs"]').forEach(div => {
+                div.classList.add('d-none');
+            });
+            // Show selected input group
+            document.getElementById(`${type}Inputs`).classList.remove('d-none');
+        });
+
+        document.getElementById('concentrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const type = document.getElementById('concentrationType').value;
+            
+            try {
+                let result = '';
+                switch(type) {
+                    case 'molarity':
+                        const moles = parseFloat(document.getElementById('moles').value);
+                        const volume = parseFloat(document.getElementById('volume').value);
+                        if (isNaN(moles) || isNaN(volume) || volume === 0) {
+                            throw new Error('يرجى إدخال قيم صحيحة. الحجم يجب أن يكون أكبر من صفر.');
+                        }
+                        const molarity = moles / volume;
+                        result = `المولارية = ${molarity.toFixed(3)} مول/لتر`;
+                        break;
+
+                    case 'molality':
+                        const molesM = parseFloat(document.getElementById('molesM').value);
+                        const mass = parseFloat(document.getElementById('mass').value);
+                        if (isNaN(molesM) || isNaN(mass) || mass === 0) {
+                            throw new Error('يرجى إدخال قيم صحيحة. الكتلة يجب أن تكون أكبر من صفر.');
+                        }
+                        const molality = molesM / mass;
+                        result = `المولالية = ${molality.toFixed(3)} مول/كجم`;
+                        break;
+
+                    case 'normality':
+                        const molesN = parseFloat(document.getElementById('molesN').value);
+                        const volumeN = parseFloat(document.getElementById('volumeN').value);
+                        const equivalents = parseFloat(document.getElementById('equivalents').value);
+                        if (isNaN(molesN) || isNaN(volumeN) || isNaN(equivalents) || volumeN === 0) {
+                            throw new Error('يرجى إدخال قيم صحيحة. الحجم يجب أن يكون أكبر من صفر.');
+                        }
+                        const normality = (molesN * equivalents) / volumeN;
+                        result = `النورمالية = ${normality.toFixed(3)} عياري`;
+                        break;
+
+                    case 'ppm':
+                        const massP = parseFloat(document.getElementById('massP').value);
+                        const totalMass = parseFloat(document.getElementById('totalMass').value);
+                        if (isNaN(massP) || isNaN(totalMass) || totalMass === 0) {
+                            throw new Error('يرجى إدخال قيم صحيحة. الكتلة الإجمالية يجب أن تكون أكبر من صفر.');
+                        }
+                        const ppm = (massP / totalMass) * 1000000;
+                        result = `التركيز = ${ppm.toFixed(1)} جزء في المليون`;
+                        break;
+                }
+
+                // Show result and facts
+                const resultDiv = document.getElementById('result');
+                const resultValue = document.getElementById('resultValue');
+                resultDiv.classList.remove('d-none');
+                resultValue.textContent = result;
+                resultValue.style.color = '#198754';
+
+                // Display facts
+                const factsList = document.getElementById('factsList');
+                let factsHtml = `<div class="fact-item">
+                    <ul>
+                        ${concentrationFacts[type].map(fact => `<li>${fact}</li>`).join('')}
+                    </ul>
+                </div>`;
+                factsList.innerHTML = factsHtml;
+
+            } catch (error) {
+                const resultDiv = document.getElementById('result');
+                const resultValue = document.getElementById('resultValue');
+                resultDiv.classList.remove('d-none');
+                resultValue.textContent = error.message;
+                resultValue.style.color = '#dc3545';
+            }
+        });
+    </script>
+
+    <style>
+        .input-group {
+            display: block;
+        }
+        .input-group .mb-3 {
+            margin-bottom: 1rem !important;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .facts-list {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        .fact-item {
+            margin-bottom: 1rem;
+        }
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+        .fact-item ul {
+            margin-top: 0.5rem;
+            padding-right: 1.5rem;
+            list-style-type: none;
+        }
+        .fact-item li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .fact-item li:before {
+            content: "•";
+            position: absolute;
+            right: -1.2rem;
+            color: #198754;
+        }
+    </style>
+</body>
+</html>

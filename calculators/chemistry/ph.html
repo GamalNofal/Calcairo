@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الرقم الهيدروجيني - الآلات الحاسبة الشاملة</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="حاسبة الرقم الهيدروجيني - احسب درجة الحموضة والقاعدية للمحاليل">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EG5T75NQHF');
+    </script>
+    <style>
+        .ph-scale {
+            height: 40px;
+            background: linear-gradient(to right, 
+                #dc3545 0%, /* Strong acid - red */
+                #ffc107 30%, /* Weak acid - yellow */
+                #198754 50%, /* Neutral - green */
+                #0dcaf0 70%, /* Weak base - cyan */
+                #0d6efd 100% /* Strong base - blue */
+            );
+            border-radius: 20px;
+            position: relative;
+            margin: 20px 0;
+        }
+        
+        .ph-indicator {
+            width: 4px;
+            height: 50px;
+            background-color: #000;
+            position: absolute;
+            top: -5px;
+            transform: translateX(-50%);
+            transition: left 0.3s ease;
+        }
+        
+        .ph-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .result-details {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .result-details p {
+            margin-bottom: 0.5rem;
+            font-family: monospace;
+        }
+        
+        .facts-list {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 0.5rem;
+        }
+        
+        .fact-item {
+            margin-bottom: 1rem;
+        }
+        
+        .fact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .fact-item ul {
+            margin-top: 0.5rem;
+            padding-right: 1.5rem;
+            list-style-type: none;
+        }
+        
+        .fact-item li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        
+        .fact-item li:before {
+            content: "•";
+            position: absolute;
+            right: -1.2rem;
+            color: #198754;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">حاسبة الرقم الهيدروجيني 🧪</h1>
+            
+            <div class="calculator-form">
+                <!-- Facts Section -->
+                <div class="alert alert-info mb-4">
+                    <h5 class="alert-heading">معلومات عن الرقم الهيدروجيني 🔍</h5>
+                    <ul class="mb-0">
+                        <li>الرقم الهيدروجيني يتراوح من 0 إلى 14</li>
+                        <li>pH = 7 يعني أن المحلول متعادل</li>
+                        <li>pH < 7 يعني أن المحلول حمضي</li>
+                        <li>pH > 7 يعني أن المحلول قاعدي</li>
+                        <li>ماء المطر النقي له pH حوالي 5.6</li>
+                        <li>دم الإنسان له pH حوالي 7.4</li>
+                    </ul>
+                </div>
+
+                <form id="phForm">
+                    <div class="mb-3">
+                        <label for="ph" class="form-label">الرقم الهيدروجيني (pH)</label>
+                        <input type="number" step="0.1" class="form-control" id="ph" required min="0" max="14" placeholder="أدخل قيمة بين 0 و 14">
+                        <div class="form-text">القيمة يجب أن تكون بين 0 و 14</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">احسب</button>
+                </form>
+
+                <div id="result" class="mt-4 d-none">
+                    <div class="result-card">
+                        <h3>النتيجة</h3>
+                        <p class="result-value mb-2" id="phResult"></p>
+                        <div class="ph-scale-container mt-3">
+                            <div class="ph-scale">
+                                <div id="phIndicator" class="ph-indicator"></div>
+                            </div>
+                            <div class="ph-labels">
+                                <span>حمضي</span>
+                                <span>متعادل</span>
+                                <span>قاعدي</span>
+                            </div>
+                        </div>
+                        <div class="result-details mt-3">
+                            <p class="mb-2">[H⁺] = <span id="hValue">0</span> مول/لتر</p>
+                            <p class="mb-2">[OH⁻] = <span id="ohValue">0</span> مول/لتر</p>
+                        </div>
+                        <div id="phFacts" class="mt-4">
+                            <h4>حقائق كيميائية مثيرة 🧪</h4>
+                            <div id="factsList" class="facts-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script>
+        const phFacts = {
+            'strong_acid': [
+                'الأحماض القوية لها درجة حموضة أقل من 3',
+                'حمض الهيدروكلوريك في معدة الإنسان له درجة حموضة 2',
+                'عصير الليمون له درجة حموضة حوالي 2.4'
+            ],
+            'weak_acid': [
+                'معظم الفواكه الحمضية لها درجة حموضة بين 3-5',
+                'القهوة لها درجة حموضة حوالي 5',
+                'المطر الحمضي له درجة حموضة أقل من 5'
+            ],
+            'neutral': [
+                'الماء النقي له درجة حموضة 7',
+                'دم الإنسان له درجة حموضة 7.4',
+                'اللعاب له درجة حموضة بين 6.5-7.5'
+            ],
+            'weak_base': [
+                'صابون اليد له درجة حموضة بين 9-10',
+                'بيكربونات الصوديوم لها درجة حموضة حوالي 8.4',
+                'مياه البحر لها درجة حموضة حوالي 8'
+            ],
+            'strong_base': [
+                'المنظفات القوية لها درجة حموضة أعلى من 12',
+                'هيدروكسيد الصوديوم (الصودا الكاوية) له درجة حموضة 14',
+                'المبيضات المنزلية لها درجة حموضة بين 11-13'
+            ]
+        };
+
+        document.getElementById('phForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const ph = parseFloat(document.getElementById('ph').value);
+            
+            try {
+                if (isNaN(ph) || ph < 0 || ph > 14) {
+                    throw new Error('الرجاء إدخال قيمة صحيحة بين 0 و 14');
+                }
+                
+                calculatePH(ph);
+            } catch (error) {
+                const resultDiv = document.getElementById('result');
+                const phResult = document.getElementById('phResult');
+                resultDiv.classList.remove('d-none');
+                phResult.textContent = error.message;
+                phResult.style.color = '#dc3545';
+            }
+        });
+
+        function calculatePH(ph) {
+            const resultDiv = document.getElementById('result');
+            const phResult = document.getElementById('phResult');
+            const phIndicator = document.getElementById('phIndicator');
+            const factsList = document.getElementById('factsList');
+            const hValue = document.getElementById('hValue');
+            const ohValue = document.getElementById('ohValue');
+            
+            resultDiv.classList.remove('d-none');
+            
+            // Calculate H+ and OH- concentrations
+            const hConcentration = Math.pow(10, -ph);
+            const ohConcentration = Math.pow(10, -(14 - ph));
+            
+            // Format concentrations in scientific notation
+            hValue.textContent = formatScientific(hConcentration);
+            ohValue.textContent = formatScientific(ohConcentration);
+            
+            // Set result text and color
+            let resultText = '';
+            let facts = [];
+            
+            if (ph < 3) {
+                resultText = 'حمض قوي';
+                facts = phFacts.strong_acid;
+                phResult.style.color = '#dc3545';
+            } else if (ph < 7) {
+                resultText = 'حمض ضعيف';
+                facts = phFacts.weak_acid;
+                phResult.style.color = '#ffc107';
+            } else if (ph === 7) {
+                resultText = 'متعادل';
+                facts = phFacts.neutral;
+                phResult.style.color = '#198754';
+            } else if (ph < 11) {
+                resultText = 'قاعدة ضعيفة';
+                facts = phFacts.weak_base;
+                phResult.style.color = '#0dcaf0';
+            } else {
+                resultText = 'قاعدة قوية';
+                facts = phFacts.strong_base;
+                phResult.style.color = '#0d6efd';
+            }
+            
+            phResult.textContent = `درجة الحموضة ${ph.toFixed(2)}: ${resultText}`;
+            
+            // Position indicator on pH scale
+            const position = (ph / 14) * 100;
+            phIndicator.style.left = `${position}%`;
+            
+            // Display facts
+            let factsHtml = `<div class="fact-item">
+                <ul>
+                    ${facts.map(fact => `<li>${fact}</li>`).join('')}
+                </ul>
+            </div>`;
+            factsList.innerHTML = factsHtml;
+        }
+
+        function formatScientific(num) {
+            if (num === 0) return '0';
+            const exp = Math.floor(Math.log10(num));
+            const coef = (num / Math.pow(10, exp)).toFixed(2);
+            return `${coef} × 10${superscript(exp)}`;
+        }
+
+        function superscript(num) {
+            const superscripts = {
+                '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', 
+                '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹',
+                '-': '⁻'
+            };
+            return num.toString().split('').map(char => superscripts[char]).join('');
+        }
+    </script>
+</body>
+</html>

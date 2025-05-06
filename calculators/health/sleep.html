@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة النوم - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حاسبة النوم - احسب أفضل أوقات النوم والاستيقاظ بناءً على دورات النوم">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .time-card {
+            background: var(--bs-light);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .dark-theme .time-card {
+            background: var(--bs-dark);
+        }
+        .time-option {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--bs-primary);
+            margin: 10px 0;
+        }
+        .cycle-info {
+            font-size: 0.9rem;
+            color: var(--bs-secondary);
+        }
+        .sleep-quality {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+        .quality-optimal {
+            background-color: var(--bs-success);
+            color: white;
+        }
+        .quality-good {
+            background-color: var(--bs-info);
+            color: white;
+        }
+        .quality-fair {
+            background-color: var(--bs-warning);
+            color: white;
+        }
+        .sleep-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--bs-primary);
+        }
+        .tip-card {
+            border-right: 4px solid var(--bs-primary);
+            padding: 15px;
+            margin-bottom: 15px;
+            background: var(--bs-light);
+            border-radius: 8px;
+        }
+        .dark-theme .tip-card {
+            background: var(--bs-dark);
+        }
+        .tip-icon {
+            font-size: 1.5rem;
+            color: var(--bs-primary);
+            margin-left: 10px;
+        }
+        .current-time {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bs-primary);
+            text-align: center;
+            margin: 20px 0;
+        }
+        .mode-switch {
+            margin-bottom: 20px;
+        }
+        .mode-switch .btn {
+            min-width: 150px;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm mb-4">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="site-logo" href="../../index.html">
+                    <div class="logo-icon">
+                        <i class="bi bi-calculator-fill"></i>
+                    </div>
+                    <span class="logo-text">الآلات الحاسبة الشاملة</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../blog/index.html">المدونة</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html#categories">الحاسبات</a>
+                        </li>
+                    </ul>
+                    <button id="themeToggle" class="btn btn-outline-primary">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h1 class="category-title">حاسبة النوم</h1>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="mode-switch text-center">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-primary active" id="sleepNowBtn">
+                                <i class="bi bi-moon-stars-fill"></i>
+                                النوم الآن
+                            </button>
+                            <button type="button" class="btn btn-primary" id="wakeUpBtn">
+                                <i class="bi bi-alarm-fill"></i>
+                                وقت الاستيقاظ
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="current-time-section text-center mt-4">
+                        <h3>الوقت الحالي</h3>
+                        <div class="current-time" id="currentTime">00:00</div>
+                    </div>
+
+                    <input type="time" id="wakeTimeInput" class="form-control mt-4" style="display: none;">
+
+                    <div id="wakeOptions" class="mt-4"></div>
+                    <div id="sleepOptions" class="mt-4"></div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="calculator-info">
+                        <h4 class="mb-4">معلومات عن دورات النوم</h4>
+                        
+                        <div class="tip-card">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-alarm tip-icon"></i>
+                                <div>
+                                    <h5>دورة النوم</h5>
+                                    <p>تستغرق دورة النوم الكاملة حوالي 90 دقيقة. خلال هذه الفترة يمر جسمك بمراحل مختلفة من النوم الخفيف والعميق.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-graph-up tip-icon"></i>
+                                <div>
+                                    <h5>عدد الدورات المثالي</h5>
+                                    <p>يحتاج معظم البالغين إلى 4-6 دورات نوم كاملة، أي ما يعادل 6-9 ساعات من النوم.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-lightbulb tip-icon"></i>
+                                <div>
+                                    <h5>نصائح للنوم الجيد</h5>
+                                    <ul class="list-unstyled mb-0">
+                                        <li>• حافظ على جدول نوم منتظم</li>
+                                        <li>• تجنب الشاشات قبل النوم بساعة</li>
+                                        <li>• اجعل غرفة نومك مظلمة ومريحة</li>
+                                        <li>• تجنب الكافيين في المساء</li>
+                                        <li>• مارس الرياضة بانتظام</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-info-circle tip-icon"></i>
+                                <div>
+                                    <h5>ملاحظة مهمة</h5>
+                                    <p>تحتاج إلى حوالي 15 دقيقة للدخول في النوم. هذه الحاسبة تأخذ ذلك في الاعتبار عند حساب الأوقات.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="sleep.js"></script>
+</body>
+</html>
+

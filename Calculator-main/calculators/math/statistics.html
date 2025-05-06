@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الإحصاء - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حاسبة إحصائية لحساب المتوسط والوسيط والمنوال والانحراف المعياري">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/logo.css">
+    <style>
+        .data-input {
+            min-height: 100px;
+            font-family: monospace;
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin: 20px 0;
+        }
+
+        .stat-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .stat-box .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-box .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #212529;
+        }
+
+        .data-format-example {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+
+        .sample-data-btn {
+            font-size: 0.9rem;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header class="bg-white shadow-sm mb-4">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="site-logo" href="../../index.html">
+                    <div class="logo-icon">
+                        <i class="bi bi-calculator-fill"></i>
+                    </div>
+                    <span class="logo-text">الآلات الحاسبة الشاملة</span>
+                </a>
+                <div class="time-display">
+                    <i class="bi bi-clock"></i>
+                    <span id="currentTime"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="calculator-container">
+                    <h1 class="calculator-title">
+                        <i class="bi bi-graph-up text-primary"></i>
+                        حاسبة الإحصاء
+                    </h1>
+                    
+                    <div class="calculator-description">
+                        <p>أداة إحصائية شاملة لتحليل البيانات وحساب المقاييس الإحصائية المختلفة.</p>
+                    </div>
+
+                    <form id="statsForm" class="calculator-form">
+                        <div class="mb-4">
+                            <label for="dataInput" class="form-label">أدخل البيانات</label>
+                            <textarea class="form-control data-input" id="dataInput" rows="4" placeholder="أدخل الأرقام مفصولة بفواصل أو مسافات"></textarea>
+                            <div class="data-format-example">
+                                مثال: 1, 2, 3, 4, 5 أو 1 2 3 4 5
+                            </div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm mt-2 sample-data-btn" id="sampleDataBtn">
+                                <i class="bi bi-lightning-charge"></i>
+                                استخدم بيانات تجريبية
+                            </button>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">دقة النتائج</label>
+                            <select class="form-select" id="precision">
+                                <option value="0">بدون كسور عشرية</option>
+                                <option value="1">رقم عشري واحد</option>
+                                <option value="2" selected>رقمين عشريين</option>
+                                <option value="3">ثلاثة أرقام عشرية</option>
+                                <option value="4">أربعة أرقام عشرية</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 mb-4">احسب</button>
+                    </form>
+
+                    <div id="result" class="result-container" style="display: none;">
+                        <h3 class="result-title">النتائج</h3>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">المتوسط الحسابي</div>
+                                    <div class="stat-value" id="mean"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">الوسيط</div>
+                                    <div class="stat-value" id="median"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">المنوال</div>
+                                    <div class="stat-value" id="mode"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">المدى</div>
+                                    <div class="stat-value" id="range"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">الانحراف المعياري</div>
+                                    <div class="stat-value" id="stdDev"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">التباين</div>
+                                    <div class="stat-value" id="variance"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">أصغر قيمة</div>
+                                    <div class="stat-value" id="min"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">أكبر قيمة</div>
+                                    <div class="stat-value" id="max"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">مجموع القيم</div>
+                                    <div class="stat-value" id="sum"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="stat-box">
+                                    <div class="stat-label">عدد القيم</div>
+                                    <div class="stat-value" id="count"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="dataChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="tips-section mt-4">
+                        <h4>معلومات مفيدة</h4>
+                        <ul>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>المتوسط الحسابي هو مجموع القيم مقسوماً على عددها</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>الوسيط هو القيمة الوسطى بعد ترتيب البيانات تصاعدياً</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>المنوال هو القيمة الأكثر تكراراً في البيانات</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>الانحراف المعياري يقيس مدى تشتت القيم عن المتوسط</li>
+                            <li><i class="bi bi-info-circle text-primary me-2"></i>المدى هو الفرق بين أكبر قيمة وأصغر قيمة</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="statistics.js"></script>
+</body>
+</html>
+

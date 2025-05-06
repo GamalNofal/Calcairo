@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحويل الطول والمسافة | الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حول بين وحدات الطول والمسافة المختلفة بسهولة - متر، كيلومتر، سنتيمتر، ميل، ياردة، قدم، إنش وغيرها">
+    <meta name="keywords" content="تحويل الطول, تحويل المسافة, متر, كيلومتر, سنتيمتر, ميل, ياردة, قدم, إنش">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/conversion.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../conversion.html">أدوات التحويل</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">تحويل الطول والمسافة <i class="bi bi-arrows-expand"></i></h1>
+            
+            <div class="conversion-calculator">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="fromValue" placeholder="أدخل القيمة">
+                            <select class="form-select" id="fromUnit">
+                                <option value="m">متر (م)</option>
+                                <option value="km">كيلومتر (كم)</option>
+                                <option value="cm">سنتيمتر (سم)</option>
+                                <option value="mm">ملليمتر (مم)</option>
+                                <option value="mi">ميل</option>
+                                <option value="yd">ياردة</option>
+                                <option value="ft">قدم</option>
+                                <option value="in">إنش</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="toValue" readonly>
+                            <select class="form-select" id="toUnit">
+                                <option value="m">متر (م)</option>
+                                <option value="km">كيلومتر (كم)</option>
+                                <option value="cm">سنتيمتر (سم)</option>
+                                <option value="mm">ملليمتر (مم)</option>
+                                <option value="mi">ميل</option>
+                                <option value="yd">ياردة</option>
+                                <option value="ft">قدم</option>
+                                <option value="in">إنش</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" id="swapUnits">
+                        <i class="bi bi-arrow-left-right"></i> تبديل الوحدات
+                    </button>
+                </div>
+
+                <div class="conversion-info mt-5">
+                    <h4>معلومات عن وحدات القياس</h4>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h5>الوحدات المترية</h5>
+                                <ul>
+                                    <li>1 كيلومتر = 1000 متر</li>
+                                    <li>1 متر = 100 سنتيمتر</li>
+                                    <li>1 سنتيمتر = 10 ملليمتر</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-card">
+                                <h5>الوحدات الإمبراطورية</h5>
+                                <ul>
+                                    <li>1 ميل = 1760 ياردة</li>
+                                    <li>1 ياردة = 3 قدم</li>
+                                    <li>1 قدم = 12 إنش</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة &copy; 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../js/length.js"></script>
+</body>
+</html>
+

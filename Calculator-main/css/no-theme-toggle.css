@@ -1,0 +1,5 @@
+#theme-toggle,
+.theme-icon-dark,
+.theme-icon-light {
+    display: none !important;
+}

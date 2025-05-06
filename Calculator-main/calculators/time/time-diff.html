@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الفرق بين وقتين - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="احسب الفرق بين وقتين بالساعات والدقائق، مثل حساب مدة العمل أو الدراسة">
+    <meta name="keywords" content="حاسبة الوقت, حساب الفرق بين وقتين, حساب المدة الزمنية, حاسبة الساعات">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .time-result {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #198754;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        .time-input {
+            max-width: 200px;
+        }
+    </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <i class="bi bi-calculator-fill"></i>
+                الآلات الحاسبة الشاملة
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../blog/index.html">المدونة</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <h1 class="text-center mb-5">حاسبة الفرق بين وقتين</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form id="timeDiffForm" class="mb-4">
+                            <div class="row align-items-end mb-4">
+                                <div class="col-md-6">
+                                    <label for="startTime" class="form-label">الوقت الأول</label>
+                                    <input type="time" class="form-control time-input" id="startTime" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="endTime" class="form-label">الوقت الثاني</label>
+                                    <input type="time" class="form-control time-input" id="endTime" required>
+                                </div>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="nextDay">
+                                <label class="form-check-label" for="nextDay">
+                                    الوقت الثاني في اليوم التالي
+                                </label>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-success">احسب الفرق</button>
+                            </div>
+                        </form>
+
+                        <div id="result" class="result-section" style="display: none;">
+                            <h3 class="text-center mb-4">النتيجة</h3>
+                            <div class="time-result" id="timeDifference"></div>
+                            <div class="text-center text-muted" id="details"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Examples -->
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">أمثلة سريعة</h3>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card h-100 cursor-pointer" onclick="setExample('09:00', '17:00')">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-briefcase display-4 text-success mb-3"></i>
+                                        <h4 class="h5">يوم عمل</h4>
+                                        <p class="text-muted">9:00 صباحاً - 5:00 مساءً</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100 cursor-pointer" onclick="setExample('08:30', '14:30')">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-book display-4 text-success mb-3"></i>
+                                        <h4 class="h5">يوم دراسي</h4>
+                                        <p class="text-muted">8:30 صباحاً - 2:30 مساءً</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instructions -->
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h2>كيفية استخدام حاسبة الفرق بين وقتين</h2>
+                        <ol>
+                            <li>أدخل الوقت الأول (مثل: 10:30 صباحاً)</li>
+                            <li>أدخل الوقت الثاني (مثل: 2:45 مساءً)</li>
+                            <li>حدد ما إذا كان الوقت الثاني في اليوم التالي</li>
+                            <li>اضغط على زر "احسب الفرق"</li>
+                            <li>ستظهر النتيجة بالساعات والدقائق</li>
+                        </ol>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle-fill me-2"></i>
+                            يمكنك استخدام هذه الحاسبة لحساب:
+                            <ul class="mb-0">
+                                <li>ساعات العمل</li>
+                                <li>مدة الدراسة</li>
+                                <li>وقت التمرين</li>
+                                <li>مدة الرحلات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function setExample(start, end) {
+            document.getElementById('startTime').value = start;
+            document.getElementById('endTime').value = end;
+            document.getElementById('nextDay').checked = false;
+            document.getElementById('timeDiffForm').dispatchEvent(new Event('submit'));
+        }
+
+        document.getElementById('timeDiffForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get input values
+            const startTime = document.getElementById('startTime').value;
+            const endTime = document.getElementById('endTime').value;
+            const isNextDay = document.getElementById('nextDay').checked;
+            
+            // Create Date objects for comparison
+            const [startHours, startMinutes] = startTime.split(':').map(Number);
+            const [endHours, endMinutes] = endTime.split(':').map(Number);
+            
+            // Calculate difference in minutes
+            let diffMinutes = (endHours * 60 + endMinutes) - (startHours * 60 + startMinutes);
+            
+            // Add 24 hours if end time is next day
+            if (isNextDay) {
+                diffMinutes += 24 * 60;
+            }
+            
+            // If difference is negative and not next day, assume end time is later in the same day
+            if (diffMinutes < 0 && !isNextDay) {
+                diffMinutes += 24 * 60;
+            }
+            
+            // Convert to hours and minutes
+            const hours = Math.floor(diffMinutes / 60);
+            const minutes = diffMinutes % 60;
+            
+            // Format result
+            let resultText = '';
+            if (hours > 0) {
+                resultText += hours + ' ساعة ';
+            }
+            if (minutes > 0) {
+                resultText += minutes + ' دقيقة';
+            }
+            if (resultText === '') {
+                resultText = '0 دقيقة';
+            }
+            
+            // Show results
+            document.getElementById('timeDifference').textContent = resultText;
+            
+            // Show details
+            const startPeriod = startHours >= 12 ? 'مساءً' : 'صباحاً';
+            const endPeriod = endHours >= 12 ? 'مساءً' : 'صباحاً';
+            const start12Hour = startHours % 12 || 12;
+            const end12Hour = endHours % 12 || 12;
+            
+            document.getElementById('details').textContent = 
+                `من ${start12Hour}:${startMinutes.toString().padStart(2, '0')} ${startPeriod} ` +
+                `إلى ${end12Hour}:${endMinutes.toString().padStart(2, '0')} ${endPeriod}` +
+                (isNextDay ? ' (اليوم التالي)' : '');
+            
+            document.getElementById('result').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

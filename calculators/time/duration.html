@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة مدة الوقت - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="احسب مدة الوقت وحول بين وحدات الوقت المختلفة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html#categories">الفئات</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="calculator-container bg-white rounded-3 shadow p-4">
+                        <h1 class="text-center mb-4">
+                            <i class="bi bi-hourglass-split text-success"></i>
+                            حاسبة مدة الوقت
+                        </h1>
+
+                        <form id="durationForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="input-group mb-3">
+                                        <input type="number" class="form-control" id="inputValue" required min="0" step="any">
+                                        <select class="form-select" id="inputUnit" required>
+                                            <option value="seconds">ثواني</option>
+                                            <option value="minutes">دقائق</option>
+                                            <option value="hours">ساعات</option>
+                                            <option value="days">أيام</option>
+                                            <option value="weeks">أسابيع</option>
+                                            <option value="months">شهور</option>
+                                            <option value="years">سنوات</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-success w-100">تحويل</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Results Section -->
+                        <div id="result" class="mt-4 d-none">
+                            <div class="result-box p-4 rounded-3">
+                                <h4 class="text-center mb-4">النتائج</h4>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="duration-box">
+                                            <h6>سنوات</h6>
+                                            <div id="years" class="result-value">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="duration-box">
+                                            <h6>شهور</h6>
+                                            <div id="months" class="result-value">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="duration-box">
+                                            <h6>أسابيع</h6>
+                                            <div id="weeks" class="result-value">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="duration-box">
+                                            <h6>أيام</h6>
+                                            <div id="days" class="result-value">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="duration-box">
+                                            <h6>ساعات</h6>
+                                            <div id="hours" class="result-value">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="duration-box">
+                                            <h6>دقائق</h6>
+                                            <div id="minutes" class="result-value">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="duration-box">
+                                            <h6>ثواني</h6>
+                                            <div id="seconds" class="result-value">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculator-info mt-4">
+                            <h4>معلومات هامة:</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">أدخل القيمة واختر وحدة الوقت المناسبة</li>
+                                <li class="list-group-item">سيتم تحويل المدة إلى جميع وحدات الوقت الأخرى</li>
+                                <li class="list-group-item">يمكنك استخدام الكسور العشرية للقيم</li>
+                                <li class="list-group-item">التحويلات تعتمد على المتوسطات التالية:
+                                    <ul>
+                                        <li>السنة = 365.25 يوم</li>
+                                        <li>الشهر = 30.44 يوم</li>
+                                        <li>الأسبوع = 7 أيام</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/duration.js"></script>
+    <script src="../../js/theme.js"></script>
+</body>
+</html>
+

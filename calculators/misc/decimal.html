@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العد العشري - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حول الأرقام بين الأنظمة العددية المختلفة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html#categories">الفئات</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="calculator-container bg-white rounded-3 shadow p-4">
+                        <h1 class="text-center mb-4">
+                            <i class="bi bi-123 text-primary"></i>
+                            العد العشري
+                        </h1>
+
+                        <form id="decimalForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <!-- Input Number -->
+                                <div class="col-12">
+                                    <label class="form-label">أدخل الرقم</label>
+                                    <input type="text" class="form-control" id="inputNumber" required>
+                                    <div class="invalid-feedback">
+                                        يرجى إدخال رقم صحيح
+                                    </div>
+                                </div>
+
+                                <!-- Number System Selection -->
+                                <div class="col-md-6">
+                                    <label class="form-label">النظام الأصلي</label>
+                                    <select class="form-select" id="fromSystem" required>
+                                        <option value="decimal">عشري (Decimal)</option>
+                                        <option value="binary">ثنائي (Binary)</option>
+                                        <option value="octal">ثماني (Octal)</option>
+                                        <option value="hexadecimal">ست عشري (Hexadecimal)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">النظام المطلوب</label>
+                                    <select class="form-select" id="toSystem" required>
+                                        <option value="binary">ثنائي (Binary)</option>
+                                        <option value="decimal">عشري (Decimal)</option>
+                                        <option value="octal">ثماني (Octal)</option>
+                                        <option value="hexadecimal">ست عشري (Hexadecimal)</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">تحويل</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Results Section -->
+                        <div id="result" class="mt-4 d-none">
+                            <div class="result-box p-4 rounded-3">
+                                <h4 class="text-center mb-4">النتيجة</h4>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="resultNumber" readonly>
+                                    <button class="btn btn-outline-primary" type="button" id="copyButton">
+                                        <i class="bi bi-clipboard"></i> نسخ
+                                    </button>
+                                </div>
+                                
+                                <!-- Additional Conversions -->
+                                <div class="mt-4">
+                                    <h5>تحويلات إضافية:</h5>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>ثنائي (Binary)</td>
+                                                    <td id="binaryValue"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>عشري (Decimal)</td>
+                                                    <td id="decimalValue"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ثماني (Octal)</td>
+                                                    <td id="octalValue"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ست عشري (Hexadecimal)</td>
+                                                    <td id="hexValue"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculator-info mt-4">
+                            <h4>معلومات عن الأنظمة العددية:</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">النظام الثنائي يستخدم 0 و 1 فقط</li>
+                                <li class="list-group-item">النظام العشري يستخدم الأرقام من 0 إلى 9</li>
+                                <li class="list-group-item">النظام الثماني يستخدم الأرقام من 0 إلى 7</li>
+                                <li class="list-group-item">النظام الست عشري يستخدم الأرقام من 0 إلى 9 والحروف من A إلى F</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/decimal.js"></script>
+    <script src="../../js/theme.js"></script>
+</body>
+</html>
+

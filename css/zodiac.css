@@ -1,0 +1,166 @@
+.calculator-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.calculator-card .card-body {
+    padding: 2rem;
+}
+
+.zodiac-symbol {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.result-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-item {
+    padding: 0.75rem;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.02);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.info-item i {
+    margin-right: 0.5rem;
+    color: var(--bs-primary);
+}
+
+.zodiac-details .row {
+    margin: -0.5rem;
+}
+
+.zodiac-details .col-md-6 {
+    padding: 0.5rem;
+}
+
+.description {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.description p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.info-box {
+    background-color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.info-box h4 {
+    color: var(--bs-primary);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.info-box .list-group-item {
+    border: none;
+    background-color: transparent;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.info-box .list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    transform: translateX(-5px);
+}
+
+.form-select {
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.btn-primary {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+.alert {
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.alert i {
+    margin-right: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .calculator-card .card-body {
+        padding: 1.5rem;
+    }
+    
+    .info-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .description {
+        padding: 1rem;
+    }
+    
+    .description p {
+        font-size: 1rem;
+    }
+}
+
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .zodiac-result {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+[data-bs-theme="dark"] .detail-item,
+[data-bs-theme="dark"] .zodiac-description,
+[data-bs-theme="dark"] .info-card {
+    background: rgba(0, 0, 0, 0.2);
+}

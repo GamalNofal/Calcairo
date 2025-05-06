@@ -1,76 +1,582 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="CalCairo - Smart, stylish, and free calculators for life, health, finance, and fun.">
-  <title>CalCairo | Smart Online Calculators</title>
-  <meta name="description" content="Best free smart online calculators for every need.">
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="icon" type="image/png" href="favicon.png">
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "CalCairo",
-      "url": "https://calcairo.com/",
-      "description": "CalCairo - Smart, stylish, and free calculators for life, health, finance, and fun."
-    }
-  </script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مجموعة شاملة من الآلات الحاسبة والأدوات المجانية لمساعدتك في حياتك اليومية. حاسبة العمر، حاسبة المال، وأدوات مالية وصحية متنوعة.">
+    <meta name="keywords" content="آلة حاسبة, حاسبة العمر, حاسبة مالية, أدوات حساب, تخطيط مالي, حاسبة صحية">
+    <meta name="author" content="الآلات الحاسبة الشاملة">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="الآلات الحاسبة الشاملة - أدوات حساب مجانية">
+    <meta property="og:description" content="مجموعة شاملة من الآلات الحاسبة والأدوات المجانية لمساعدتك في حياتك اليومية">
+    <meta property="og:type" content="website">
+    <title>الآلات الحاسبة الشاملة - أدوات حساب مجانية</title>
+    <meta name="theme-color" content="#198754">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" as="style">
+    <link rel="preload" href="css/calculator.css" as="style">
+    
+    <!-- AdSense verification meta tag - Replace PUBLISHER-ID with your actual ID when you have it -->
+    <meta name="google-adsense-account" content="ca-pub-PUBLISHER-ID">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/logo.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧮</text></svg>">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-EG5T75NQHF');
-</script>
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
 </head>
 <body>
-  <header class="main-header">
-    <div class="header-flex">
-      <a href="index.html" class="site-logo">CalCairo</a>
-      <nav class="main-nav">
-        <div class="nav-links">
-          <a href="Categories/categories.html" class="nav-link">Categories</a>
-          <a href="About/about.html" class="nav-link">About</a>
-          <a href="Contact/contact.html" class="nav-link">Contact</a>
-          <a href="Blog/blog.html" class="nav-link">Blog</a>
+    <div class="animated-background">
+        <div class="floating-icon">
+            <i class="bi bi-calculator"></i>
         </div>
-        <button class="hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
+        <div class="floating-icon">
+            <i class="bi bi-clock"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-heart-pulse"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-currency-dollar"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-rulers"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-calendar-date"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-arrow-left-right"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-percent"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-thermometer-half"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-droplet"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-speedometer"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-graph-up"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-wallet2"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-piggy-bank"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-house"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-cart"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-bank"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-coin"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-fuel-pump"></i>
+        </div>
+        <div class="floating-icon">
+            <i class="bi bi-lightning"></i>
+        </div>
+    </div>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a href="index.html" class="site-logo">
+                        <i class="bi bi-calculator logo-icon"></i>
+                        <span class="logo-text">الآلات الحاسبة الشاملة</span>
+                    </a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog/index.html">المدونة</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#categories">الفئات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">عن الموقع</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">تواصل معنا</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h1 class="text-center mb-4">الآلات الحاسبة الشاملة</h1>
+                        <p class="text-center lead mb-0">مجموعة متنوعة من الآلات الحاسبة لتلبية احتياجاتك اليومية</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="categories" class="py-5">
+            <div class="container">
+                <h2 class="category-title mb-5">فئات الحاسبات</h2>
+                <div class="row g-4">
+                                        <!-- Fun Calculators -->
+                                        <div class="col-md-4">
+                                            <div class="calculator-card" data-category="fun">
+                                                <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="fun-content">
+                                                    <i class="bi bi-emoji-smile icon"></i>
+                                                    <h3>حاسبات مرحة</h3>
+                                                    <i class="bi bi-chevron-down toggle-icon"></i>
+                                                </div>
+                                                <div class="card-content" id="fun-content">
+                                                    <ul class="calculator-links">
+                                                        <li><a href="calculators/fun/mood-matcher.html"><i class="bi bi-emoji-laughing"></i>حاسبة مطابقة المزاج</a></li>
+                                                        <li><a href="calculators/fun/nickname.html"><i class="bi bi-person-badge"></i>مولد الألقاب</a></li>
+                                                        <li><a href="calculators/fun/cat-age.html"><i class="bi bi-emoji-smile"></i>عمر القطط</a></li>
+                                                        <li><a href="calculators/fun/zodiac.html"><i class="bi bi-stars"></i>الأبراج</a></li>
+                                                        <li><a href="calculators/fun/superpower.html"><i class="bi bi-lightning-charge"></i>حاسبة القوى الخارقة</a></li>
+                                                        <li><a href="calculators/fun/time-waster.html"><i class="bi bi-hourglass"></i>حاسبة الوقت المهدر</a></li>
+                                                        <li><a href="calculators/fun/friendship-compatibility.html"><i class="bi bi-people-fill"></i>حاسبة توافق الصداقة</a></li>
+                                                        <li><a href="calculators/fun/camel-power.html">
+                                                            <i class="bi bi-emoji-laughing"></i>
+                                                            حاسبة قوة الجمل
+                                                        </a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                    
+      <!-- Arabic Food Calculators -->
+      <div class="col-md-4">
+        <div class="calculator-card" data-category="arabic-food">
+            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="arabic-food-content">
+                <i class="bi bi-cup-hot icon"></i>
+                <h3>حاسبات المأكولات العربية</h3>
+                <i class="bi bi-chevron-down toggle-icon"></i>
+            </div>
+            <div class="card-content" id="arabic-food-content">
+                <ul class="calculator-links">
+                    <li><a href="calculators/arabic-food/food-stats.html"><i class="bi bi-people"></i>حاسبة إحصائيات الطعام</a></li>
+                    <li><a href="calculators/arabic-food/falafel-counter.html"><i class="bi bi-people"></i>حاسبة عدد الفلافل</a></li>
+                    <li><a href="calculators/arabic-food/shawarma-counter.html"><i class="bi bi-egg-fried"></i>حاسبة عدد الشاورما</a></li>
+                    <li><a href="calculators/arabic-food/coffee-addiction.html"><i class="bi bi-cup-hot"></i>حاسبة إدمان القهوة</a></li>
+                    <li><a href="calculators/arabic-food/hummus-bowl.html"><i class="bi bi-circle-fill"></i>حاسبة استهلاك الحمص</a></li>
+                    <li><a href="calculators/arabic-food/karak-tea.html"><i class="bi bi-cup-straw"></i>عداد شاي الكرك</a></li>
+                    <li><a href="calculators/arabic-food/koshari.html" class="calculator-link">
+                        <i class="bi bi-cup-fill"></i>
+                        حاسبة الكشري
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+                    <!-- Math Calculators -->
+                    <div class="col-md-4">
+                        <div class="calculator-card" data-category="math">
+                            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="math-content">
+                                <i class="bi bi-calculator icon"></i>
+                                <h3>الحاسبات الرياضية</h3>
+                                <i class="bi bi-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="card-content" id="math-content">
+                                <ul class="calculator-links">
+                                    <li><a href="calculators/math/scientific.html"><i class="bi bi-braces"></i>الحاسبة العلمية</a></li>
+                                    <li><a href="calculators/math/percentage.html"><i class="bi bi-percent"></i>النسبة المئوية</a></li>
+                                    <li><a href="calculators/math/area.html"><i class="bi bi-square"></i>المساحة</a></li>
+                                    <li><a href="calculators/math/volume.html"><i class="bi bi-box"></i>الحجم</a></li>
+                                    <li><a href="calculators/math/geometry.html"><i class="bi bi-triangle"></i>الأشكال الهندسية</a></li>
+                                    <li><a href="calculators/math/unit-converter.html"><i class="bi bi-arrow-left-right"></i>محول الوحدات</a></li>
+                                    <li><a href="calculators/math/statistics.html"><i class="bi bi-graph-up"></i>الإحصاء</a></li>
+                                    <li><a href="calculators/math/trigonometry.html"><i class="bi bi-triangle-half"></i>حساب المثلثات</a></li>
+                                    <li><a href="calculators/math/matrix.html"><i class="bi bi-grid-3x3"></i>حاسبة المصفوفات</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Calculators -->
+                    <div class="col-md-4">
+                        <div class="calculator-card" data-category="finance">
+                            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="finance-content">
+                                <i class="bi bi-cash-coin icon"></i>
+                                <h3>الحاسبات المالية</h3>
+                                <i class="bi bi-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="card-content" id="finance-content">
+                                <ul class="calculator-links">
+                                    <li><a href="calculators/financial/energy.html"><i class="bi bi-lightning-charge"></i>حاسبة استهلاك الطاقة</a></li>
+                                    <li><a href="calculators/financial/savings.html"><i class="bi bi-piggy-bank"></i>حاسبة التوفير</a></li>
+                                    <li><a href="calculators/financial/subscriptions.html"><i class="bi bi-credit-card"></i>حاسبة الاشتراكات الشهرية</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Time Calculators -->
+                    <div class="col-md-4">
+                        <div class="calculator-card" data-category="time">
+                            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="time-content">
+                                <i class="bi bi-clock icon"></i>
+                                <h3>حاسبات الوقت والتاريخ</h3>
+                                <i class="bi bi-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="card-content" id="time-content">
+                                <ul class="calculator-links">
+                                    <li><a href="calculators/age-calculator.html"><i class="bi bi-calendar-check"></i>حساب العمر</a></li>
+                                    <li><a href="calculators/time/date-diff.html"><i class="bi bi-calendar-range"></i>الوقت بين تاريخين</a></li>
+                                    <li><a href="calculators/time/duration.html"><i class="bi bi-hourglass-split"></i>حساب المدة</a></li>
+                                    <li><a href="calculators/time/anniversary.html"><i class="bi bi-calendar-heart"></i>حاسبة تاريخ ذكرى سنوية</a></li>
+                                    <li><a href="calculators/time/countdown.html"><i class="bi bi-alarm"></i>حاسبة عدد الأيام المتبقية</a></li>
+                                    <li><a href="calculators/time/time-diff.html"><i class="bi bi-clock-history"></i>حاسبة الفرق بين وقتين</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Calculators -->
+                    <div class="col-md-4">
+                        <div class="calculator-card" data-category="health">
+                            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="health-content">
+                                <i class="bi bi-heart-pulse icon"></i>
+                                <h3>الحاسبات الصحية</h3>
+                                <i class="bi bi-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="card-content" id="health-content">
+                                <ul class="calculator-links">
+                                    <li><a href="calculators/health/blood-pressure-calc.html"><i class="bi bi-activity"></i>حاسبة ضغط الدم</a></li>
+                                    <li><a href="calculators/health/blood-sugar.html"><i class="bi bi-droplet-half"></i>سكر الدم</a></li>
+                                    <li><a href="calculators/health/bmi.html"><i class="bi bi-person"></i>مؤشر كتلة الجسم</a></li>
+                                    <li><a href="calculators/health/bmr.html"><i class="bi bi-speedometer"></i>معدل الأيض الأساسي</a></li>
+                                    <li><a href="calculators/health/body-fat.html"><i class="bi bi-percent"></i>نسبة الدهون</a></li>
+                                    <li><a href="calculators/health/calories.html"><i class="bi bi-cup-hot"></i>السعرات الحرارية</a></li>
+                                    <li><a href="calculators/health/heart-rate.html"><i class="bi bi-heart"></i>معدل ضربات القلب</a></li>
+                                    <li><a href="calculators/health/ideal-weight.html"><i class="bi bi-person-check"></i>الوزن المثالي</a></li>
+                                    <li><a href="calculators/health/pregnancy.html"><i class="bi bi-calendar-heart"></i>الحمل والولادة</a></li>
+                                    <li><a href="calculators/health/sleep.html"><i class="bi bi-moon"></i>حاسبة النوم</a></li>
+                                    <li><a href="calculators/health/water-intake.html"><i class="bi bi-droplet"></i>شرب الماء</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conversion Tools -->
+                    <div class="col-md-4">
+                        <div class="calculator-card" data-category="conversion">
+                            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="conversion-content">
+                                <i class="bi bi-arrow-left-right icon"></i>
+                                <h3>أدوات التحويل</h3>
+                                <i class="bi bi-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="card-content" id="conversion-content">
+                                <ul class="calculator-links">
+                                    <li><a href="calculators/conversion/units.html"><i class="bi bi-rulers"></i>تحويل الوحدات</a></li>
+                                    <li><a href="calculators/conversion/length.html"><i class="bi bi-arrows-expand"></i>تحويل الطول والمسافة</a></li>
+                                    <li><a href="calculators/conversion/weight.html"><i class="bi bi-box-seam"></i>تحويل الوزن والكتلة</a></li>
+                                    <li><a href="calculators/conversion/currency.html"><i class="bi bi-currency-exchange"></i>تحويل العملات</a></li>
+                                    <li><a href="calculators/conversion/dates.html"><i class="bi bi-calendar-date"></i>تحويل التواريخ</a></li>
+                                    <li><a href="calculators/conversion/arabic-numbers.html"><i class="bi bi-translate"></i>محول الأرقام العربية</a></li>
+                                    <li><a href="calculators/conversion/clothing-size.html"><i class="bi bi-rulers"></i>تحويل مقاسات الملابس</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Islamic Calculators -->
+                    <div class="col-md-4">
+                        <div class="calculator-card" data-category="islamic">
+                            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="islamic-content">
+                                <i class="bi bi-moon-stars icon"></i>
+                                <h3>الحاسبات الإسلامية</h3>
+                                <i class="bi bi-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="card-content" id="islamic-content">
+                                <ul class="calculator-links">
+                                    <li><a href="calculators/islamic/zakat.html"><i class="bi bi-coin"></i>حاسبة الزكاة</a></li>
+                                    <li><a href="calculators/islamic/inheritance.html"><i class="bi bi-diagram-3"></i>حاسبة المواريث</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- Chemistry Calculators -->
+<div class="col-md-4">
+    <div class="calculator-card" data-category="chemistry">
+        <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="chemistry-content">
+            <i class="bi bi-flask icon"></i>
+            <h3>حاسبات الكيمياء</h3>
+            <i class="bi bi-chevron-down toggle-icon"></i>
+        </div>
+        <div class="card-content" id="chemistry-content">
+            <ul class="calculator-links">
+                <li><a href="calculators/chemistry/molar-mass.html"><i class="bi bi-diagram-3"></i>حاسبة الكتلة المولية</a></li>
+                <li><a href="calculators/chemistry/concentration.html"><i class="bi bi-droplet-half"></i>حاسبة التركيز المولاري</a></li>
+                <li><a href="calculators/chemistry/ph.html"><i class="bi bi-water"></i>حاسبة الرقم الهيدروجيني</a></li>
+                <li><a href="calculators/chemistry/gas-laws.html"><i class="bi bi-wind"></i>حاسبة قوانين الغازات</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+                    <!-- Miscellaneous Tools -->
+                    <div class="col-md-4">
+                        <div class="calculator-card" data-category="misc">
+                            <div class="card-header" role="button" tabindex="0" aria-expanded="false" aria-controls="misc-content">
+                                <i class="bi bi-grid-3x3-gap icon"></i>
+                                <h3>أدوات متنوعة</h3>
+                                <i class="bi bi-chevron-down toggle-icon"></i>
+                            </div>
+                            <div class="card-content" id="misc-content">
+                                <ul class="calculator-links">
+                                    <li><a href="calculators/misc/love.html"><i class="bi bi-heart-fill"></i>حاسبة الحب</a></li>
+                                    <li><a href="calculators/misc/travel.html"><i class="bi bi-airplane"></i>حاسبة السفر</a></li>
+                                    <li><a href="calculators/misc/decimal.html"><i class="bi bi-123"></i>محول الأرقام</a></li>
+                                    <li><a href="calculators/misc/password.html"><i class="bi bi-key"></i>مولد كلمات المرور</a></li>
+                                    <li><a href="calculators/misc/url.html"><i class="bi bi-link"></i>محول الروابط</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+        </section>
+
+        <section id="about" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">عن الموقع</h2>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <p class="lead mb-4">
+                                    منصة "الأدوات الحاسبة الشاملة" هي وجهتك العربية الأولى للحصول على أدوات حسابية دقيقة وشاملة تناسب مختلف احتياجاتك اليومية والمهنية. نسعى لتوفير تجربة سهلة ومتكاملة للمستخدمين عبر تقديم مجموعة واسعة من الحاسبات المتخصصة.
+                                </p>
+                                <div class="text-center">
+                                    <a href="about.html" class="btn btn-success">المزيد عن الموقع</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">تواصل معنا</h2>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <div class="contact-options mb-4">
+                                    <h5 class="text-center mb-3">يمكنك التواصل معنا عبر:</h5>
+                                    <div class="d-flex justify-content-center gap-4">
+                                        <a href="mailto:calcairo.official@gmail.com" class="btn btn-outline-success">
+                                            <i class="bi bi-envelope me-2"></i>البريد الإلكتروني
+                                        </a>
+                                        <a href="https://www.tiktok.com/@calcairo.com" target="_blank" class="btn btn-outline-dark">
+                                            <i class="bi bi-tiktok me-2"></i>تيك توك
+                                        </a>
+                                    </div>
+                                </div>
+                                <form id="feedbackForm" action="mailto:calcairo.official@gmail.com" method="post" enctype="text/plain">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">الاسم</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">البريد الإلكتروني</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">الموضوع</label>
+                                        <select class="form-select" id="subject" name="subject" required>
+                                            <option value="">اختر نوع الرسالة</option>
+                                            <option value="اقتراح">اقتراح</option>
+                                            <option value="مشكلة">الإبلاغ عن مشكلة</option>
+                                            <option value="سؤال">سؤال</option>
+                                            <option value="أخرى">أخرى</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">الرسالة</label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="bi bi-send me-2"></i>
+                                            إرسال الرسالة
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <button id="backToTop" class="btn btn-success position-fixed bottom-0 end-0 m-4 d-none" aria-label="العودة إلى الأعلى">
+            <i class="bi bi-arrow-up"></i>
         </button>
-      </nav>
-    </div>
-  </header>
 
-  <main class="logo-hero">
-    <div class="hero-text">
-      <h1>CalCairo</h1>
-      <p class="subtitle">Explore Calculators and have fun with our smart, stylish, and free calculators for life, health, finance, and fun.</p>
-      <a href="Categories/categories.html" class="cta-btn pulse">Explore Calculators</a>
-    </div>
-  </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <!-- About Us -->
+                    <div class="col-md-4 mb-4">
+                        <h4 class="footer-title">عن الموقع</h4>
+                        <div class="about-content">
+                            <p class="about-text mb-3">الآلات الحاسبة الشاملة هي منصة مجانية تقدم مجموعة متنوعة من الحاسبات والأدوات لمساعدتك في حياتك اليومية.</p>
+                            <ul class="about-features">
+                                <li><i class="bi bi-check-circle-fill me-2"></i>حاسبات متنوعة ودقيقة</li>
+                                <li><i class="bi bi-check-circle-fill me-2"></i>واجهة سهلة الاستخدام</li>
+                                <li><i class="bi bi-check-circle-fill me-2"></i>تحديثات مستمرة</li>
+                                <li><i class="bi bi-tiktok me-2"></i>تواصل معنا عبر حساب تيك توك</li>
+                            </ul>
+                        </div>
+                    </div>
 
-  <!-- Minimal Google Ad Banner (bottom) -->
-  <!--#include file="partials/adsense-bottom.html" -->
-  <footer>
-    <p>&copy; 2025 CalCairo. All rights reserved.</p>
-    <p>
-      <a href="Legal/privacy.html">Privacy & Terms</a>
-    </p>
-  </footer>
+                    <!-- Quick Links -->
+                    <div class="col-md-4 mb-4">
+                        <h4 class="footer-title">روابط سريعة</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="blog/index.html">المدونة</a></li>
+                            <li><a href="#categories">الفئات</a></li>
+                        </ul>
+                    </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const hamburger = document.querySelector(".hamburger");
-      const navLinks = document.querySelector(".nav-links");
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-      });
-    });
-  </script>
-  <script src="scripts/featured-calculators.js"></script>
-</body>
+                    <!-- Contact Us -->
+                    <div class="col-md-4 mb-4">
+                        <h4 class="footer-title">تواصل معنا</h4>
+                        <ul class="footer-links">
+                            <li class="mb-2"><i class="bi bi-envelope me-4"></i><a href="mailto:calcairo.official@gmail.com" class="contact-link">calcairo.official@gmail.com</a></li>
+                            <li class="mb-2"><i class="bi bi-chat-dots me-4"></i><a href="#contact" class="contact-link">نموذج الاتصال</a></li>
+                            <li class="mb-2"><i class="bi bi-tiktok me-4"></i><a href="https://www.tiktok.com/@calcairo.com" target="_blank" class="contact-link">حساب تيك توك</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="container">
+                    <p>جميع الحقوق محفوظة &copy; 2024 الآلات الحاسبة الشاملة</p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/dropdown.js"></script>
+        <script src="js/search.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Initialize tooltips
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                    return new bootstrap.Tooltip(tooltipTriggerEl);
+                });
+
+                // Show loading animation
+                showLoading();
+            });
+        </script>
+
+        <script>
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('d-none');
+                } else {
+                    backToTopButton.classList.add('d-none');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        </script>
+
+        <script>
+            // Search functionality
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchInput = document.querySelector('.search-input');
+                const calculatorCards = document.querySelectorAll('.calculator-card');
+                
+                if (searchInput) {
+                    searchInput.addEventListener('input', (e) => {
+                        const searchTerm = e.target.value.toLowerCase();
+                        
+                        calculatorCards.forEach(card => {
+                            const title = card.querySelector('h3').textContent.toLowerCase();
+                            const links = Array.from(card.querySelectorAll('.calculator-links a'))
+                                .map(link => link.textContent.toLowerCase());
+                            
+                            const isVisible = title.includes(searchTerm) || 
+                                            links.some(link => link.includes(searchTerm));
+                            
+                            card.style.display = isVisible ? 'block' : 'none';
+                        });
+                    });
+                }
+
+                // Add loading skeleton effect
+                function showSkeletonLoading() {
+                    calculatorCards.forEach(card => {
+                        card.classList.add('skeleton');
+                    });
+                    
+                    setTimeout(() => {
+                        calculatorCards.forEach(card => {
+                            card.classList.remove('skeleton');
+                        });
+                    }, 1000);
+                }
+                
+                showSkeletonLoading();
+            });
+        </script>
+    </body>
 </html>
