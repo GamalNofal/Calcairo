@@ -1,295 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبة عدد الشاورما | احسب استهلاكك من الشاورما</title>
-    <meta name="description" content="احسب عدد ساندويتشات الشاورما التي تناولتها وتعرف على التكلفة والسعرات الحرارية! حاسبة مرحة لمحبي الشاورما">
-    <meta name="keywords" content="حاسبة الشاورما, شاورما, مأكولات عربية, حساب السعرات الحرارية, حاسبة الطعام">
-    <meta name="author" content="الآلات الحاسبة الشاملة">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/calculator.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <style>
-        .shawarma-icon {
-            font-size: 2.5rem;
-            color: #198754;
-        }
-        .achievement {
-            border: 2px solid #198754;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 10px 0;
-            background-color: rgba(25, 135, 84, 0.1);
-        }
-        .achievement-locked {
-            filter: grayscale(1);
-            opacity: 0.5;
-        }
-        .stats-card {
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        .stats-card:hover {
-            transform: translateY(-5px);
-        }
-        .shawarma-type-btn {
-            border: 2px solid #198754;
-            transition: all 0.3s ease;
-        }
-        .shawarma-type-btn.active {
-            background-color: #198754;
-            color: white;
-        }
-        .fun-fact {
-            background-color: #f8f9fa;
-            border-right: 4px solid #198754;
-            padding: 10px;
-            margin: 10px 0;
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-EG5T75NQHF');
-    </script>
-</head>
-<body>
-    <header class="bg-white shadow-sm">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../index.html">الرئيسية</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../arabic-food.html">حاسبات المأكولات العربية</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex">
-                        <button id="theme-toggle" class="btn btn-link">
-                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
-                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container py-4">
-        <div class="calculator-container">
-            <h1 class="category-title mb-4">حاسبة عدد الشاورما 🥙</h1>
-            
-            <div class="shawarma-calculator">
-                <div class="type-selection mb-4">
-                    <h3 class="mb-3">اختر نوع الشاورما المفضل لديك</h3>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <button class="btn shawarma-type-btn active" data-type="chicken" data-calories="350" 
-                                data-bs-toggle="tooltip" data-bs-html="true" 
-                                title="تفاصيل السعرات الحرارية للشاورما دجاج:
-                                خبز عربي (120) + 
-                                دجاج مشوي (140) + 
-                                طحينة وصوص (50) + 
-                                خضروات (40)">
-                            <i class="bi bi-egg-fried"></i> شاورما دجاج
-                        </button>
-                        <button class="btn shawarma-type-btn" data-type="meat" data-calories="430" 
-                                data-bs-toggle="tooltip" data-bs-html="true"
-                                title="تفاصيل السعرات الحرارية للشاورما لحم:
-                                خبز عربي (120) + 
-                                لحم مشوي (220) + 
-                                طحينة وصوص (50) + 
-                                خضروات (40)">
-                            <i class="bi bi-egg-fried"></i> شاورما لحم
-                        </button>
-                        <button class="btn shawarma-type-btn" data-type="mix" data-calories="390" 
-                                data-bs-toggle="tooltip" data-bs-html="true"
-                                title="تفاصيل السعرات الحرارية للشاورما مكس:
-                                خبز عربي (120) + 
-                                لحم ودجاج مشوي (180) + 
-                                طحينة وصوص (50) + 
-                                خضروات (40)">
-                            <i class="bi bi-egg-fried"></i> شاورما مكس
-                        </button>
-                    </div>
-                    <div class="mt-3 text-muted small">
-                        <i class="bi bi-info-circle"></i> تفاصيل حساب السعرات الحرارية:
-                        <ul class="mt-2 small">
-                            <li>خبز عربي متوسط: 120 سعرة</li>
-                            <li>شريحة دجاج مشوي (100 جرام): 140 سعرة</li>
-                            <li>شريحة لحم مشوي (100 جرام): 220 سعرة</li>
-                            <li>صوص الطحينة والثوم: 50 سعرة</li>
-                            <li>خضروات (طماطم، خس، بصل): 40 سعرة</li>
-                        </ul>
-                        <p class="mb-0">* القيم التقريبية مبنية على متوسط حجم الساندويتش المتعارف عليه في المطاعم السعودية</p>
-                    </div>
-                </div>
-
-                <div class="consumption-input mb-4">
-                    <h3 class="mb-3">كم شاورما تأكل؟</h3>
-                    <div class="row g-3">
-                        <div class="col-md-12">
-                            <label class="form-label">كم شاورما تأكل في الأسبوع؟</label>
-                            <input type="number" id="weeklyCount" class="form-control" min="0" value="0">
-                        </div>
-                    </div>
-                </div>
-
-                <button id="calculateBtn" class="btn btn-primary w-100 mb-4">احسب إحصائياتك! 📊</button>
-
-                <div id="results" class="results mt-4" style="display: none;">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="card stats-card h-100">
-                                <div class="card-body text-center">
-                                    <i class="bi bi-calendar-check shawarma-icon"></i>
-                                    <h5 class="card-title mt-3">استهلاكك السنوي</h5>
-                                    <p class="display-4" id="yearlyCount">0</p>
-                                    <p class="text-muted">شاورما</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card stats-card h-100">
-                                <div class="card-body text-center">
-                                    <i class="bi bi-lightning shawarma-icon"></i>
-                                    <h5 class="card-title mt-3">السعرات الحرارية</h5>
-                                    <p class="display-4" id="yearlyCalories">0</p>
-                                    <p class="text-muted">سعرة/سنة</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="achievements mt-4">
-                        <h3 class="mb-3">إنجازاتك في عالم الشاورما 🏆</h3>
-                        <div id="achievementsList"></div>
-                    </div>
-
-                    <div class="fun-facts mt-4">
-                        <h3 class="mb-3">حقائق مضحكة عن استهلاكك للشاورما 😄</h3>
-                        <div id="funFacts"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-light py-4 mt-5">
-        <div class="container">
-            <div class="text-center">
-                <p>جميع الحقوق محفوظة © 2024 الآلات الحاسبة الشاملة</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const shawarmaTypes = document.querySelectorAll('.shawarma-type-btn');
-            const calculateBtn = document.getElementById('calculateBtn');
-            const results = document.getElementById('results');
-
-            // Type selection
-            shawarmaTypes.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    shawarmaTypes.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                });
-            });
-
-            const achievements = [
-                { title: 'مبتدئ الشاورما', description: 'أول 50 شاورما في رحلتك', threshold: 50 },
-                { title: 'محترف الشاورما', description: 'أصبحت معروفاً في كل مطاعم الشاورما', threshold: 100 },
-                { title: 'أسطورة الشاورما', description: 'البائع يجهز طلبك قبل وصولك', threshold: 200 },
-                { title: 'إمبراطور الشاورما', description: 'يطلقون اسمك على ساندويتش خاص', threshold: 500 }
-            ];
-
-            const funFactsTemplate = [
-                count => `عدد لفات الشاورما التي أكلتها تساوي ${Math.floor(count / 10)} دورة كاملة للسيخ! 🌯`,
-                count => `لو وضعت كل الشاورما بجانب بعضها، ستصل من ${getRandomCity()} إلى ${getRandomCity()}! 🗺️`,
-                calories => `السعرات الحرارية التي استهلكتها تكفي لتدفئة ${Math.floor(calories / 1000)} منزل في الشتاء! 🔥`,
-                count => `البصل في الشاورما التي أكلتها يكفي لتدميع عيون ${count * 5} شخص! 🧅`,
-                count => `الثوم في شاورما السنة يكفي لإبعاد ${count * 3} مصاص دماء! 🧄`,
-                count => `لو كان لكل شاورما أكلتها قصة، لكان عندك مسلسل من ${Math.ceil(count / 10)} حلقات! 📺`,
-                calories => `لحرق هذه السعرات، عليك الرقص ${Math.floor(calories / 500)} ساعة متواصلة! 💃`,
-                count => `لو تحولت إلى شاورما، سيكون طولك ${(count * 0.15).toFixed(1)} متر! 📏`,
-                count => `عدد الخس في شاورما السنة يكفي لإطعام ${count * 2} أرنب! 🐰`,
-                count => `لو كل شاورما أكلتها أعطتك قوة خارقة، لأصبحت أقوى من ${count > 200 ? 'سوبرمان' : 'باتمان'}! 💪`
-            ];
-
-            function getRandomCity() {
-                const cities = ['الرياض', 'جدة', 'الدمام', 'مكة', 'المدينة', 'تبوك', 'أبها'];
-                return cities[Math.floor(Math.random() * cities.length)];
-            }
-
-            calculateBtn.addEventListener('click', () => {
-                const weeklyCount = parseInt(document.getElementById('weeklyCount').value) || 0;
-                const selectedType = document.querySelector('.shawarma-type-btn.active');
-                const caloriesPerUnit = parseInt(selectedType.dataset.calories);
-
-                const yearlyCount = weeklyCount * 52;
-                const yearlyCalories = yearlyCount * caloriesPerUnit;
-
-                document.getElementById('yearlyCount').textContent = yearlyCount.toLocaleString();
-                document.getElementById('yearlyCalories').textContent = yearlyCalories.toLocaleString();
-
-                // Update achievements
-                const achievementsList = document.getElementById('achievementsList');
-                achievementsList.innerHTML = achievements.map(achievement => `
-                    <div class="achievement ${yearlyCount >= achievement.threshold ? '' : 'achievement-locked'}">
-                        <h5>${achievement.title} ${yearlyCount >= achievement.threshold ? '🌟' : '🔒'}</h5>
-                        <p class="mb-0">${achievement.description}</p>
-                    </div>
-                `).join('');
-
-                // Show random fun facts
-                const funFacts = document.getElementById('funFacts');
-                const shuffledFacts = [...funFactsTemplate]
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, 5); // Show 5 random facts
-
-                funFacts.innerHTML = shuffledFacts.map(fact => `
-                    <div class="fun-fact">
-                        <i class="bi bi-lightbulb"></i> ${fact(yearlyCount, yearlyCalories)}
-                    </div>
-                `).join('');
-
-                results.style.display = 'block';
-            });
-
-            // Initialize tooltips
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl, {
-                    placement: 'bottom'
-                })
-            })
-
-            // Theme toggling
-            const themeToggle = document.getElementById('theme-toggle');
-            const darkIcon = document.querySelector('.theme-icon-dark');
-            const lightIcon = document.querySelector('.theme-icon-light');
-
-            themeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-theme');
-                darkIcon.style.display = document.body.classList.contains('dark-theme') ? 'none' : 'inline';
-                lightIcon.style.display = document.body.classList.contains('dark-theme') ? 'inline' : 'none';
-            });
-        });
-    </script>
-</body>
-</html>

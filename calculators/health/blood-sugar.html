@@ -22,6 +22,7 @@
                 #ffc107 20%, #ffc107 40%,   /* Pre-diabetes */
                 #dc3545 40%, #dc3545 100%   /* Diabetes */
             );
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .range-marker {
@@ -31,6 +32,7 @@
             background-color: #000;
             top: -5px;
             transform: translateX(-50%);
+            transition: left 0.5s ease-in-out;
         }
 
         .range-label {
@@ -39,6 +41,7 @@
             transform: translateX(-50%);
             font-size: 0.8rem;
             white-space: nowrap;
+            transition: all 0.5s ease-in-out;
         }
 
         .quick-convert {
@@ -46,18 +49,121 @@
             border-radius: 10px;
             padding: 15px;
             margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .quick-convert-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 8px 0;
+            padding: 12px;
             border-bottom: 1px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+
+        .quick-convert-item:hover {
+            background-color: #fff;
+            transform: translateX(-5px);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+            border-radius: 5px;
         }
 
         .quick-convert-item:last-child {
             border-bottom: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .list-group-item {
+            transition: all 0.3s ease;
+        }
+
+        .list-group-item:hover {
+            transform: translateX(-5px);
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .result-container {
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+
+        .conversion-result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #198754;
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .nav-pills .nav-link {
+            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+
+        .nav-pills .nav-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .nav-pills .nav-link.active {
+            background: linear-gradient(135deg, #198754, #157347);
+            box-shadow: 0 2px 4px rgba(25, 135, 84, 0.3);
+        }
+
+        input[type="number"] {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        input[type="number"]:focus {
+            box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #198754, #157347);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(25, 135, 84, 0.3);
+            background: linear-gradient(135deg, #157347, #115c39);
+        }
+
+        .bi-arrow-left-right.text-primary,
+        .bi-bookmark-check.text-primary,
+        .bi-check2-circle.text-primary {
+            color: #198754 !important;
         }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -81,10 +187,6 @@
                     </div>
                     <span class="logo-text">الآلات الحاسبة الشاملة</span>
                 </a>
-                <div class="time-display">
-                    <i class="bi bi-clock"></i>
-                    <span id="currentTime"></span>
-                </div>
             </div>
         </nav>
     </header>
@@ -183,6 +285,17 @@
                             </ul>
                         </div>
                     </div>
+
+                    <!-- Disclaimer Section -->
+                    <div class="alert alert-warning mt-4" style="border-right: 4px solid #ffc107;">
+                        <h5 class="alert-heading mb-3">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            تنبيه مهم
+                        </h5>
+                        <p class="mb-2">هذه الحاسبة مخصصة للأغراض التثقيفية والتوعوية فقط، ولا تعتبر بديلاً عن استشارة الطبيب المختص.</p>
+                        <p class="mb-2">لا نتحمل أي مسؤولية عن أي قرارات طبية أو علاجية تتخذ بناءً على نتائج هذه الحاسبة.</p>
+                        <p class="mb-0">يرجى دائماً استشارة الطبيب المختص للحصول على التشخيص والعلاج المناسب لحالتك الصحية.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -192,4 +305,3 @@
         <script src="blood-sugar.js"></script>
 </body>
 </html>
-

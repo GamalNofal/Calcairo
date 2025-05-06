@@ -1,726 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبة الأسماء المستعارة | اكتشف اسمك المستعار</title>
-    <meta name="description" content="احصل على اسم مستعار مضحك وفريد! أدخل اسمك وبعض المعلومات وسنولد لك اسماً مستعاراً مميزاً">
-    <meta name="keywords" content="حاسبة الأسماء المستعارة, اسم مستعار, لقب مضحك, مولد الألقاب">
-    <meta name="author" content="الآلات الحاسبة الشاملة">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/calculator.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/nickname.css">
-    <link rel="stylesheet" href="../../css/no-theme-toggle.css">
-    <style>
-        .nickname-card {
-            background: linear-gradient(145deg, #ffffff, #f0f0f0);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .nickname-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .nickname-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.5));
-            pointer-events: none;
-        }
-        
-        .result-section {
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .generated-nickname {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin: 20px 0;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .generated-nickname:hover {
-            transform: scale(1.05);
-            color: #3498db;
-        }
-        
-        .nickname-meaning {
-            font-size: 1.1rem;
-            color: #666;
-            margin: 15px 0;
-            line-height: 1.6;
-        }
-        
-        .trait-description {
-            background: #f8f9fa;
-            padding: 12px 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-            transition: all 0.3s ease;
-            border-right: 4px solid #3498db;
-        }
-        
-        .trait-description:hover {
-            transform: translateX(-5px);
-            background: #edf2f7;
-        }
-        
-        .rating-stars {
-            color: #ffd700;
-            font-size: 1.2rem;
-            cursor: pointer;
-        }
-        
-        .rating-stars i {
-            margin: 0 2px;
-            transition: all 0.2s ease;
-        }
-        
-        .rating-stars i:hover {
-            transform: scale(1.2);
-        }
-        
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
-        
-        .share-buttons button {
-            transition: all 0.3s ease;
-            border-radius: 20px;
-            padding: 5px 15px;
-        }
-        
-        .share-buttons button:hover {
-            transform: translateY(-2px);
-        }
-        
-        .copy-btn:hover {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-        }
-        
-        .info-section {
-            margin-top: 20px;
-        }
-        
-        .info-card {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px 0;
-            transition: all 0.3s ease;
-        }
-        
-        .info-card:hover {
-            transform: translateX(-5px);
-            background: #edf2f7;
-        }
-        
-        .personality-traits h4 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .personality-traits h4::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #3498db, #2ecc71);
-            border-radius: 3px;
-        }
-        
-        .form-control:focus, .form-select:focus {
-            box-shadow: 0 0 0 0.25rem rgba(13,110,253,.15);
-        }
-        
-        .btn-generate {
-            background: linear-gradient(45deg, #007bff, #6610f2);
-            border: none;
-            padding: 12px 25px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-generate:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .nickname-emoji {
-            font-size: 3rem;
-            margin: 10px 0;
-            animation: bounce 1s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .trait-tag {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
-            margin: 3px;
-            font-size: 0.9rem;
-            background: #e9ecef;
-        }
-        
-        .fade-in {
-            animation: fadeIn 1s;
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        .animate-in {
-            animation: animateIn 0.5s;
-        }
-        
-        @keyframes animateIn {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        .fade-out {
-            animation: fadeOut 0.3s;
-        }
-        
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
-        }
-        
-        .fun-fact-card {
-            background: linear-gradient(145deg, #f8f9fa, #ffffff);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .fun-fact-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .fun-fact-title {
-            color: #2c3e50;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .fun-fact-text {
-            color: #34495e;
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 0;
-        }
-
-        .fun-facts-section {
-            margin: 30px 0;
-            padding: 20px;
-            background: linear-gradient(145deg, #ffffff, #f8f9fa);
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .fun-fact-carousel {
-            padding: 20px;
-            text-align: center;
-        }
-    </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-EG5T75NQHF');
-    </script>
-</head>
-<body>
-    <header class="bg-white shadow-sm">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../index.html">الرئيسية</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../fun.html">الحاسبات المضحكة</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container py-4">
-        <div class="calculator-container">
-            <h1 class="category-title mb-4">حاسبة الأسماء المستعارة 🎭</h1>
-            
-            <div class="nickname-generator">
-                <div class="form-section">
-                    <form id="nicknameForm" class="calculator-form">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="name" class="form-label">اسمك</label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <label for="birthMonth" class="form-label">شهر ميلادك</label>
-                                <select class="form-select" id="birthMonth" required>
-                                    <option value="">اختر الشهر</option>
-                                    <option value="1">يناير</option>
-                                    <option value="2">فبراير</option>
-                                    <option value="3">مارس</option>
-                                    <option value="4">أبريل</option>
-                                    <option value="5">مايو</option>
-                                    <option value="6">يونيو</option>
-                                    <option value="7">يوليو</option>
-                                    <option value="8">أغسطس</option>
-                                    <option value="9">سبتمبر</option>
-                                    <option value="10">أكتوبر</option>
-                                    <option value="11">نوفمبر</option>
-                                    <option value="12">ديسمبر</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="favoriteColor" class="form-label">لونك المفضل</label>
-                                <select class="form-select" id="favoriteColor" required>
-                                    <option value="">اختر اللون</option>
-                                    <option value="red">الأحمر</option>
-                                    <option value="blue">الأزرق</option>
-                                    <option value="green">الأخضر</option>
-                                    <option value="yellow">الأصفر</option>
-                                    <option value="purple">البنفسجي</option>
-                                    <option value="orange">البرتقالي</option>
-                                    <option value="pink">الوردي</option>
-                                    <option value="brown">البني</option>
-                                    <option value="white">الأبيض</option>
-                                    <option value="black">الأسود</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="favoriteFood" class="form-label">طعامك المفضل</label>
-                                <select class="form-select" id="favoriteFood" required>
-                                    <option value="">اختر الطعام</option>
-                                    <option value="chocolate">شوكولاتة</option>
-                                    <option value="pizza">بيتزا</option>
-                                    <option value="burger">برجر</option>
-                                    <option value="sushi">سوشي</option>
-                                    <option value="pasta">باستا</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="hobby" class="form-label">هوايتك المفضلة</label>
-                                <select class="form-select" id="hobby" required>
-                                    <option value="">اختر الهواية</option>
-                                    <option value="reading">القراءة</option>
-                                    <option value="gaming">الألعاب</option>
-                                    <option value="sports">الرياضة</option>
-                                    <option value="art">الفن</option>
-                                    <option value="music">الموسيقى</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="favoriteAnimal" class="form-label">حيوانك المفضل</label>
-                                <select class="form-select" id="favoriteAnimal" required>
-                                    <option value="">اختر الحيوان</option>
-                                    <option value="cat">القط</option>
-                                    <option value="dog">الكلب</option>
-                                    <option value="lion">الأسد</option>
-                                    <option value="tiger">النمر</option>
-                                    <option value="wolf">الذئب</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label for="personalityType" class="form-label">نوع شخصيتك</label>
-                                <select class="form-select" id="personalityType" required>
-                                    <option value="">اختر نوع الشخصية</option>
-                                    <option value="adventurous">مغامر</option>
-                                    <option value="creative">مبدع</option>
-                                    <option value="friendly">ودود</option>
-                                    <option value="leader">قيادي</option>
-                                    <option value="mysterious">غامض</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary w-100 mt-4">
-                            <i class="bi bi-magic"></i> ولّد اسمي المستعار! 
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Fun Facts Section -->
-                <div class="fun-facts-section mt-4">
-                    <div class="fun-fact-carousel">
-                        <div class="fun-fact-card">
-                            <h5 class="fun-fact-title">هل تعلم؟ 🤔</h5>
-                            <p class="fun-fact-text">الألقاب في الثقافة العربية لها تاريخ عريق، حيث كان العرب يلقبون أبناءهم بألقاب تدل على صفاتهم وأخلاقهم.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="result" class="result-section mt-4" style="display: none;">
-                    <!-- النتائج ستظهر هنا -->
-                </div>
-
-                <div class="info-section mt-5">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="info-card">
-                                <h4>ما هو الاسم المستعار؟</h4>
-                                <p>الاسم المستعار هو اسم مميز يعبر عن شخصيتك وهواياتك. يمكن استخدامه في الألعاب أو المنتديات أو وسائل التواصل الاجتماعي.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-card">
-                                <h4>كيف نولد الأسماء المستعارة؟</h4>
-                                <p>نستخدم خوارزمية ذكية تجمع بين اسمك وتفضيلاتك الشخصية لإنشاء اسم مستعار فريد يعبر عن شخصيتك.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer bg-light">
-        <div class="container">
-            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/theme.js"></script>
-    <script>
-        const adjectives = {
-            red: ['الناري', 'الأحمر', 'المتوهج', 'الملتهب', 'القرمزي', 'العنابي'],
-            blue: ['الأزرق', 'السماوي', 'البحري', 'الكريستالي', 'اللازوردي', 'الفيروزي'],
-            green: ['الأخضر', 'الزمردي', 'الربيعي', 'المورق', 'البستاني', 'اليشمي'],
-            yellow: ['الذهبي', 'الأصفر', 'الشمسي', 'المشرق', 'الليموني', 'الكهرماني'],
-            purple: ['البنفسجي', 'الأرجواني', 'الملكي', 'اللافندري', 'العنبري', 'الباذنجاني'],
-            orange: ['البرتقالي', 'المشمشي', 'الكورالي', 'النارنجي', 'العسلي', 'المرجاني'],
-            pink: ['الوردي', 'القرنفلي', 'الفوشي', 'الزهري', 'الخوخي', 'المخملي'],
-            brown: ['البني', 'الكستنائي', 'الشوكولاتي', 'القهوي', 'العنبري', 'الترابي'],
-            white: ['الأبيض', 'اللؤلؤي', 'الثلجي', 'الفضي', 'الكريستالي', 'النقي'],
-            black: ['الأسود', 'الليلي', 'الفحمي', 'العاجي', 'الحالك', 'الغامق']
-        };
-
-        const emojiMap = {
-            red: '🔥',
-            blue: '🌊',
-            green: '🌿',
-            yellow: '☀️',
-            purple: '🔮',
-            orange: '🎨',
-            pink: '🌸',
-            brown: '🌰',
-            white: '⭐',
-            black: '🌑'
-        };
-
-        const foodTraits = {
-            chocolate: ['محب الشوكولاتة', 'عاشق الحلويات', 'صانع البهجة', 'ملك الحلى', 'سيد الشوكولاتة', 'الحلواني'],
-            pizza: ['عاشق البيتزا', 'صياد النكهات', 'سيد المذاق', 'خبير الطعام', 'ملك البيتزا', 'الشيف'],
-            burger: ['محب البرجر', 'صائد اللذة', 'سيد الشطائر', 'خبير الوجبات', 'ملك البرجر', 'الطباخ'],
-            sushi: ['عاشق السوشي', 'صياد المذاق', 'سيد الأطباق', 'خبير المأكولات', 'ملك السوشي', 'الطاهي'],
-            pasta: ['عاشق الباستا', 'صائد النكهات', 'سيد الأطباق', 'خبير المأكولات', 'ملك الباستا', 'الطاهي']
-        };
-
-        const animalTraits = {
-            cat: ['القط الذكي', 'الأنيق', 'الرشيق', 'المستقل', 'الغامض', 'المتأمل'],
-            dog: ['الوفي', 'المخلص', 'الشجاع', 'الودود', 'المرح', 'النشيط'],
-            lion: ['الأسد', 'القائد', 'الشجاع', 'القوي', 'الملك', 'المهيب'],
-            tiger: ['النمر', 'المخيف', 'القوي', 'الذكي', 'القائد', 'المهيب'],
-            wolf: ['الذئب', 'المحارب', 'القوي', 'الذكي', 'القائد', 'المخطط']
-        };
-
-        const hobbyPrefixes = {
-            reading: ['القارئ', 'المثقف', 'المتعلم', 'الأديب', 'المفكر', 'الباحث'],
-            gaming: ['اللاعب', 'المحارب', 'البطل', 'المغامر', 'القائد', 'المستكشف'],
-            sports: ['الرياضي', 'البطل', 'المحارب', 'النشيط', 'القوي', 'المتفوق'],
-            art: ['الفنان', 'المبدع', 'الرسام', 'المصمم', 'المبتكر', 'الخلاق'],
-            music: ['الموسيقي', 'العازف', 'المطرب', 'الفنان', 'المبدع', 'الحساس'],
-        };
-
-        const personalityTraits = {
-            adventurous: ['المغامر', 'الجريء', 'المقدام', 'الشجاع', 'المتحدي', 'المكتشف'],
-            creative: ['المبدع', 'المبتكر', 'الخلاق', 'الفنان', 'المتميز', 'المتفرد'],
-            friendly: ['الودود', 'اللطيف', 'المحبوب', 'الاجتماعي', 'الحنون', 'المسالم'],
-            leader: ['القائد', 'الزعيم', 'المدير', 'المرشد', 'الموجه', 'المؤثر'],
-            mysterious: ['الغامض', 'المبهم', 'المحير', 'المثير', 'المشوق', 'المثير']
-        };
-
-        const monthlyTraits = {
-            1: ['الشتوي', '❄️'], 2: ['الدافئ', '🌡️'], 3: ['الربيعي', '🌸'], 4: ['المزهر', '🌺'],
-            5: ['المتألق', '✨'], 6: ['الصيفي', '☀️'], 7: ['المتوهج', '🔥'], 8: ['الذهبي', '🌟'],
-            9: ['الخريفي', '🍁'], 10: ['الساحر', '🌙'], 11: ['الغامض', '🌫️'], 12: ['الثلجي', '⛄']
-        };
-
-        const funFacts = {
-            fact1: {
-                title: "حقيقة مثيرة! 🌟",
-                fact: "في الثقافة العربية، الكنية هي اسم يبدأ بـ 'أبو' للرجال و'أم' للنساء، وكانت تستخدم قديماً كعلامة احترام."
-            },
-            fact2: {
-                title: "هل تعلم؟ 🤔",
-                fact: "الألقاب في الثقافة العربية لها تاريخ عريق، حيث كان العرب يلقبون أبناءهم بألقاب تدل على صفاتهم وأخلاقهم."
-            },
-            fact3: {
-                title: "معلومة تاريخية! 📚",
-                fact: "كان الخلفاء العباسيون يُعرفون بألقاب مثل 'المنصور' و'الرشيد'، وكل لقب يعكس صفة مميزة للخليفة."
-            },
-            fact4: {
-                title: "حقيقة طريفة! 🎭",
-                fact: "في العصر الحديث، أصبحت الألقاب المستعارة شائعة في وسائل التواصل الاجتماعي، وتعكس شخصية صاحبها وهواياته."
-            },
-            fact5: {
-                title: "معلومة مدهشة! ⭐",
-                fact: "بعض الألقاب العربية مستوحاة من الطبيعة والحيوانات، مثل 'أسد الصحراء' و'صقر الجزيرة'."
-            },
-            fact6: {
-                title: "حقيقة جميلة! 🌺",
-                fact: "في التراث العربي، كان الشعراء يُعرفون بألقاب مميزة مثل 'المتنبي' و'أبو تمام'، وهي ألقاب لا تزال معروفة حتى اليوم."
-            },
-            fact7: {
-                title: "معلومة شيقة! 🎨",
-                fact: "الألوان لها دلالات خاصة في اختيار الألقاب العربية، فالأخضر يرمز للخير والنماء، والأزرق للسمو والرفعة."
-            },
-            fact8: {
-                title: "هل تعرف؟ 🌙",
-                fact: "في الثقافة العربية، يمكن أن يكتسب الشخص أكثر من لقب في حياته، كل لقب يعبر عن مرحلة أو إنجاز معين."
-            },
-            fact9: {
-                title: "حقيقة مميزة! 💫",
-                fact: "الألقاب في العالم الرقمي أصبحت جزءاً من الهوية الشخصية، وتعبر عن اهتمامات الشخص وشخصيته."
-            },
-            fact10: {
-                title: "معلومة رائعة! 🎯",
-                fact: "بعض الألقاب تصبح أشهر من الاسم الحقيقي، مثل لقب 'العندليب الأسمر' للفنان عبد الحليم حافظ."
-            }
-        };
-
-        function generateNickname(formData) {
-            const colorTrait = getRandomItem(adjectives[formData.favoriteColor]);
-            const foodTrait = getRandomItem(foodTraits[formData.favoriteFood]);
-            const animalTrait = getRandomItem(animalTraits[formData.favoriteAnimal]);
-            const hobbyTrait = getRandomItem(hobbyPrefixes[formData.hobby]);
-            const personalityTrait = getRandomItem(personalityTraits[formData.personalityType]);
-            const monthTrait = monthlyTraits[parseInt(formData.birthMonth)][0];
-            const monthEmoji = monthlyTraits[parseInt(formData.birthMonth)][1];
-            const colorEmoji = emojiMap[formData.favoriteColor];
-
-            // Generate a single nickname with random pattern
-            const nicknamePatterns = [
-                `${formData.name} ${colorTrait} ${animalTrait} ${colorEmoji}`,
-                `${hobbyTrait} ${formData.name} ${monthTrait} ${monthEmoji}`,
-                `${formData.name} ${personalityTrait} ${foodTrait} ✨`,
-                `${monthTrait} ${formData.name} ${colorTrait} 👑`,
-                `${formData.name} ${getRandomItem(['المميز', 'الفريد', 'الرائع', 'المتألق'])} ${colorEmoji}`,
-                `${getRandomItem(['سيد', 'أمير', 'ملك'])} ${formData.name} ${monthEmoji}`
-            ];
-
-            const nickname = getRandomItem(nicknamePatterns);
-
-            // Get personality description
-            const description = generatePersonalityDescription({
-                color: colorTrait,
-                food: foodTrait,
-                animal: animalTrait,
-                hobby: hobbyTrait,
-                personality: personalityTrait,
-                month: monthTrait
-            }, formData);
-
-            return {
-                nicknames: [nickname], // Return array with single nickname for compatibility
-                description: description
-            };
-        }
-
-        function generatePersonalityDescription(traits, formData) {
-            const allDescriptions = [
-                `✨ شخصية ${traits.color} تتميز بالإبداع والتفرد`,
-                `🎯 ${traits.food} يعكس طبيعتك المميزة`,
-                `🌟 مثل ${formData.favoriteAnimal} ${traits.animal} في طباعك`,
-                `💫 ${traits.hobby} يظهر شغفك بـ${formData.hobby}`,
-                `⭐ ${traits.personality} في تعاملك مع الآخرين`,
-                `🌙 مولود شهر ${traits.month} يمنحك طاقة خاصة`
-            ];
-            
-            // Randomly select 2-3 traits
-            const numTraits = Math.random() < 0.5 ? 2 : 3;
-            const shuffled = allDescriptions.sort(() => 0.5 - Math.random());
-            const selectedDescriptions = shuffled.slice(0, numTraits);
-            
-            return selectedDescriptions.join('\\n');
-        }
-
-        function getRandomItem(array) {
-            return array[Math.floor(Math.random() * array.length)];
-        }
-
-        function getRandomFact() {
-            const facts = Object.values(funFacts);
-            return facts[Math.floor(Math.random() * facts.length)];
-        }
-
-        function updateResultContent(result) {
-            const resultDiv = document.getElementById('result');
-            resultDiv.style.display = 'block';
-            
-            // Add fade-out animation
-            resultDiv.classList.remove('fade-in');
-            resultDiv.classList.add('fade-out');
-            
-            setTimeout(() => {
-                // Update content
-                resultDiv.innerHTML = `
-                    <div class="nickname-results">
-                        <div class="nickname-cards">
-                            ${result.nicknames.map((nickname, index) => `
-                                <div class="nickname-card mb-3 animate-in" style="animation-delay: ${index * 0.2}s">
-                                    <h3 class="generated-nickname">${nickname}</h3>
-                                    <div class="rating-stars mt-2">
-                                        <i class="bi bi-star" data-rating="1"></i>
-                                        <i class="bi bi-star" data-rating="2"></i>
-                                        <i class="bi bi-star" data-rating="3"></i>
-                                        <i class="bi bi-star" data-rating="4"></i>
-                                        <i class="bi bi-star" data-rating="5"></i>
-                                    </div>
-                                    <div class="share-buttons mt-3">
-                                        <button class="btn btn-sm btn-outline-primary copy-btn" data-nickname="${nickname}">
-                                            <i class="bi bi-clipboard"></i> نسخ
-                                        </button>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="personality-traits mt-4">
-                            <h4>تحليل شخصيتك 🔮</h4>
-                            ${result.description.split('\\n').map(desc => `
-                                <p class="trait-description">${desc}</p>
-                            `).join('')}
-                        </div>
-                        <div class="fun-fact-card mt-4">
-                            ${(() => {
-                                const fact = getRandomFact();
-                                return `
-                                    <h5 class="fun-fact-title">${fact.title}</h5>
-                                    <p class="fun-fact-text">${fact.fact}</p>
-                                `;
-                            })()}
-                        </div>
-                        <button onclick="location.reload()" class="btn btn-primary mt-4">
-                            <i class="bi bi-arrow-clockwise"></i> تحديث الصفحة
-                        </button>
-                    </div>
-                `;
-                
-                // Add fade-in animation
-                resultDiv.classList.remove('fade-out');
-                resultDiv.classList.add('fade-in');
-                
-                // Attach event listeners for the copy button
-                document.querySelectorAll('.copy-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const nickname = this.dataset.nickname;
-                        navigator.clipboard.writeText(nickname).then(() => {
-                            const originalText = this.innerHTML;
-                            this.innerHTML = '<i class="bi bi-check"></i> تم النسخ';
-                            setTimeout(() => {
-                                this.innerHTML = originalText;
-                            }, 2000);
-                        });
-                    });
-                });
-            }, 300);
-        }
-
-        document.getElementById('nicknameForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                birthMonth: document.getElementById('birthMonth').value,
-                favoriteColor: document.getElementById('favoriteColor').value,
-                favoriteFood: document.getElementById('favoriteFood').value,
-                hobby: document.getElementById('hobby').value,
-                favoriteAnimal: document.getElementById('favoriteAnimal').value,
-                personalityType: document.getElementById('personalityType').value
-            };
-            
-            const result = generateNickname(formData);
-            updateResultContent(result);
-
-            // Update the fun fact in the always-visible section
-            const funFactsSection = document.querySelector('.fun-fact-carousel');
-            const newFact = getRandomFact();
-            funFactsSection.innerHTML = `
-                <div class="fun-fact-card">
-                    <h5 class="fun-fact-title">${newFact.title}</h5>
-                    <p class="fun-fact-text">${newFact.fact}</p>
-                </div>
-            `;
-        });
-    </script>
-    <script src="../../js/nickname.js"></script>
-</body>
-</html>

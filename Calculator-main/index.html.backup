@@ -1,378 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="مجموعة شاملة من الآلات الحاسبة والأدوات المجانية لمساعدتك في حياتك اليومية. حاسبة العمر، حاسبة المال، وأدوات مالية وصحية متنوعة.">
-    <meta name="keywords" content="آلة حاسبة, حاسبة العمر, حاسبة مالية, أدوات حساب, تخطيط مالي, حاسبة صحية">
-    <meta name="author" content="الآلات الحاسبة الشاملة">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="الآلات الحاسبة الشاملة - أدوات حساب مجانية">
-    <meta property="og:description" content="مجموعة شاملة من الآلات الحاسبة والأدوات المجانية لمساعدتك في حياتك اليومية">
-    <meta property="og:type" content="website">
-    <title>الآلات الحاسبة الشاملة - أدوات حساب مجانية</title>
-    <meta name="theme-color" content="#198754">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    
-    <!-- AdSense verification meta tag - Replace PUBLISHER-ID with your actual ID when you have it -->
-    <meta name="google-adsense-account" content="ca-pub-PUBLISHER-ID">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/calculator.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/logo.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧮</text></svg>">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-EG5T75NQHF');
-    </script>
-</head>
-<body>
-    <header class="main-header">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="site-logo" href="index.html">
-                    <i class="bi bi-calculator-fill logo-icon"></i>
-                    <span class="logo-text">الآلات الحاسبة الشاملة</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="index.html">الرئيسية</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog/index.html">المدونة</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#categories">الفئات</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">تواصل معنا</a>
-                        </li>
-                    </ul>
-                    <div class="d-flex align-items-center">
-                        <button id="themeToggle" class="btn btn-link nav-link">
-                            <i class="bi bi-moon-fill"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero py-5 bg-light">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="search-container text-center">
-                            <h1 class="search-title">ابحث عن الحاسبة التي تريدها</h1>
-                            <div class="input-group">
-                                <input type="text" class="form-control search-input" placeholder="ابحث عن حاسبة...">
-                                <button class="btn btn-success" type="button">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="categories" class="py-5">
-            <div class="container">
-                <h2 class="category-title mb-5">فئات الحاسبات</h2>
-                <div class="row g-4">
-                    <!-- Math Calculators -->
-                    <div class="col-md-4">
-                        <div class="calculator-card">
-                            <i class="bi bi-calculator icon"></i>
-                            <h3>الحاسبات الرياضية</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/math/scientific.html"><i class="bi bi-braces"></i>الحاسبة العلمية</a></li>
-                                <li><a href="calculators/math/percentage.html"><i class="bi bi-percent"></i>النسبة المئوية</a></li>
-                                <li><a href="calculators/math/area.html"><i class="bi bi-square"></i>المساحة</a></li>
-                                <li><a href="calculators/math/volume.html"><i class="bi bi-box"></i>الحجم</a></li>
-                                <li><a href="calculators/math/geometry.html"><i class="bi bi-triangle"></i>الأشكال الهندسية</a></li>
-                                <li><a href="calculators/math/unit-converter.html"><i class="bi bi-arrow-left-right"></i>محول الوحدات</a></li>
-                                <li><a href="calculators/math/statistics.html"><i class="bi bi-graph-up"></i>الإحصاء</a></li>
-                                <li><a href="calculators/math/trigonometry.html"><i class="bi bi-triangle-half"></i>حساب المثلثات</a></li>
-                                <li><a href="calculators/math/matrix.html"><i class="bi bi-grid-3x3"></i>حاسبة المصفوفات</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Financial Calculators -->
-                    <div class="col-md-4">
-                        <div class="calculator-card">
-                            <i class="bi bi-cash-coin icon"></i>
-                            <h3>الحاسبات المالية</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/financial/energy.html"><i class="bi bi-lightning-charge"></i>حاسبة استهلاك الطاقة</a></li>
-                                <li><a href="calculators/financial/savings.html"><i class="bi bi-piggy-bank"></i>حاسبة التوفير</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Time Calculators -->
-                    <div class="col-md-4">
-                        <div class="calculator-card time-card">
-                            <i class="bi bi-clock icon"></i>
-                            <h3>حاسبات الوقت والتاريخ</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/age-calculator.html"><i class="bi bi-calendar-check"></i>حساب العمر</a></li>
-                                <li><a href="calculators/time/date-diff.html"><i class="bi bi-calendar-range"></i>الوقت بين تاريخين</a></li>
-                                <li><a href="calculators/time/duration.html"><i class="bi bi-hourglass-split"></i>حساب المدة</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Health Calculators -->
-                    <div class="col-md-4">
-                        <div class="calculator-card">
-                            <i class="bi bi-heart-pulse icon"></i>
-                            <h3>الحاسبات الصحية</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/health/blood-pressure-calc.html"><i class="bi bi-activity"></i>حاسبة ضغط الدم</a></li>
-                                <li><a href="calculators/health/blood-sugar.html"><i class="bi bi-droplet-half"></i>سكر الدم</a></li>
-                                <li><a href="calculators/health/bmi.html"><i class="bi bi-person"></i>مؤشر كتلة الجسم</a></li>
-                                <li><a href="calculators/health/bmr.html"><i class="bi bi-speedometer"></i>معدل الأيض الأساسي</a></li>
-                                <li><a href="calculators/health/body-fat.html"><i class="bi bi-percent"></i>نسبة الدهون</a></li>
-                                <li><a href="calculators/health/calories.html"><i class="bi bi-cup-hot"></i>السعرات الحرارية</a></li>
-                                <li><a href="calculators/health/heart-rate.html"><i class="bi bi-heart"></i>معدل ضربات القلب</a></li>
-                                <li><a href="calculators/health/ideal-weight.html"><i class="bi bi-person-check"></i>الوزن المثالي</a></li>
-                                <li><a href="calculators/health/pregnancy.html"><i class="bi bi-calendar-heart"></i>الحمل والولادة</a></li>
-                                <li><a href="calculators/health/sleep.html"><i class="bi bi-moon"></i>حاسبة النوم</a></li>
-                                <li><a href="calculators/health/water-intake.html"><i class="bi bi-droplet"></i>شرب الماء</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Fun Calculators -->
-                    <div class="col-md-4">
-                        <div class="calculator-card">
-                            <i class="bi bi-emoji-smile icon"></i>
-                            <h3>حاسبات مرحة</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/fun/nickname.html"><i class="bi bi-person-badge"></i>مولد الألقاب</a></li>
-                                <li><a href="calculators/fun/cat-age.html"><i class="bi bi-emoji-smile"></i>عمر القطط</a></li>
-                                <li><a href="calculators/fun/zodiac.html"><i class="bi bi-stars"></i>الأبراج</a></li>
-                                <li><a href="calculators/fun/superpower.html"><i class="bi bi-lightning-charge"></i>حاسبة القوى الخارقة</a></li>
-                                <li><a href="calculators/fun/time-waster.html"><i class="bi bi-hourglass"></i>حاسبة الوقت المهدر</a></li>
-                                <li><a href="calculators/fun/food-stats.html"><i class="bi bi-cup-hot"></i>حاسبة إحصائيات الطعام</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Conversion Tools -->
-                    <div class="col-md-4">
-                        <div class="calculator-card">
-                            <i class="bi bi-arrow-left-right icon"></i>
-                            <h3>أدوات التحويل</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/conversion/units.html"><i class="bi bi-rulers"></i>تحويل الوحدات</a></li>
-                                <li><a href="calculators/conversion/length.html"><i class="bi bi-arrows-expand"></i>تحويل الطول والمسافة</a></li>
-                                <li><a href="calculators/conversion/weight.html"><i class="bi bi-box-seam"></i>تحويل الوزن والكتلة</a></li>
-                                <li><a href="calculators/conversion/currency.html"><i class="bi bi-currency-exchange"></i>تحويل العملات</a></li>
-                                <li><a href="calculators/conversion/dates.html"><i class="bi bi-calendar-date"></i>تحويل التواريخ</a></li>
-                                <li><a href="calculators/conversion/arabic-numbers.html"><i class="bi bi-translate"></i>محول الأرقام العربية</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Islamic Calculators -->
-                    <div class="col-md-4">
-                        <div class="calculator-card">
-                            <i class="bi bi-moon-stars icon"></i>
-                            <h3>الحاسبات الإسلامية</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/islamic/zakat.html"><i class="bi bi-coin"></i>حاسبة الزكاة</a></li>
-                                <li><a href="calculators/islamic/inheritance.html"><i class="bi bi-diagram-3"></i>حاسبة المواريث</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Miscellaneous Tools -->
-                    <div class="col-md-4">
-                        <div class="calculator-card">
-                            <i class="bi bi-grid-3x3-gap icon"></i>
-                            <h3>أدوات متنوعة</h3>
-                            <ul class="calculator-links">
-                                <li><a href="calculators/misc/love.html"><i class="bi bi-heart-fill"></i>حاسبة الحب</a></li>
-                                <li><a href="calculators/misc/travel.html"><i class="bi bi-airplane"></i>حاسبة السفر</a></li>
-                                <li><a href="calculators/misc/decimal.html"><i class="bi bi-123"></i>محول الأرقام</a></li>
-                                <li><a href="calculators/misc/password.html"><i class="bi bi-key"></i>مولد كلمات المرور</a></li>
-                                <li><a href="calculators/misc/url.html"><i class="bi bi-link"></i>محول الروابط</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <section id="about" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">عن الموقع</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card shadow-sm">
-                        <div class="card-body">
-                            <p class="lead mb-4">
-                                منصة "الأدوات الحاسبة الشاملة" هي وجهتك العربية الأولى للحصول على أدوات حسابية دقيقة وشاملة تناسب مختلف احتياجاتك اليومية والمهنية. نسعى لتوفير تجربة سهلة ومتكاملة للمستخدمين عبر تقديم مجموعة واسعة من الحاسبات المتخصصة التي تغطي المجالات الصحية، المالية، الرياضية، وغيرها.
-                            </p>
-                            <div class="row g-4 mt-2">
-                                <div class="col-md-6">
-                                    <div class="feature-card p-3 border rounded">
-                                        <i class="bi bi-calculator text-success mb-2"></i>
-                                        <h3 class="h5">حاسبات رياضية متنوعة</h3>
-                                        <p class="small text-muted">مجموعة شاملة من الحاسبات الرياضية للعمليات المختلفة</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="feature-card p-3 border rounded">
-                                        <i class="bi bi-heart-pulse text-success mb-2"></i>
-                                        <h3 class="h5">حاسبات صحية شاملة</h3>
-                                        <p class="small text-muted">أدوات لحساب المؤشرات الصحية المختلفة</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="feature-card p-3 border rounded">
-                                        <i class="bi bi-arrow-left-right text-success mb-2"></i>
-                                        <h3 class="h5">أدوات تحويل متعددة</h3>
-                                        <p class="small text-muted">محولات للوحدات المختلفة بدقة عالية</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="feature-card p-3 border rounded">
-                                        <i class="bi bi-cash text-success mb-2"></i>
-                                        <h3 class="h5">حاسبات مالية وزكاة</h3>
-                                        <p class="small text-muted">أدوات للحسابات المالية والزكاة</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="alert alert-warning mt-4 mb-0">
-                                <p class="small mb-0">
-                                    جميع الحاسبات والنتائج المقدمة هي لأغراض إرشادية فقط. للمزيد من المعلومات وإخلاء المسؤولية، يرجى زيارة <a href="about.html" class="alert-link">صفحة عن الموقع</a>.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="feedback-section">
-                        <h2 class="h4 mb-4">تواصل معنا</h2>
-                        <div class="card">
-                            <div class="card-body">
-                                <form id="feedbackForm" action="mailto:calculatorarabic@gmail.com" method="post" enctype="text/plain">
-                                    <div class="mb-3">
-                                        <label for="name" class="form-label">الاسم</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email" class="form-label">البريد الإلكتروني</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="subject" class="form-label">الموضوع</label>
-                                        <select class="form-select" id="subject" name="subject" required>
-                                            <option value="">اختر نوع الرسالة</option>
-                                            <option value="اقتراح">اقتراح</option>
-                                            <option value="مشكلة">الإبلاغ عن مشكلة</option>
-                                            <option value="سؤال">سؤال</option>
-                                            <option value="أخرى">أخرى</option>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="message" class="form-label">الرسالة</label>
-                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                                    </div>
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary">
-                                            <i class="bi bi-send me-2"></i>
-                                            إرسال الرسالة
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer bg-light">
-        <div class="container">
-            <p class="mb-0">جميع الحقوق محفوظة &copy; 2024 الآلات الحاسبة الشاملة</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/search.js"></script>
-    <script>
-        function setTheme(isDark) {
-            document.documentElement.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
-            const icon = document.querySelector('#themeToggle i');
-            icon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        }
-
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            setTheme(savedTheme === 'dark');
-        }
-
-        // Theme toggle button
-        document.getElementById('themeToggle').addEventListener('click', function() {
-            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-            setTheme(currentTheme !== 'dark');
-        });
-    </script>
-
-    <script src="js/theme.js"></script>
-
-    <!-- Feedback Form Handler -->
-    <script>
-        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Construct email body
-            const mailtoBody = `الاسم: ${name}%0D%0A` +
-                             `البريد الإلكتروني: ${email}%0D%0A` +
-                             `الموضوع: ${subject}%0D%0A` +
-                             `الرسالة:%0D%0A${message}`;
-            
-            // Open default email client
-            window.location.href = `mailto:calculatorarabic@gmail.com?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
-        });
-    </script>
-</body>
-</html>

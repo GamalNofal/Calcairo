@@ -16,17 +16,65 @@ document.addEventListener('DOMContentLoaded', function() {
             normal: { min: 70, max: 140 },
             prediabetes: { min: 141, max: 199 },
             diabetes: { min: 200, max: 1000 }
+        },
+        a1c: {
+            normal: { min: 4, max: 5.6 },
+            prediabetes: { min: 5.7, max: 6.4 },
+            diabetes: { min: 6.5, max: 14 }
         }
     };
 
     // Common values for quick conversion
     const commonValues = [
-        { mgdl: 70, label: 'الحد الأدنى الطبيعي' },
-        { mgdl: 99, label: 'الحد الأقصى الطبيعي للصائم' },
-        { mgdl: 140, label: 'الحد الأقصى الطبيعي بعد الأكل' },
-        { mgdl: 180, label: 'هدف ما بعد الوجبة لمرضى السكري' },
-        { mgdl: 200, label: 'عتبة تشخيص السكري' }
+        { mgdl: 70, label: 'الحد الأدنى الطبيعي', icon: 'exclamation-triangle' },
+        { mgdl: 99, label: 'الحد الأقصى الطبيعي للصائم', icon: 'check-circle' },
+        { mgdl: 140, label: 'الحد الأقصى الطبيعي بعد الأكل', icon: 'clock' },
+        { mgdl: 180, label: 'هدف ما بعد الوجبة لمرضى السكري', icon: 'bullseye' },
+        { mgdl: 200, label: 'عتبة تشخيص السكري', icon: 'exclamation-circle' }
     ];
+
+    // Lifestyle tips based on blood sugar levels
+    const lifestyleTips = {
+        low: [
+            { tip: 'تناول 15 جرام من الكربوهيدرات سريعة المفعول', icon: 'lightning' },
+            { tip: 'تناول وجبات منتظمة ولا تتخطى أي وجبة', icon: 'clock-history' },
+            { tip: 'احمل دائماً سكر سريع المفعول معك', icon: 'bag-check' }
+        ],
+        normal: [
+            { tip: 'حافظ على نمط حياتك الصحي', icon: 'heart' },
+            { tip: 'مارس الرياضة بانتظام (30 دقيقة يومياً)', icon: 'bicycle' },
+            { tip: 'تناول الخضروات والبروتين في كل وجبة', icon: 'egg-fried' }
+        ],
+        prediabetes: [
+            { tip: 'قلل من تناول السكريات المكررة', icon: 'dash-circle' },
+            { tip: 'زد من النشاط البدني (45 دقيقة يومياً)', icon: 'person-walking' },
+            { tip: 'راقب وزنك وحاول خسارة 5-7% من وزنك', icon: 'graph-down-arrow' }
+        ],
+        diabetes: [
+            { tip: 'راجع طبيبك لوضع خطة علاجية', icon: 'hospital' },
+            { tip: 'قس السكر بانتظام وسجل القراءات', icon: 'journal-check' },
+            { tip: 'تعلم حساب الكربوهيدرات في طعامك', icon: 'calculator' }
+        ]
+    };
+
+    // Food impact on blood sugar
+    const foodImpact = {
+        fast: [
+            { food: 'العسل', impact: 'سريع جداً', icon: '🍯' },
+            { food: 'التمر', impact: 'سريع', icon: '🌴' },
+            { food: 'الخبز الأبيض', impact: 'سريع', icon: '🍞' }
+        ],
+        moderate: [
+            { food: 'الأرز البني', impact: 'معتدل', icon: '🌾' },
+            { food: 'البقوليات', impact: 'معتدل', icon: '🥜' },
+            { food: 'الفواكه الكاملة', impact: 'معتدل', icon: '🍎' }
+        ],
+        slow: [
+            { food: 'الخضروات الورقية', impact: 'بطيء', icon: '🥬' },
+            { food: 'المكسرات', impact: 'بطيء', icon: '🥜' },
+            { food: 'الأفوكادو', impact: 'بطيء', icon: '🥑' }
+        ]
+    };
 
     // Form submission handlers
     mgdlForm.addEventListener('submit', function(e) {
@@ -52,26 +100,40 @@ document.addEventListener('DOMContentLoaded', function() {
             mgdlValue = mmolToMgdl(value);
         }
 
-        // Display results
-        document.getElementById('conversionResult').innerHTML = `
-            ${mgdlValue} mg/dL = ${mmolValue.toFixed(1)} mmol/L
-        `;
+        // Display results with animation
+        const conversionResult = document.getElementById('conversionResult');
+        conversionResult.style.opacity = '0';
+        setTimeout(() => {
+            conversionResult.innerHTML = `
+                <span style="color: #198754;">${mgdlValue} mg/dL = ${mmolValue.toFixed(1)} mmol/L</span>
+            `;
+            conversionResult.style.opacity = '1';
+            conversionResult.style.transition = 'opacity 0.5s ease-in';
+        }, 200);
 
         // Update range status
         updateRangeStatus(mgdlValue);
 
-        // Update range indicator
+        // Update range indicator with animation
         updateRangeIndicator(mgdlValue);
 
         // Update quick conversions
         updateQuickConversions(fromUnit);
 
-        // Update recommendations
+        // Update recommendations and lifestyle tips
         updateRecommendations(mgdlValue);
 
-        // Show results
+        // Show food impact
+        updateFoodImpact(mgdlValue);
+
+        // Show results with smooth animation
+        resultContainer.style.opacity = '0';
         resultContainer.style.display = 'block';
-        resultContainer.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+            resultContainer.style.opacity = '1';
+            resultContainer.style.transition = 'opacity 0.5s ease-in';
+            resultContainer.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
     }
 
     function mgdlToMmol(mgdl) {
@@ -83,21 +145,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateRangeStatus(mgdl) {
-        let status, className;
+        let status, color;
         
         if (mgdl < ranges.fasting.normal.max) {
             status = 'طبيعي';
-            className = 'text-success';
+            color = '#198754';  // Bootstrap success green
         } else if (mgdl < ranges.fasting.prediabetes.max) {
             status = 'ما قبل السكري';
-            className = 'text-warning';
+            color = '#ffc107';  // Bootstrap warning yellow
         } else {
             status = 'نطاق السكري';
-            className = 'text-danger';
+            color = '#dc3545';  // Bootstrap danger red
         }
 
         document.getElementById('rangeStatus').innerHTML = `
-            <span class="${className}">${status}</span>
+            <span style="color: ${color}; font-weight: 600;">${status}</span>
         `;
     }
 
@@ -133,6 +195,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <strong>${value.mgdl} mg/dL</strong>
                     <span class="text-muted">=</span>
                     <strong>${mgdlToMmol(value.mgdl).toFixed(1)} mmol/L</strong>
+                    <i class="bi bi-${value.icon} text-primary ms-2"></i>
                 </span>
             `;
             quickConversions.appendChild(div);
@@ -143,38 +206,93 @@ document.addEventListener('DOMContentLoaded', function() {
         const recommendationsList = document.getElementById('recommendations');
         recommendationsList.innerHTML = '';
 
-        const recommendations = [
-            'المستويات الطبيعية للسكر الصائم: 70-99 mg/dL (3.9-5.5 mmol/L)',
-            'المستويات الطبيعية بعد الأكل: 70-140 mg/dL (3.9-7.8 mmol/L)',
-            'يجب قياس السكر الصائم بعد 8 ساعات من الصيام'
-        ];
-
+        let category;
         if (mgdl < ranges.fasting.normal.min) {
-            recommendations.push(
-                'مستوى السكر منخفض، تناول شيئاً حلواً سريعاً',
-                'راجع طبيبك إذا تكرر انخفاض السكر'
-            );
-        } else if (mgdl > ranges.fasting.prediabetes.max) {
-            recommendations.push(
-                'راجع طبيبك لتقييم الحالة',
-                'قلل من تناول السكريات والنشويات',
-                'مارس الرياضة بانتظام'
-            );
+            category = 'low';
+        } else if (mgdl <= ranges.fasting.normal.max) {
+            category = 'normal';
+        } else if (mgdl <= ranges.fasting.prediabetes.max) {
+            category = 'prediabetes';
+        } else {
+            category = 'diabetes';
         }
 
-        // Add general recommendations
-        recommendations.push(
-            'احرص على قياس السكر بانتظام',
-            'احتفظ بسجل لقراءات السكر',
-            'اتبع نظاماً غذائياً صحياً'
-        );
+        // Add lifestyle tips
+        const tipsSection = document.createElement('div');
+        tipsSection.className = 'mb-4';
+        tipsSection.innerHTML = `
+            <h5 class="mb-3">
+                <i class="bi bi-lightbulb-fill text-warning me-2"></i>
+                نصائح نمط الحياة
+            </h5>
+            <div class="list-group">
+                ${lifestyleTips[category].map(tip => `
+                    <div class="list-group-item list-group-item-action d-flex align-items-center" 
+                         style="animation: fadeIn 0.5s ease-in;">
+                        <i class="bi bi-${tip.icon} text-primary me-3"></i>
+                        <span>${tip.tip}</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        recommendationsList.appendChild(tipsSection);
 
-        // Display recommendations
-        recommendations.forEach(recommendation => {
-            const li = document.createElement('li');
-            li.innerHTML = `<i class="bi bi-check2-circle text-primary me-2"></i>${recommendation}`;
-            li.className = 'mb-2';
-            recommendationsList.appendChild(li);
-        });
+        // Add general recommendations
+        const generalSection = document.createElement('div');
+        generalSection.className = 'mb-4';
+        generalSection.innerHTML = `
+            <h5 class="mb-3">
+                <i class="bi bi-info-circle-fill text-info me-2"></i>
+                معلومات مهمة
+            </h5>
+            <ul class="list-unstyled">
+                <li class="mb-2">
+                    <i class="bi bi-check2-circle text-success me-2"></i>
+                    المستويات الطبيعية للسكر الصائم: ${ranges.fasting.normal.min}-${ranges.fasting.normal.max} mg/dL
+                </li>
+                <li class="mb-2">
+                    <i class="bi bi-check2-circle text-success me-2"></i>
+                    المستويات الطبيعية بعد الأكل: ${ranges.postMeal.normal.min}-${ranges.postMeal.normal.max} mg/dL
+                </li>
+                <li class="mb-2">
+                    <i class="bi bi-clock text-primary me-2"></i>
+                    يجب قياس السكر الصائم بعد 8 ساعات من الصيام
+                </li>
+            </ul>
+        `;
+        recommendationsList.appendChild(generalSection);
+    }
+
+    function updateFoodImpact(mgdl) {
+        const foodSection = document.createElement('div');
+        foodSection.className = 'mt-4';
+        foodSection.innerHTML = `
+            <h5 class="mb-3">
+                <i class="bi bi-basket-fill text-success me-2"></i>
+                تأثير الأطعمة على السكر
+            </h5>
+            <div class="row g-3">
+                ${Object.entries(foodImpact).map(([speed, foods]) => `
+                    <div class="col-md-4">
+                        <div class="card h-100" style="animation: fadeIn 0.5s ease-in;">
+                            <div class="card-body">
+                                <h6 class="card-title text-center mb-3">
+                                    ${speed === 'fast' ? 'تأثير سريع' : 
+                                      speed === 'moderate' ? 'تأثير معتدل' : 'تأثير بطيء'}
+                                </h6>
+                                ${foods.map(food => `
+                                    <div class="d-flex align-items-center mb-2">
+                                        <span class="me-2">${food.icon}</span>
+                                        <span>${food.food}</span>
+                                        <span class="ms-auto small text-muted">${food.impact}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        document.getElementById('recommendations').appendChild(foodSection);
     }
 });

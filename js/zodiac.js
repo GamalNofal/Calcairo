@@ -9,7 +9,8 @@ const ZODIAC_SIGNS = {
         color: '#FF4136',
         stone: 'الياقوت الأحمر',
         description: 'برج الحمل هو أول الأبراج، يتميز أصحابه بالشجاعة والحماس والطاقة العالية.',
-        emoji: '🐏'
+        emoji: '🐏',
+        funny_facts: ['يحب التحدث عن نفسه لدرجة أن الناس يظنون أنه مقدم برامج! 🎤', 'لديه طاقة تكفي لشحن هاتف محمول! 🔋', 'يتخذ قرارات سريعة حتى في اختيار وجبة الغداء! 🍽️']
     },
     'الثور': { 
         symbol: '♉', 
@@ -20,7 +21,8 @@ const ZODIAC_SIGNS = {
         color: '#2ECC40',
         stone: 'الزمرد',
         description: 'برج الثور يتميز بالصبر والثبات، محب للجمال والفنون والطبيعة.',
-        emoji: '🐂'
+        emoji: '🐂',
+        funny_facts: ['يمكنه تذوق الطعام في أحلامه! 😋', 'عناده يمكن أن يحرك الجبال! ⛰️', 'يحفظ قائمة المطاعم أكثر من حفظه لأرقام الهواتف! 📝']
     },
     'الجوزاء': { 
         symbol: '♊', 
@@ -31,7 +33,8 @@ const ZODIAC_SIGNS = {
         color: '#FFDC00',
         stone: 'العقيق',
         description: 'برج الجوزاء متعدد المواهب، سريع التكيف، يحب التواصل والتعلم.',
-        emoji: '👥'
+        emoji: '👥',
+        funny_facts: ['يتحدث مع نفسه ويجيب أيضاً! 🗣️', 'لديه شخصيتان: واحدة للعمل وأخرى للحفلات! 🎭', 'يمكنه قراءة كتابين في نفس الوقت! 📚']
     },
     'السرطان': { 
         symbol: '♋', 
@@ -42,7 +45,8 @@ const ZODIAC_SIGNS = {
         color: '#B10DC9',
         stone: 'اللؤلؤ',
         description: 'برج السرطان هو أكثر الأبراج عاطفية وحدساً! 💫',
-        emoji: '🦀'
+        emoji: '🦀',
+        funny_facts: ['يبكي أثناء مشاهدة إعلانات الطعام! 😢', 'لديه ذاكرة خارقة لتذكر كل موقف محرج! 🤦', 'يحتفظ بصور الطعام أكثر من صور العائلة! 📸']
     },
     'الأسد': { 
         symbol: '♌', 
@@ -53,7 +57,8 @@ const ZODIAC_SIGNS = {
         color: '#FF851B',
         stone: 'الياقوت الأصفر',
         description: 'برج الأسد هو أكثر الأبراج النارية حماساً وإبداعاً! 🔥',
-        emoji: '🦁'
+        emoji: '🦁',
+        funny_facts: ['يعتقد أن السيلفي اخترع من أجله! 🤳', 'يضع نفسه كخلفية للهاتف! 📱', 'يعتبر المرآة أفضل صديق! 👑']
     },
     'العذراء': { 
         symbol: '♍', 
@@ -64,7 +69,8 @@ const ZODIAC_SIGNS = {
         color: '#7FDBFF',
         stone: 'العقيق اليماني',
         description: 'برج العذراء دقيق ومنظم، يهتم بالتفاصيل والصحة والنظام.',
-        emoji: '👧'
+        emoji: '👧',
+        funny_facts: ['يرتب حتى الإيموجي حسب الألوان! 🎨', 'لديه جدول زمني لترتيب جدوله الزمني! 📅', 'يصحح الأخطاء الإملائية في رسائل الآخرين ذهنياً! ✍️']
     },
     'الميزان': { 
         symbol: '♎', 
@@ -75,7 +81,8 @@ const ZODIAC_SIGNS = {
         color: '#F012BE',
         stone: 'الياقوت الأزرق',
         description: 'برج الميزان يحب العدل والتوازن، دبلوماسي ومحب للجمال.',
-        emoji: '⚖️'
+        emoji: '⚖️',
+        funny_facts: ['يقضي ساعة في اختيار فلتر الصورة! 🖼️', 'يوازن بين القهوة والشاي بشرب كليهما! ☕', 'يحتاج لرأي الجميع حتى في اختيار لون الجوارب! 🧦']
     },
     'العقرب': { 
         symbol: '♏', 
@@ -86,7 +93,8 @@ const ZODIAC_SIGNS = {
         color: '#85144B',
         stone: 'الزبرجد',
         description: 'برج العقرب غامض وقوي، يتميز بالذكاء العاطفي والحدس القوي.',
-        emoji: '🦂'
+        emoji: '🦂',
+        funny_facts: ['يحفظ أسرار لا يعرفها حتى أصحابها! 🤫', 'نظرته تخيف حتى الظلام! 👀', 'يعرف كل شيء ولكن يتظاهر بأنه لا يعرف شيئاً! 🕵️']
     },
     'القوس': { 
         symbol: '♐', 
@@ -97,29 +105,32 @@ const ZODIAC_SIGNS = {
         color: '#39CCCC',
         stone: 'الفيروز',
         description: 'برج القوس متفائل ومغامر، يحب السفر واكتشاف الثقافات الجديدة.',
-        emoji: '🏹'
+        emoji: '🏹',
+        funny_facts: ['يخطط لرحلة حول العالم وينتهي به الأمر في المقهى المجاور! ☕', 'يعتقد أن الصراحة هي أن تقول كل ما يخطر ببالك! 🗣️', 'يضحك على نكتة قالها لنفسه! 😄']
     },
     'الجدي': { 
         symbol: '♑', 
-        traits: 'طموح، منضبط، صبور', 
+        traits: 'طموح، منضبط، عملي', 
         element: 'الأرض',
         lucky_numbers: [10, 19, 28],
         compatibility: ['الثور', 'العذراء'],
-        color: '#01FF70',
+        color: '#001F3F',
         stone: 'الماس',
-        description: 'برج الجدي طموح وعملي، يسعى دائماً للنجاح والتقدم في الحياة.',
-        emoji: '🐐'
+        description: 'برج الجدي طموح وعملي، يسعى دائماً للنجاح والتقدم.',
+        emoji: '🐐',
+        funny_facts: ['يضع خطة خمسية لشراء البقالة! 🛒', 'يعتبر الجدول الإكسل أفضل اختراع في التاريخ! 📊', 'يحتفل بإنجازاته بالعمل لساعات إضافية! 💼']
     },
     'الدلو': { 
         symbol: '♒', 
-        traits: 'مستقل، مبتكر، إنساني', 
+        traits: 'مبتكر، مستقل، إنساني', 
         element: 'الهواء',
         lucky_numbers: [11, 20, 29],
         compatibility: ['الجوزاء', 'الميزان'],
-        color: '#001F3F',
-        stone: 'الفيروز',
-        description: 'برج الدلو مبتكر ومستقل، يهتم بالإنسانية والتقدم العلمي.',
-        emoji: '🏺'
+        color: '#01FF70',
+        stone: 'العقيق الأزرق',
+        description: 'برج الدلو مبتكر وفريد، يفكر خارج الصندوق دائماً.',
+        emoji: '🏺',
+        funny_facts: ['يخترع مشاكل ليجد لها حلولاً! 💡', 'يعتقد أن الروبوتات ستكون أفضل أصدقائه! 🤖', 'يلبس جوارب مختلفة عمداً! 🧦']
     },
     'الحوت': { 
         symbol: '♓', 
@@ -128,9 +139,10 @@ const ZODIAC_SIGNS = {
         lucky_numbers: [12, 21, 30],
         compatibility: ['السرطان', 'العقرب'],
         color: '#0074D9',
-        stone: 'الزبرجد',
-        description: 'برج الحوت حساس وفني، يتميز بالخيال الواسع والإبداع.',
-        emoji: '🐟'
+        stone: 'حجر القمر',
+        description: 'برج الحوت حساس وخيالي، يتميز بالإبداع والحدس القوي.',
+        emoji: '🐟',
+        funny_facts: ['يعيش في عالم موازٍ معظم الوقت! 🌌', 'يتحدث مع النباتات ويعتقد أنها تفهمه! 🌿', 'ينسى أين وضع هاتفه وهو يتحدث به! 📱']
     }
 };
 
@@ -181,15 +193,23 @@ function updateDays() {
     const daysInMonth = new Date(year, month, 0).getDate();
     const currentDay = parseInt(daySelect.value);
     
-    daySelect.innerHTML = '<option value="">اختر اليوم</option>';
-    
-    for (let i = 1; i <= daysInMonth; i++) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        if (i === currentDay) option.selected = true;
-        daySelect.appendChild(option);
-    }
+    // Fade out
+    daySelect.style.opacity = '0';
+    setTimeout(() => {
+        daySelect.innerHTML = '<option value="">اختر اليوم</option>';
+        
+        for (let i = 1; i <= daysInMonth; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            if (i === currentDay) option.selected = true;
+            daySelect.appendChild(option);
+        }
+        
+        // Fade in
+        daySelect.style.opacity = '1';
+        daySelect.style.transition = 'opacity 0.3s ease-in';
+    }, 200);
 }
 
 // تهيئة حاسبة الأبراج
@@ -218,57 +238,59 @@ function initializeZodiacCalculator() {
 // عرض النتيجة مع الرسوم المتحركة
 function displayZodiacResult(zodiacInfo) {
     const resultDiv = document.getElementById('result');
-    resultDiv.style.display = 'block';
-    resultDiv.innerHTML = `
-        <div class="result-card">
-            <div class="zodiac-symbol mb-4">
-                <span class="display-1">${zodiacInfo.emoji}</span>
-                <span class="display-4 ms-2">${zodiacInfo.symbol}</span>
-            </div>
-            <h2 class="zodiac-name mb-4">برجك هو: ${Object.keys(ZODIAC_SIGNS).find(key => ZODIAC_SIGNS[key] === zodiacInfo)}</h2>
-            <div class="zodiac-details">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="info-item mb-3">
-                            <i class="bi bi-stars"></i>
-                            <strong>الصفات:</strong> ${zodiacInfo.traits}
-                        </div>
-                        <div class="info-item mb-3">
-                            <i class="bi bi-droplet-fill"></i>
-                            <strong>العنصر:</strong> ${zodiacInfo.element}
-                        </div>
-                        <div class="info-item mb-3">
-                            <i class="bi bi-dice-5"></i>
-                            <strong>أرقام الحظ:</strong> ${zodiacInfo.lucky_numbers.join(', ')}
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="info-item mb-3">
-                            <i class="bi bi-heart-fill"></i>
-                            <strong>التوافق مع:</strong> ${zodiacInfo.compatibility.join('، ')}
-                        </div>
-                        <div class="info-item mb-3">
-                            <i class="bi bi-palette-fill"></i>
-                            <strong>اللون المميز:</strong> <span style="color: ${zodiacInfo.color}">■</span>
-                        </div>
-                        <div class="info-item mb-3">
-                            <i class="bi bi-gem"></i>
-                            <strong>الحجر الكريم:</strong> ${zodiacInfo.stone}
-                        </div>
-                    </div>
-                </div>
-                <div class="description mt-4">
-                    <p class="lead">${zodiacInfo.description}</p>
-                </div>
-            </div>
-            <button onclick="resetCalculator()" class="btn btn-primary mt-4">
-                <i class="bi bi-arrow-repeat"></i> حساب برج آخر
-            </button>
-        </div>
-    `;
+    const zodiacSymbol = resultDiv.querySelector('.zodiac-symbol');
+    const zodiacName = resultDiv.querySelector('.zodiac-name');
+    const traits = resultDiv.querySelector('.traits span');
+    const element = resultDiv.querySelector('.element span');
+    const stone = resultDiv.querySelector('.stone span');
+    const compatibility = resultDiv.querySelector('.compatibility span');
+    const description = resultDiv.querySelector('.description span');
+    const numbers = resultDiv.querySelector('.numbers span');
+    const funnyFacts = resultDiv.querySelector('.funny-facts');
+
+    // Clear previous results
+    resultDiv.style.opacity = '0';
     
-    // تمرير إلى النتيجة
-    resultDiv.scrollIntoView({ behavior: 'smooth' });
+    // Set new content
+    zodiacSymbol.innerHTML = `${zodiacInfo.symbol} ${zodiacInfo.emoji}`;
+    zodiacName.innerHTML = `برج ${Object.keys(ZODIAC_SIGNS).find(key => ZODIAC_SIGNS[key] === zodiacInfo)}`;
+    traits.textContent = zodiacInfo.traits;
+    element.innerHTML = `${getElementEmoji(zodiacInfo.element)} ${zodiacInfo.element}`;
+    stone.textContent = zodiacInfo.stone;
+    compatibility.innerHTML = zodiacInfo.compatibility.map(sign => `<span class="compatibility-sign">${sign}</span>`).join(' ، ');
+    description.textContent = zodiacInfo.description;
+    funnyFacts.innerHTML = zodiacInfo.funny_facts.map(fact => `<li>${fact}</li>`).join('');
+    
+    // Display lucky numbers with animation
+    numbers.innerHTML = zodiacInfo.lucky_numbers
+        .map(num => `<span class="lucky-number">${num}</span>`)
+        .join(' ، ');
+
+    // Show results with animation
+    resultDiv.style.display = 'block';
+    setTimeout(() => {
+        resultDiv.style.opacity = '1';
+        resultDiv.style.transition = 'opacity 0.5s ease-in';
+    }, 100);
+
+    // Animate lucky numbers
+    const luckyNumbers = resultDiv.querySelectorAll('.lucky-number');
+    luckyNumbers.forEach((num, index) => {
+        setTimeout(() => {
+            num.style.transform = 'scale(1)';
+            num.style.opacity = '1';
+        }, index * 200);
+    });
+}
+
+function getElementEmoji(element) {
+    const emojis = {
+        'النار': '🔥',
+        'الأرض': '🌍',
+        'الهواء': '💨',
+        'الماء': '💧'
+    };
+    return emojis[element] || '';
 }
 
 // إعادة تعيين الحاسبة
@@ -319,8 +341,22 @@ function showError(message) {
     `;
 }
 
-// تهيئة الصفحة عند التحميل
+// إضافة مؤثرات حركية للأزرار
+function addButtonEffects() {
+    const submitButton = document.querySelector('.discover-btn');
+    
+    submitButton.addEventListener('mouseover', () => {
+        submitButton.style.transform = 'translateY(-2px)';
+    });
+    
+    submitButton.addEventListener('mouseout', () => {
+        submitButton.style.transform = 'translateY(0)';
+    });
+}
+
+// تهيئة الصفحة
 document.addEventListener('DOMContentLoaded', function() {
     populateDateDropdowns();
     initializeZodiacCalculator();
+    addButtonEffects();
 });

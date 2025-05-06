@@ -7,6 +7,15 @@
     <meta name="description" content="اكتشف برجك وشخصيتك وحظك اليومي مع حاسبة الأبراج! تعرف على توافقك مع الأبراج الأخرى">
     <meta name="keywords" content="حاسبة الأبراج, الأبراج, علم الفلك, التوافق, حظك اليومي">
     <meta name="author" content="الآلات الحاسبة الشاملة">
+    <meta name="theme-color" content="#198754">
+    <meta name="google-adsense-account" content="ca-pub-5346000361286122">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346000361286122" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5346000361286122",
+            enable_page_level_ads: true
+        });
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -53,82 +62,252 @@
                         <div class="card calculator-card">
                             <div class="card-body">
                                 <div class="birth-date-section mb-4">
-                                    <h3 class="text-center mb-4">أدخل تاريخ ميلادك 📅</h3>
+                                    <h3 class="text-center mb-4">
+                                        <span class="zodiac-title-icon">🌟</span>
+                                        أدخل تاريخ ميلادك
+                                        <span class="zodiac-title-icon">📅</span>
+                                    </h3>
                                     <form id="zodiacForm" class="calculator-form">
                                         <div class="row g-3">
                                             <div class="col-md-4">
-                                                <label for="birthDay" class="form-label">اليوم</label>
-                                                <select class="form-select" id="birthDay" required>
+                                                <label for="birthDay" class="form-label">
+                                                    <i class="bi bi-calendar-day"></i> اليوم
+                                                </label>
+                                                <select class="form-select custom-select" id="birthDay" required>
                                                     <option value="">اختر اليوم</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="birthMonth" class="form-label">الشهر</label>
-                                                <select class="form-select" id="birthMonth" required>
+                                                <label for="birthMonth" class="form-label">
+                                                    <i class="bi bi-calendar-month"></i> الشهر
+                                                </label>
+                                                <select class="form-select custom-select" id="birthMonth" required>
                                                     <option value="">اختر الشهر</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-4">
-                                                <label for="birthYear" class="form-label">السنة</label>
-                                                <select class="form-select" id="birthYear" required>
+                                                <label for="birthYear" class="form-label">
+                                                    <i class="bi bi-calendar-range"></i> السنة
+                                                </label>
+                                                <select class="form-select custom-select" id="birthYear" required>
                                                     <option value="">اختر السنة</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary w-100 mt-4">اكتشف برجك! 🔮</button>
+                                        <button type="submit" class="btn btn-primary w-100 mt-4 discover-btn">
+                                            <i class="bi bi-stars"></i>
+                                            اكتشف برجك!
+                                            <i class="bi bi-magic"></i>
+                                        </button>
                                     </form>
                                 </div>
 
-                                <div id="result" class="text-center" style="display: none;">
-                                    <!-- النتائج ستظهر هنا -->
+                                <div id="result" class="calculator-result mt-4" style="display: none;">
+                                    <div class="result-content text-center">
+                                        <div class="zodiac-symbol mb-3"></div>
+                                        <h3 class="zodiac-name mb-3"></h3>
+                                        
+                                        <div class="info-section mb-4">
+                                            <div class="info-card mb-3">
+                                                <p class="traits mb-2">
+                                                    <i class="bi bi-person-heart"></i> السمات: 
+                                                    <span></span>
+                                                </p>
+                                                <p class="element mb-2">
+                                                    <i class="bi bi-stars"></i> العنصر: 
+                                                    <span></span>
+                                                </p>
+                                                <p class="stone mb-2">
+                                                    <i class="bi bi-gem"></i> الحجر الكريم: 
+                                                    <span></span>
+                                                </p>
+                                                <p class="compatibility mb-2">
+                                                    <i class="bi bi-hearts"></i> التوافق مع: 
+                                                    <span></span>
+                                                </p>
+                                                <p class="description mb-2">
+                                                    <i class="bi bi-info-circle"></i> 
+                                                    <span></span>
+                                                </p>
+                                                <p class="numbers mb-2">
+                                                    <i class="bi bi-dice-5"></i> الأرقام المحظوظة: 
+                                                    <span></span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="funny-facts-section mb-4">
+                                            <h4 class="text-center mb-3">
+                                                <span class="fun-icon">😄</span>
+                                                حقائق مضحكة عن برجك
+                                                <span class="fun-icon">😄</span>
+                                            </h4>
+                                            <ul class="funny-facts fun-facts-list"></ul>
+                                        </div>
+
+                                        <button class="btn btn-outline-primary mt-4" onclick="window.location.reload()">
+                                            <i class="bi bi-arrow-repeat"></i>
+                                            حساب برج آخر
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row g-4 mt-4">
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h4 class="card-title">
-                                            <i class="bi bi-stars me-2"></i>
-                                            عناصر الأبراج
-                                        </h4>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">النارية: الحمل، الأسد، القوس 🔥</li>
-                                            <li class="list-group-item">الترابية: الثور، العذراء، الجدي 🌍</li>
-                                            <li class="list-group-item">الهوائية: الجوزاء، الميزان، الدلو 💨</li>
-                                            <li class="list-group-item">المائية: السرطان، العقرب، الحوت 💧</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h4 class="card-title">
-                                            <i class="bi bi-lightbulb me-2"></i>
-                                            حقائق ممتعة عن الأبراج
-                                        </h4>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">برج الأسد هو أكثر الأبراج النارية حماساً وإبداعاً! 🔥</li>
-                                            <li class="list-group-item">برج السرطان هو أكثر الأبراج عاطفية وحدساً! 💫</li>
-                                            <li class="list-group-item">برج العقرب هو أكثر الأبراج غموضاً وسحراً! 🦂</li>
-                                            <li class="list-group-item">برج الحوت هو آخر برج في دائرة الأبراج! 🐟</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <style>
+                            .zodiac-title-icon {
+                                font-size: 1.5em;
+                                margin: 0 10px;
+                                animation: sparkle 1.5s infinite;
+                            }
 
-                        <div class="info-box mt-4">
-                            <h4>معلومات إضافية عن الأبراج</h4>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">تنقسم الأبراج إلى أربعة عناصر: النار، الهواء، الماء، والتراب 🌍</li>
-                                <li class="list-group-item">لكل برج حجر كريم خاص به يجلب له الحظ! 💎</li>
-                                <li class="list-group-item">تتوافق الأبراج النارية مع بعضها بشكل كبير! 🔥</li>
-                                <li class="list-group-item">الأبراج المائية هي الأكثر عاطفية وحساسية! 💧</li>
-                            </ul>
-                        </div>
+                            .custom-select {
+                                border-radius: 15px;
+                                padding: 12px;
+                                border: 2px solid #e9ecef;
+                                transition: all 0.3s ease;
+                            }
+
+                            .custom-select:focus {
+                                border-color: #8b5cf6;
+                                box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25);
+                            }
+
+                            .discover-btn {
+                                background: linear-gradient(135deg, #8b5cf6, #6366f1);
+                                border: none;
+                                padding: 15px;
+                                font-size: 1.1em;
+                                border-radius: 15px;
+                                transition: all 0.3s ease;
+                            }
+
+                            .discover-btn:hover {
+                                transform: translateY(-2px);
+                                box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+                            }
+
+                            .zodiac-symbol {
+                                font-size: 3em;
+                                background: linear-gradient(135deg, #8b5cf6, #6366f1);
+                                width: 120px;
+                                height: 120px;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin: 0 auto;
+                                color: white;
+                                animation: float 3s ease-in-out infinite;
+                            }
+
+                            .zodiac-name {
+                                color: #8b5cf6;
+                                font-weight: bold;
+                            }
+
+                            .info-card {
+                                background: rgba(139, 92, 246, 0.05);
+                                border-radius: 15px;
+                                padding: 20px;
+                                margin-bottom: 15px;
+                                border: 1px solid rgba(139, 92, 246, 0.1);
+                            }
+
+                            .funny-facts-section {
+                                background: rgba(139, 92, 246, 0.05);
+                                border-radius: 15px;
+                                padding: 20px;
+                                margin-top: 30px;
+                                border: 1px solid rgba(139, 92, 246, 0.1);
+                            }
+
+                            .fun-facts-list {
+                                list-style: none;
+                                padding: 0;
+                                margin: 0;
+                            }
+
+                            .fun-facts-list li {
+                                background: rgba(139, 92, 246, 0.05);
+                                margin: 10px 0;
+                                padding: 15px;
+                                border-radius: 10px;
+                                text-align: right;
+                                animation: slideIn 0.5s ease-out forwards;
+                                opacity: 0;
+                                transform: translateX(20px);
+                                border: 1px solid rgba(139, 92, 246, 0.1);
+                            }
+
+                            .lucky-number {
+                                display: inline-block;
+                                width: 40px;
+                                height: 40px;
+                                background: linear-gradient(135deg, #8b5cf6, #6366f1);
+                                color: white;
+                                border-radius: 50%;
+                                text-align: center;
+                                line-height: 40px;
+                                margin: 0 5px;
+                                font-weight: bold;
+                                animation: pulse 2s infinite;
+                                opacity: 0;
+                                transform: scale(0.8);
+                                transition: all 0.3s ease;
+                            }
+
+                            .btn-outline-primary {
+                                color: #8b5cf6;
+                                border-color: #8b5cf6;
+                            }
+
+                            .btn-outline-primary:hover {
+                                background-color: #8b5cf6;
+                                border-color: #8b5cf6;
+                                color: white;
+                            }
+
+                            .info-card i {
+                                color: #8b5cf6;
+                                margin-left: 5px;
+                            }
+
+                            .compatibility-sign {
+                                display: inline-block;
+                                padding: 5px 10px;
+                                background: rgba(139, 92, 246, 0.1);
+                                border-radius: 15px;
+                                margin: 0 3px;
+                            }
+
+                            @keyframes float {
+                                0%, 100% { transform: translateY(0); }
+                                50% { transform: translateY(-10px); }
+                            }
+
+                            @keyframes bounce {
+                                0%, 100% { transform: translateY(0); }
+                                50% { transform: translateY(-5px); }
+                            }
+
+                            @keyframes pulse {
+                                0%, 100% { transform: scale(1); }
+                                50% { transform: scale(1.1); }
+                            }
+
+                            @keyframes slideIn {
+                                to {
+                                    opacity: 1;
+                                    transform: translateX(0);
+                                }
+                            }
+
+                            @keyframes sparkle {
+                                0%, 100% { opacity: 1; }
+                                50% { opacity: 0.6; }
+                            }
+                        </style>
                     </div>
                 </div>
             </div>

@@ -1,148 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبة الأبراج | اكتشف برجك وطالعك اليومي</title>
-    <meta name="description" content="اكتشف برجك وشخصيتك وحظك اليومي مع حاسبة الأبراج! تعرف على توافقك مع الأبراج الأخرى">
-    <meta name="keywords" content="حاسبة الأبراج, الأبراج, علم الفلك, التوافق, حظك اليومي">
-    <meta name="author" content="الآلات الحاسبة الشاملة">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/calculator.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-EG5T75NQHF');
-    </script>
-</head>
-<body>
-    <header class="bg-white shadow-sm">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../../index.html">الرئيسية</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="../fun.html">الحاسبات المضحكة</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <div class="calculator-container">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <h1 class="category-title text-center">حاسبة الأبراج 🌟</h1>
-                        
-                        <div class="card calculator-card">
-                            <div class="card-body">
-                                <div class="birth-date-section mb-4">
-                                    <h3 class="text-center mb-4">أدخل تاريخ ميلادك 📅</h3>
-                                    <form id="zodiacForm" class="calculator-form">
-                                        <div class="row g-3">
-                                            <div class="col-md-4">
-                                                <label for="birthDay" class="form-label">اليوم</label>
-                                                <select class="form-select" id="birthDay" required>
-                                                    <option value="">اختر اليوم</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="birthMonth" class="form-label">الشهر</label>
-                                                <select class="form-select" id="birthMonth" required>
-                                                    <option value="">اختر الشهر</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="birthYear" class="form-label">السنة</label>
-                                                <select class="form-select" id="birthYear" required>
-                                                    <option value="">اختر السنة</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary w-100 mt-4">اكتشف برجك! 🔮</button>
-                                    </form>
-                                </div>
-
-                                <div id="result" class="text-center" style="display: none;">
-                                    <!-- النتائج ستظهر هنا -->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row g-4 mt-4">
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h4 class="card-title">
-                                            <i class="bi bi-stars me-2"></i>
-                                            عناصر الأبراج
-                                        </h4>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">النارية: الحمل، الأسد، القوس 🔥</li>
-                                            <li class="list-group-item">الترابية: الثور، العذراء، الجدي 🌍</li>
-                                            <li class="list-group-item">الهوائية: الجوزاء، الميزان، الدلو 💨</li>
-                                            <li class="list-group-item">المائية: السرطان، العقرب، الحوت 💧</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-body">
-                                        <h4 class="card-title">
-                                            <i class="bi bi-lightbulb me-2"></i>
-                                            حقائق ممتعة عن الأبراج
-                                        </h4>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">برج الأسد هو أكثر الأبراج النارية حماساً وإبداعاً! 🔥</li>
-                                            <li class="list-group-item">برج السرطان هو أكثر الأبراج عاطفية وحدساً! 💫</li>
-                                            <li class="list-group-item">برج العقرب هو أكثر الأبراج غموضاً وسحراً! 🦂</li>
-                                            <li class="list-group-item">برج الحوت هو آخر برج في دائرة الأبراج! 🐟</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="info-box mt-4">
-                            <h4>معلومات إضافية عن الأبراج</h4>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">تنقسم الأبراج إلى أربعة عناصر: النار، الهواء، الماء، والتراب 🌍</li>
-                                <li class="list-group-item">لكل برج حجر كريم خاص به يجلب له الحظ! 💎</li>
-                                <li class="list-group-item">تتوافق الأبراج النارية مع بعضها بشكل كبير! 🔥</li>
-                                <li class="list-group-item">الأبراج المائية هي الأكثر عاطفية وحساسية! 💧</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer bg-light">
-        <div class="container">
-            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/utils.js"></script>
-    <script src="../../js/zodiac.js"></script>
-</body>
-</html>
