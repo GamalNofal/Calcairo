@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محول التواريخ - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حول بين التقويم الميلادي والهجري بسهولة ودقة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/conversion.css">
+    <meta name="theme-color" content="#198754">
+    <meta name="google-adsense-account" content="ca-pub-5346000361286122">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346000361286122" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5346000361286122",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../conversion.html">أدوات التحويل</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-4">
+        <div class="calculator-container">
+            <h1 class="category-title mb-4">محول التواريخ <i class="bi bi-calendar-date"></i></h1>
+            
+            <div class="conversion-calculator">
+                <div id="alertMessage" class="alert" style="display: none;"></div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <form id="dateConverterForm" class="needs-validation" novalidate>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="calendar-select">
+                                        <label class="form-label">من التقويم</label>
+                                        <select class="form-select" id="fromCalendar" required>
+                                            <option value="gregorian" selected>الميلادي</option>
+                                            <option value="hijri">الهجري</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="calendar-select">
+                                        <label class="form-label">إلى التقويم</label>
+                                        <select class="form-select" id="toCalendar" required>
+                                            <option value="gregorian">الميلادي</option>
+                                            <option value="hijri" selected>الهجري</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 text-center">
+                                    <button type="button" id="swapCalendars" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-title="اختصار لوحة المفاتيح: Alt + S">
+                                        <i class="bi bi-arrow-left-right"></i> تبديل التقويمين
+                                    </button>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">اليوم</label>
+                                    <input type="number" class="form-control" id="day" required min="1" max="31" value="1">
+                                    <div class="invalid-feedback">
+                                        يرجى إدخال يوم صحيح
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">الشهر</label>
+                                    <select class="form-select" id="month" required>
+                                        <!-- Will be populated by JavaScript -->
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        يرجى اختيار شهر صحيح
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="form-label">السنة</label>
+                                    <input type="number" class="form-control" id="year" required min="1" value="2025">
+                                    <div class="invalid-feedback">
+                                        يرجى إدخال سنة صحيحة
+                                    </div>
+                                </div>
+
+                                <div class="col-12 text-center">
+                                    <button type="button" id="useToday" class="btn btn-outline-success me-2" data-bs-toggle="tooltip" data-bs-title="اختصار لوحة المفاتيح: Alt + T">
+                                        <i class="bi bi-calendar-check"></i> استخدم تاريخ اليوم
+                                    </button>
+                                    <button type="submit" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-title="اختصار لوحة المفاتيح: Alt + C">
+                                        <i class="bi bi-arrow-repeat"></i> تحويل التاريخ
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div id="result" class="mt-4 d-none">
+                            <h5 class="mb-3">نتيجة التحويل</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6 class="card-subtitle mb-2 text-muted">التاريخ الأصلي</h6>
+                                            <p id="originalDate" class="card-text mb-0"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h6 class="card-subtitle mb-2 text-muted">التاريخ المحول</h6>
+                                            <p id="convertedDate" class="card-text mb-0"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="conversion-info mt-5">
+                    <h4 class="mb-4">معلومات عن التقويمات</h4>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="info-card p-4 border rounded bg-light">
+                                <h5 class="text-primary">التقويم الميلادي</h5>
+                                <ul class="list-unstyled mt-3 mb-0">
+                                    <li class="mb-2"><i class="bi bi-calendar-event me-2"></i>يبدأ من ميلاد السيد المسيح</li>
+                                    <li class="mb-2"><i class="bi bi-calendar3 me-2"></i>السنة 12 شهراً</li>
+                                    <li><i class="bi bi-calendar2-week me-2"></i>عدد أيام السنة 365 أو 366 يوماً</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info-card p-4 border rounded bg-light">
+                                <h5 class="text-primary">التقويم الهجري</h5>
+                                <ul class="list-unstyled mt-3 mb-0">
+                                    <li class="mb-2"><i class="bi bi-calendar-event me-2"></i>يبدأ من هجرة الرسول ﷺ</li>
+                                    <li class="mb-2"><i class="bi bi-calendar3 me-2"></i>السنة 12 شهراً قمرياً</li>
+                                    <li><i class="bi bi-calendar2-week me-2"></i>عدد أيام السنة 354 أو 355 يوماً</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 الآلات الحاسبة الشاملة. جميع الحقوق محفوظة.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/theme.js"></script>
+    <script src="../../js/dates.js"></script>
+    <script>
+        // Initialize tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
+</body>
+</html>

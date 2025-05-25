@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الزكاة | حساب زكاة المال</title>
+    <meta name="description" content="احسب زكاة مالك بسهولة وبدقة. حاسبة زكاة شاملة تدعم مختلف أنواع الأموال والذهب والفضة">
+    <meta name="keywords" content="حاسبة الزكاة, حساب الزكاة, زكاة المال, زكاة الذهب, نصاب الزكاة, كيفية حساب الزكاة">
+    <meta name="theme-color" content="#198754">
+    <meta name="google-adsense-account" content="ca-pub-5346000361286122">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346000361286122" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5346000361286122",
+            enable_page_level_ads: true
+        });
+    </script>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-EG5T75NQHF');
+    </script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        body {
+            font-family: 'Cairo', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+            color: #0d6efd;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title i {
+            font-size: 1.25rem;
+        }
+        .result-card {
+            background: #0d6efd;
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .result-amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        .result-details {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .calculate-btn {
+            background: #0d6efd;
+            color: white;
+            padding: 0.75rem 3rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+        }
+        .calculate-btn:hover {
+            background: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../../index.html">
+                    <i class="bi bi-calculator"></i>
+                    الآلات الحاسبة الشاملة
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../islamic.html">الحاسبات الإسلامية</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5">
+        <div class="calculator-container">
+            <h1 class="text-center mb-4">
+                <i class="bi bi-calculator"></i>
+                حاسبة الزكاة
+            </h1>
+
+            <form id="zakatForm">
+                <!-- النقود والأرصدة -->
+                <div class="mb-4">
+                    <h3 class="section-title">
+                        <i class="bi bi-cash-stack"></i>
+                        النقود والأرصدة
+                    </h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">النقود السائلة</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="cash" min="0" step="0.01">
+                                <select class="form-select" id="currency" style="max-width: 140px;">
+                                    <option value="SAR" data-symbol="ر.س">ريال سعودي</option>
+                                    <option value="EGP" data-symbol="ج.م">جنيه مصري</option>
+                                    <option value="USD" data-symbol="$">دولار أمريكي</option>
+                                    <option value="EUR" data-symbol="€">يورو</option>
+                                    <option value="GBP" data-symbol="£">جنيه إسترليني</option>
+                                    <option value="AED" data-symbol="د.إ">درهم إماراتي</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">الأرصدة البنكية</label>
+                            <input type="number" class="form-control" id="bankBalance" min="0" step="0.01">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الذهب والفضة -->
+                <div class="mb-4">
+                    <h3 class="section-title">
+                        <i class="bi bi-gem text-warning"></i>
+                        الذهب والفضة
+                    </h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">وزن الذهب (جرام)</label>
+                            <input type="number" class="form-control" id="goldWeight" min="0" step="0.01">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">وزن الفضة (جرام)</label>
+                            <input type="number" class="form-control" id="silverWeight" min="0" step="0.01">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- زر الحساب -->
+                <div class="text-center">
+                    <button type="button" id="calculateBtn" class="calculate-btn">
+                        احسب الزكاة
+                    </button>
+                </div>
+            </form>
+
+            <!-- نتيجة الحساب -->
+            <div id="resultCard" class="result-card" style="display: none;">
+                <h3>مقدار الزكاة</h3>
+                <div id="zakatAmount" class="result-amount"></div>
+                <div id="zakatDetails" class="result-details"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة &copy; 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        class ZakatCalculator {
+            constructor() {
+                // Current prices (in SAR)
+                this.prices = {
+                    gold: 250,  // Price per gram
+                    silver: 3   // Price per gram
+                };
+
+                // Nisab thresholds (in grams)
+                this.nisab = {
+                    gold: 85,    // 85 grams of gold
+                    silver: 595  // 595 grams of silver
+                };
+
+                // Exchange rates (relative to SAR)
+                this.exchangeRates = {
+                    SAR: 1.00,
+                    EGP: 0.12,  // 1 SAR = ~8.33 EGP
+                    USD: 3.75,
+                    EUR: 4.12,
+                    GBP: 4.77,
+                    AED: 1.02
+                };
+
+                this.initializeCalculator();
+            }
+
+            initializeCalculator() {
+                // Get DOM elements
+                this.calculateBtn = document.getElementById('calculateBtn');
+                this.resultCard = document.getElementById('resultCard');
+                this.zakatAmount = document.getElementById('zakatAmount');
+                this.zakatDetails = document.getElementById('zakatDetails');
+
+                // Add event listener to calculate button
+                if (this.calculateBtn) {
+                    this.calculateBtn.addEventListener('click', () => this.calculateZakat());
+                }
+            }
+
+            calculateZakat() {
+                try {
+                    // Get form values
+                    const cash = parseFloat(document.getElementById('cash').value) || 0;
+                    const bankBalance = parseFloat(document.getElementById('bankBalance').value) || 0;
+                    const goldWeight = parseFloat(document.getElementById('goldWeight').value) || 0;
+                    const silverWeight = parseFloat(document.getElementById('silverWeight').value) || 0;
+                    const currency = document.getElementById('currency').value;
+
+                    // Convert to SAR
+                    const exchangeRate = this.exchangeRates[currency];
+                    const totalCash = (cash + bankBalance) / exchangeRate;
+
+                    // Calculate precious metals value in SAR
+                    const goldValue = goldWeight * this.prices.gold;
+                    const silverValue = silverWeight * this.prices.silver;
+
+                    // Calculate total assets in SAR
+                    const totalAssets = totalCash + goldValue + silverValue;
+
+                    // Calculate Nisab threshold in SAR
+                    const goldNisab = this.nisab.gold * this.prices.gold;
+                    const silverNisab = this.nisab.silver * this.prices.silver;
+                    const nisabThreshold = Math.min(goldNisab, silverNisab);
+
+                    // Calculate Zakat
+                    const zakatAmount = totalAssets >= nisabThreshold ? totalAssets * 0.025 : 0;
+
+                    // Convert back to selected currency
+                    const finalZakat = zakatAmount * exchangeRate;
+                    const finalTotalAssets = totalAssets * exchangeRate;
+                    const finalNisabThreshold = nisabThreshold * exchangeRate;
+
+                    // Display results
+                    this.displayResults({
+                        zakatAmount: finalZakat,
+                        totalAssets: finalTotalAssets,
+                        nisabThreshold: finalNisabThreshold,
+                        currency: currency,
+                        isEligible: totalAssets >= nisabThreshold
+                    });
+
+                } catch (error) {
+                    console.error('Error calculating zakat:', error);
+                    alert('حدث خطأ أثناء حساب الزكاة');
+                }
+            }
+
+            displayResults(result) {
+                // Format numbers
+                const formatter = new Intl.NumberFormat('ar-SA', {
+                    style: 'currency',
+                    currency: result.currency,
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+
+                // Show result card
+                this.resultCard.style.display = 'block';
+
+                // Update amount
+                this.zakatAmount.textContent = formatter.format(result.zakatAmount);
+
+                // Update details with more explanations
+                let detailsHTML = `
+                    <div class="calculation-details p-3 mb-3 rounded" style="background: rgba(255,255,255,0.1);">
+                        <div class="mb-3">
+                            <h4 class="mb-2">تفاصيل الحساب:</h4>
+                            <div class="mb-2">إجمالي الأصول: ${formatter.format(result.totalAssets)}</div>
+                            <div class="mb-2">نصاب الزكاة: ${formatter.format(result.nisabThreshold)}</div>
+                            <div class="mb-2">نسبة الزكاة: 2.5% من إجمالي الأصول</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <h4 class="mb-2">معلومات مهمة:</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-1">• نصاب الذهب: 85 جرام من الذهب</li>
+                                <li class="mb-1">• نصاب الفضة: 595 جرام من الفضة</li>
+                                <li class="mb-1">• يؤخذ بأقل النصابين في حساب الزكاة</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-3 ${result.isEligible ? 'text-white' : 'text-warning'}">
+                            <strong>النتيجة:</strong> 
+                            ${result.isEligible ? 
+                                `تجب عليك الزكاة لأن أصولك (${formatter.format(result.totalAssets)}) 
+                                 تتجاوز نصاب الزكاة (${formatter.format(result.nisabThreshold)})` 
+                                : 
+                                `لا تجب عليك الزكاة لأن أصولك (${formatter.format(result.totalAssets)}) 
+                                 لم تبلغ نصاب الزكاة (${formatter.format(result.nisabThreshold)})`
+                            }
+                        </div>
+                    </div>
+                `;
+                
+                this.zakatDetails.innerHTML = detailsHTML;
+
+                // Scroll to results
+                this.resultCard.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Initialize calculator when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ZakatCalculator();
+        });
+    </script>
+</body>
+</html>

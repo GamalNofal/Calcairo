@@ -1,0 +1,266 @@
+/* Conversion Calculator Styles */
+.conversion-calculator {
+    background-color: var(--bs-white);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.number-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(to bottom, rgba(var(--bs-primary-rgb), 0.03), rgba(var(--bs-primary-rgb), 0.01));
+    border-radius: 1rem;
+}
+
+.number-input-group {
+    background-color: var(--bs-white);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.number-input-group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.number-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.number-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(var(--bs-primary-rgb), 0.1);
+    color: var(--bs-primary);
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.number-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--bs-gray-700);
+}
+
+.number-example {
+    color: var(--bs-gray-600);
+    font-size: 0.9rem;
+}
+
+.input-container {
+    position: relative;
+}
+
+.number-control {
+    width: 100%;
+    padding: 0.875rem 3rem 0.875rem 1rem;
+    font-size: 1.1rem;
+    border: 2px solid rgba(var(--bs-primary-rgb), 0.1);
+    border-radius: 0.75rem;
+    background-color: var(--bs-white);
+    transition: all 0.3s ease;
+}
+
+.number-control:focus {
+    outline: none;
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 4px rgba(var(--bs-primary-rgb), 0.1);
+}
+
+.number-control::placeholder {
+    color: var(--bs-gray-500);
+}
+
+.copy-button {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--bs-gray-600);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-button:hover {
+    color: var(--bs-primary);
+}
+
+.number-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    color: var(--bs-gray-500);
+}
+
+.number-divider i {
+    font-size: 1.25rem;
+    opacity: 0.7;
+    transform: rotate(90deg);
+}
+
+/* History Section */
+.conversion-history {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.history-item {
+    background-color: var(--bs-white);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(var(--bs-primary-rgb), 0.1);
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    background-color: rgba(var(--bs-primary-rgb), 0.02);
+    transform: translateX(-2px);
+}
+
+.conversion-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.conversion-details > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.badge {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Toast Messages */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    min-width: 300px;
+    background-color: var(--bs-white);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(1rem);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dark Theme Support */
+[data-bs-theme="dark"] .conversion-calculator,
+[data-bs-theme="dark"] .number-input-group,
+[data-bs-theme="dark"] .number-control,
+[data-bs-theme="dark"] .history-item {
+    background-color: var(--bs-dark);
+}
+
+[data-bs-theme="dark"] .number-text {
+    color: var(--bs-gray-200);
+}
+
+[data-bs-theme="dark"] .number-example {
+    color: var(--bs-gray-400);
+}
+
+[data-bs-theme="dark"] .number-control {
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--bs-gray-200);
+}
+
+[data-bs-theme="dark"] .number-control::placeholder {
+    color: var(--bs-gray-600);
+}
+
+[data-bs-theme="dark"] .copy-button {
+    color: var(--bs-gray-400);
+}
+
+[data-bs-theme="dark"] .copy-button:hover {
+    color: var(--bs-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .conversion-calculator {
+        padding: 1.25rem;
+    }
+
+    .number-inputs {
+        padding: 0.75rem;
+    }
+
+    .number-input-group {
+        padding: 1rem;
+    }
+
+    .number-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+
+    .number-text {
+        font-size: 1rem;
+    }
+
+    .toast {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        min-width: auto;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: -0.75rem 0 0 -0.75rem;
+    border: 2px solid var(--bs-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}

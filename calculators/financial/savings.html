@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة التوفير - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حاسبة التوفير - احسب مقدار ما يمكنك توفيره من دخلك الشهري">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        .savings-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bs-success);
+        }
+        .savings-percentage {
+            font-size: 1.5rem;
+            color: var(--bs-primary);
+            margin-right: 10px;
+        }
+        .expense-item {
+            background: var(--bs-light);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        .dark-theme .expense-item {
+            background: var(--bs-dark);
+        }
+        .expense-amount {
+            font-weight: 600;
+            color: var(--bs-danger);
+        }
+        .remove-btn {
+            color: var(--bs-danger);
+            cursor: pointer;
+        }
+        .category-icon {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        .progress {
+            height: 25px;
+        }
+        .progress-bar {
+            transition: width 0.6s ease;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+        .savings-goal {
+            background: var(--bs-light);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .dark-theme .savings-goal {
+            background: var(--bs-dark);
+        }
+        .goal-progress {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        .tip-card {
+            border-right: 4px solid var(--bs-primary);
+            padding: 15px;
+            margin-bottom: 15px;
+            background: var(--bs-light);
+            border-radius: 8px;
+        }
+        .dark-theme .tip-card {
+            background: var(--bs-dark);
+        }
+    </style>
+    <meta name="theme-color" content="#198754">
+    <meta name="google-adsense-account" content="ca-pub-5346000361286122">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346000361286122" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5346000361286122",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand site-logo" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../financial.html">الحاسبات المالية</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="calculator-container">
+            <h1 class="category-title">حاسبة التوفير</h1>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <!-- نموذج الدخل -->
+                    <div class="mb-4">
+                        <h4 class="section-title">الدخل الشهري</h4>
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="input-group mb-3">
+                                    <input type="number" class="form-control" id="salary" placeholder="أدخل راتبك الشهري" min="0" step="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- نموذج المصروفات -->
+                    <div class="mb-4">
+                        <h4 class="section-title">إضافة مصروف</h4>
+                        <div class="mb-3">
+                            <label class="form-label">الفئة</label>
+                            <select class="form-select" id="expenseCategory">
+                                <option value="">اختر الفئة...</option>
+                                <option value="سكن">سكن</option>
+                                <option value="مواصلات">مواصلات</option>
+                                <option value="طعام">طعام</option>
+                                <option value="فواتير">فواتير</option>
+                                <option value="تأمين">تأمين</option>
+                                <option value="ترفيه">ترفيه</option>
+                                <option value="تعليم">تعليم</option>
+                                <option value="صحة">صحة</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">المبلغ</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="expenseAmount" min="0" step="10">
+                            </div>
+                        </div>
+                        <button class="btn btn-success w-100" onclick="addExpense()">إضافة المصروف</button>
+                    </div>
+
+                    <!-- هدف التوفير -->
+                    <div class="savings-goal">
+                        <h4 class="section-title">هدف التوفير</h4>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="savingsGoal" placeholder="أدخل هدف التوفير" min="0" step="1000">
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" id="goalProgress" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <div class="goal-progress text-center" id="goalProgressText"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- ملخص التوفير -->
+                    <div class="result-box">
+                        <h3 class="text-center mb-4">ملخص التوفير الشهري</h3>
+                        
+                        <div class="text-center mb-4">
+                            <div class="savings-amount" id="savingsAmount">0</div>
+                            <div class="savings-percentage" id="savingsPercentage">0%</div>
+                        </div>
+
+                        <div class="progress mb-4">
+                            <div class="progress-bar" id="expensesProgress" role="progressbar" style="width: 0%">
+                                المصروفات
+                            </div>
+                            <div class="progress-bar bg-success" id="savingsProgress" role="progressbar" style="width: 0%">
+                                التوفير
+                            </div>
+                        </div>
+
+                        <!-- قائمة المصروفات -->
+                        <div id="expensesList"></div>
+
+                        <!-- الرسم البياني -->
+                        <div class="chart-container">
+                            <canvas id="expensesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- نصائح للتوفير -->
+                    <div class="calculator-info mt-4">
+                        <h4>نصائح للتوفير</h4>
+                        <div class="tip-card">
+                            <h5>قاعدة 50/30/20</h5>
+                            <p>خصص 50% للضروريات، 30% للرغبات، و20% للتوفير والاستثمار</p>
+                        </div>
+                        <div class="tip-card">
+                            <h5>التوفير التلقائي</h5>
+                            <p>اجعل التوفير أولوية بتحويل مبلغ ثابت تلقائياً في بداية كل شهر</p>
+                        </div>
+                        <div class="tip-card">
+                            <h5>تتبع المصروفات</h5>
+                            <p>سجل جميع مصروفاتك لتحديد مجالات التوفير المحتملة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer bg-light">
+        <div class="container">
+            <p class="mb-0">جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // أيقونات الفئات
+        const categoryIcons = {
+            'سكن': 'bi-house',
+            'مواصلات': 'bi-car-front',
+            'طعام': 'bi-cart',
+            'فواتير': 'bi-receipt',
+            'تأمين': 'bi-shield-check',
+            'ترفيه': 'bi-controller',
+            'تعليم': 'bi-book',
+            'صحة': 'bi-heart-pulse',
+            'أخرى': 'bi-three-dots'
+        };
+
+        class SavingsCalculator {
+            constructor() {
+                this.expenses = [];
+                this.salary = 0;
+                this.savingsGoal = 0;
+                this.chart = null;
+            }
+
+            formatCurrency(amount) {
+                return new Intl.NumberFormat('ar-EG', {
+                    style: 'decimal',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(amount);
+            }
+
+            setSalary(amount) {
+                this.salary = Number(amount);
+                this.updateCalculations();
+            }
+
+            setSavingsGoal(amount) {
+                this.savingsGoal = Number(amount);
+                this.updateCalculations();
+            }
+
+            addExpense(category, amount) {
+                this.expenses.push({
+                    id: Date.now(),
+                    category,
+                    amount: Number(amount)
+                });
+                this.updateCalculations();
+            }
+
+            removeExpense(id) {
+                this.expenses = this.expenses.filter(e => e.id !== id);
+                this.updateCalculations();
+            }
+
+            getTotalExpenses() {
+                return this.expenses.reduce((sum, exp) => sum + exp.amount, 0);
+            }
+
+            getSavingsAmount() {
+                return Math.max(0, this.salary - this.getTotalExpenses());
+            }
+
+            getSavingsPercentage() {
+                return this.salary > 0 ? (this.getSavingsAmount() / this.salary) * 100 : 0;
+            }
+
+            getExpensesByCategory() {
+                const categories = {};
+                this.expenses.forEach(exp => {
+                    categories[exp.category] = (categories[exp.category] || 0) + exp.amount;
+                });
+                return categories;
+            }
+
+            updateChart() {
+                const expensesByCategory = this.getExpensesByCategory();
+                const data = {
+                    labels: Object.keys(expensesByCategory),
+                    datasets: [{
+                        data: Object.values(expensesByCategory),
+                        backgroundColor: [
+                            '#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', 
+                            '#9966ff', '#ff9f40', '#ea80fc', '#90caf9', '#a5d6a7'
+                        ]
+                    }]
+                };
+
+                if (this.chart) {
+                    this.chart.destroy();
+                }
+
+                const ctx = document.getElementById('expensesChart').getContext('2d');
+                this.chart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    font: {
+                                        family: 'Cairo'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            updateCalculations() {
+                const totalExpenses = this.getTotalExpenses();
+                const savings = this.getSavingsAmount();
+                const savingsPercentage = this.getSavingsPercentage();
+
+                // تحديث مبلغ التوفير
+                document.getElementById('savingsAmount').textContent = 
+                    this.formatCurrency(savings);
+                document.getElementById('savingsPercentage').textContent = 
+                    savingsPercentage.toFixed(1) + '%';
+
+                // تحديث شريط التقدم
+                const expensesPercentage = this.salary > 0 ? (totalExpenses / this.salary) * 100 : 0;
+                document.getElementById('expensesProgress').style.width = expensesPercentage + '%';
+                document.getElementById('savingsProgress').style.width = savingsPercentage + '%';
+
+                // تحديث قائمة المصروفات
+                const expensesList = document.getElementById('expensesList');
+                expensesList.innerHTML = this.expenses.map(exp => `
+                    <div class="expense-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="bi ${categoryIcons[exp.category]} category-icon"></i>
+                                <strong>${exp.category}</strong>
+                            </div>
+                            <div>
+                                <span class="expense-amount">${this.formatCurrency(exp.amount)}</span>
+                                <i class="bi bi-x-lg remove-btn me-2" onclick="removeExpense(${exp.id})"></i>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                // تحديث هدف التوفير
+                if (this.savingsGoal > 0) {
+                    const progress = (savings / this.savingsGoal) * 100;
+                    document.getElementById('goalProgress').style.width = Math.min(100, progress) + '%';
+                    document.getElementById('goalProgressText').textContent = 
+                        `${this.formatCurrency(savings)} من ${this.formatCurrency(this.savingsGoal)} (${progress.toFixed(1)}%)`;
+                }
+
+                this.updateChart();
+            }
+        }
+
+        const calculator = new SavingsCalculator();
+
+        // معالجة الأحداث
+        document.getElementById('salary').addEventListener('input', function() {
+            calculator.setSalary(this.value);
+        });
+
+        document.getElementById('savingsGoal').addEventListener('input', function() {
+            calculator.setSavingsGoal(this.value);
+        });
+
+        function addExpense() {
+            const category = document.getElementById('expenseCategory').value;
+            const amount = document.getElementById('expenseAmount').value;
+
+            if (category && amount > 0) {
+                calculator.addExpense(category, amount);
+                document.getElementById('expenseCategory').value = '';
+                document.getElementById('expenseAmount').value = '';
+            }
+        }
+
+        function removeExpense(id) {
+            calculator.removeExpense(id);
+        }
+
+        // تبديل السمة
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIconDark = document.querySelector('.theme-icon-dark');
+        const themeIconLight = document.querySelector('.theme-icon-light');
+
+        function setTheme(isDark) {
+            document.body.classList.toggle('dark-theme', isDark);
+            themeIconDark.style.display = isDark ? 'none' : 'block';
+            themeIconLight.style.display = isDark ? 'block' : 'none';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = !document.body.classList.contains('dark-theme');
+            setTheme(isDark);
+        });
+
+        // التحقق من السمة المحفوظة
+        if (localStorage.getItem('theme') === 'dark') {
+            setTheme(true);
+        }
+    </script>
+</body>
+</html>

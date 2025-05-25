@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محول مقاسات الملابس - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="حاسبة لتحويل مقاسات الملابس بين المعايير المختلفة (الأمريكية، البريطانية، الأوروبية)">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <meta name="theme-color" content="#198754">
+    <meta name="google-adsense-account" content="ca-pub-5346000361286122">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346000361286122" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5346000361286122",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="calculator-container bg-white rounded-3 shadow p-4">
+                        <h1 class="text-center mb-4">
+                            <i class="bi bi-rulers text-primary"></i>
+                            محول مقاسات الملابس
+                        </h1>
+                        
+                        <form id="sizeForm">
+                            <div class="mb-3">
+                                <label for="clothingType" class="form-label">نوع الملابس</label>
+                                <select class="form-select" id="clothingType">
+                                    <option value="tops">ملابس علوية</option>
+                                    <option value="pants">بنطلون</option>
+                                    <option value="dresses">فساتين</option>
+                                    <option value="shoes">أحذية</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="fromStandard" class="form-label">تحويل من</label>
+                                <select class="form-select" id="fromStandard">
+                                    <option value="US">مقاس أمريكي (US)</option>
+                                    <option value="UK">مقاس بريطاني (UK)</option>
+                                    <option value="EU">مقاس أوروبي (EU)</option>
+                                    <option value="letter">مقاس حرفي (S, M, L, XL)</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="size" class="form-label">المقاس</label>
+                                <input type="text" class="form-control" id="size" required placeholder="مثال: 36 أو M أو XL">
+                                <div class="form-text">
+                                    للمقاسات الحرفية، استخدم: XS, S, M, L, XL, 2XL, 3XL
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 mb-4">تحويل</button>
+                        </form>
+
+                        <div id="results" class="mt-4" style="display: none;">
+                            <h5 class="text-center mb-3">المقاسات المكافئة</h5>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>المعيار</th>
+                                            <th>المقاس</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="sizeResults">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="calculator-info mt-4">
+                            <h4>معلومات هامة:</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">المقاسات تقريبية وقد تختلف حسب الماركة والتصميم</li>
+                                <li class="list-group-item">ننصح بمراجعة جدول المقاسات الخاص بكل منتج قبل الشراء</li>
+                                <li class="list-group-item">يفضل أخذ القياسات الدقيقة للجسم ومقارنتها مع جدول مقاسات المنتج</li>
+                                <li class="list-group-item">نحن غير مسؤولين عن أي اختلاف في المقاسات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>جميع الحقوق محفوظة © 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/clothing-size.js"></script>
+</body>
+</html>

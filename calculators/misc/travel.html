@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة الرحلات - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="احسب تكاليف رحلتك وخطط لها بسهولة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+    <meta name="theme-color" content="#198754">
+    <meta name="google-adsense-account" content="ca-pub-5346000361286122">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346000361286122" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5346000361286122",
+            enable_page_level_ads: true
+        });
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html#categories">الفئات</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="calculator-container bg-white rounded-3 shadow p-4">
+                        <h1 class="text-center mb-4">
+                            <i class="bi bi-airplane text-primary"></i>
+                            حاسبة الرحلات
+                        </h1>
+
+                        <form id="travelForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <!-- Trip Details -->
+                                <div class="col-md-6">
+                                    <label class="form-label">مدينة المغادرة</label>
+                                    <input type="text" class="form-control" id="departureCity" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">مدينة الوصول</label>
+                                    <input type="text" class="form-control" id="arrivalCity" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">تاريخ المغادرة</label>
+                                    <input type="date" class="form-control" id="departureDate" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">تاريخ العودة</label>
+                                    <input type="date" class="form-control" id="returnDate">
+                                </div>
+
+                                <!-- Expenses -->
+                                <div class="col-12">
+                                    <h4 class="mb-3">تكاليف الرحلة</h4>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="currency" class="form-label">العملة</label>
+                                    <select class="form-select" id="currency" required>
+                                        <optgroup label="العملات العربية">
+                                            <option value="SAR">الريال السعودي (SAR)</option>
+                                            <option value="AED">الدرهم الإماراتي (AED)</option>
+                                            <option value="EGP">الجنيه المصري (EGP)</option>
+                                            <option value="KWD">الدينار الكويتي (KWD)</option>
+                                            <option value="QAR">الريال القطري (QAR)</option>
+                                            <option value="OMR">الريال العماني (OMR)</option>
+                                            <option value="BHD">الدينار البحريني (BHD)</option>
+                                            <option value="IQD">الدينار العراقي (IQD)</option>
+                                            <option value="JOD">الدينار الأردني (JOD)</option>
+                                            <option value="LBP">الليرة اللبنانية (LBP)</option>
+                                            <option value="MAD">الدرهم المغربي (MAD)</option>
+                                        </optgroup>
+                                        <optgroup label="العملات العالمية">
+                                            <option value="USD">الدولار الأمريكي (USD)</option>
+                                            <option value="EUR">اليورو (EUR)</option>
+                                            <option value="GBP">الجنيه الإسترليني (GBP)</option>
+                                            <option value="JPY">الين الياباني (JPY)</option>
+                                            <option value="CHF">الفرنك السويسري (CHF)</option>
+                                            <option value="CAD">الدولار الكندي (CAD)</option>
+                                            <option value="AUD">الدولار الأسترالي (AUD)</option>
+                                            <option value="CNY">اليوان الصيني (CNY)</option>
+                                            <option value="INR">الروبية الهندية (INR)</option>
+                                            <option value="TRY">الليرة التركية (TRY)</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">تذاكر السفر</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="ticketCost" required>
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">الإقامة (لليلة)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="accommodationCost" required>
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">الطعام (لليوم)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="foodCost" required>
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">التنقلات (لليوم)</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="transportCost" required>
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <label class="form-label">مصاريف أخرى</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="otherCosts">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary w-100">احسب تكلفة الرحلة</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Results Section -->
+                        <div id="result" class="mt-4 d-none">
+                            <div class="result-box p-4 rounded-3">
+                                <h4 class="text-center mb-4">ملخص تكاليف الرحلة</h4>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p>مدة الرحلة: <span id="tripDuration"></span></p>
+                                        <p>تكلفة التذاكر: <span id="totalTickets"></span></p>
+                                        <p>تكلفة الإقامة: <span id="totalAccommodation"></span></p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>تكلفة الطعام: <span id="totalFood"></span></p>
+                                        <p>تكلفة التنقلات: <span id="totalTransport"></span></p>
+                                        <p>تكاليف أخرى: <span id="totalOther"></span></p>
+                                    </div>
+                                </div>
+
+                                <div class="total-cost text-center mt-4">
+                                    <h3>التكلفة الإجمالية</h3>
+                                    <h2 class="text-primary" id="totalCost"></h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calculator-info mt-4">
+                            <h4>نصائح للسفر:</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">احجز تذاكر السفر مبكراً للحصول على أفضل الأسعار</li>
+                                <li class="list-group-item">ابحث عن عروض الإقامة في المواسم غير المزدحمة</li>
+                                <li class="list-group-item">خطط لميزانية إضافية للطوارئ</li>
+                                <li class="list-group-item">تأكد من تغطية التأمين الصحي للسفر</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/travel.js"></script>
+    <script src="../../js/theme.js"></script>
+</body>
+</html>

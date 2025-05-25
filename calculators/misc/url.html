@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مختصر الروابط - الآلات الحاسبة الشاملة</title>
+    <meta name="description" content="اختصر الروابط الطويلة إلى روابط قصيرة وسهلة المشاركة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/calculator.css">
+    <meta name="theme-color" content="#198754">
+    <meta name="google-adsense-account" content="ca-pub-5346000361286122">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5346000361286122" crossorigin="anonymous"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5346000361286122",
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG5T75NQHF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EG5T75NQHF');
+    </script>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="../../index.html">الآلات الحاسبة الشاملة</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">الرئيسية</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html#categories">الفئات</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex">
+                        <button id="theme-toggle" class="btn btn-link">
+                            <i class="bi bi-moon-fill theme-icon-dark fs-5"></i>
+                            <i class="bi bi-sun-fill theme-icon-light fs-5" style="display: none;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="calculator-container bg-white rounded-3 shadow p-4">
+                        <h1 class="text-center mb-4">
+                            <i class="bi bi-link-45deg text-success"></i>
+                            مختصر الروابط
+                        </h1>
+
+                        <form id="urlForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <!-- URL Input -->
+                                <div class="col-12">
+                                    <label class="form-label">الرابط الطويل</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-link-45deg"></i></span>
+                                        <input type="url" class="form-control" id="longUrl" required 
+                                               placeholder="https://example.com/very/long/url/that/needs/shortening">
+                                        <button class="btn btn-outline-secondary" type="button" id="pasteButton">
+                                            <i class="bi bi-clipboard"></i> لصق
+                                        </button>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        يرجى إدخال رابط صحيح يبدأ بـ http:// أو https://
+                                    </div>
+                                </div>
+
+                                <!-- Service Selection -->
+                                <div class="col-md-6">
+                                    <label class="form-label">خدمة الاختصار</label>
+                                    <select class="form-select" id="service" required>
+                                        <option value="tinyurl">TinyURL</option>
+                                        <option value="bitly">Bitly (يتطلب مفتاح API)</option>
+                                        <option value="custom">مخصص</option>
+                                    </select>
+                                </div>
+
+                                <!-- Submit Button -->
+                                <div class="col-md-6">
+                                    <label class="form-label">&nbsp;</label>
+                                    <button type="submit" class="btn btn-success w-100">
+                                        <i class="bi bi-scissors"></i> اختصار الرابط
+                                    </button>
+                                </div>
+
+                                <!-- API Key (for Bitly) -->
+                                <div class="col-12 d-none" id="apiKeySection">
+                                    <label class="form-label">مفتاح API</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                        <input type="password" class="form-control" id="apiKey">
+                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </div>
+                                    <div class="form-text">مطلوب لخدمة Bitly - <a href="https://bitly.com/a/sign_up" target="_blank">احصل على مفتاح API</a></div>
+                                </div>
+
+                                <!-- Custom Options -->
+                                <div class="col-12 d-none" id="customOptions">
+                                    <label class="form-label">الاسم المخصص</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">short.url/</span>
+                                        <input type="text" class="form-control" id="customAlias" 
+                                               pattern="[a-zA-Z0-9-_]+" 
+                                               placeholder="my-custom-url">
+                                        <button class="btn btn-outline-secondary" type="button" id="generateAlias">
+                                            <i class="bi bi-magic"></i> توليد
+                                        </button>
+                                    </div>
+                                    <div class="form-text">يمكن استخدام الأحرف والأرقام والشرطات فقط</div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Results Section -->
+                        <div id="result" class="mt-4 d-none">
+                            <div class="result-box p-4 rounded-3 border">
+                                <h4 class="text-center mb-4">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    تم اختصار الرابط بنجاح
+                                </h4>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="shortUrl" readonly>
+                                    <button class="btn btn-outline-success" type="button" id="copyButton">
+                                        <i class="bi bi-clipboard"></i> نسخ
+                                    </button>
+                                    <a href="#" id="shortUrlLink" target="_blank" class="btn btn-outline-primary">
+                                        <i class="bi bi-box-arrow-up-right"></i> فتح
+                                    </a>
+                                </div>
+                                <div class="qr-code text-center mt-3">
+                                    <img id="qrCode" alt="QR Code" class="d-none">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- URL History -->
+                        <div id="urlHistory" class="mt-4">
+                            <h4 class="mb-3">
+                                <i class="bi bi-clock-history"></i>
+                                سجل الروابط المختصرة
+                            </h4>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>الرابط الأصلي</th>
+                                            <th>الرابط المختصر</th>
+                                            <th>الخدمة</th>
+                                            <th>التاريخ</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="historyTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Information Section -->
+                        <div class="calculator-info mt-4">
+                            <h4>
+                                <i class="bi bi-info-circle"></i>
+                                معلومات هامة:
+                            </h4>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <i class="bi bi-check-circle text-success"></i>
+                                    تأكد من صحة الرابط قبل اختصاره
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-infinity text-success"></i>
+                                    الروابط المختصرة دائمة ولا تنتهي صلاحيتها
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-shield-check text-success"></i>
+                                    نحن لا نخزن أي معلومات شخصية
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-graph-up text-success"></i>
+                                    يمكنك تتبع إحصائيات الروابط مع خدمة Bitly
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>جميع الحقوق محفوظة 2024 الآلات الحاسبة الشاملة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/url.js"></script>
+    <script src="../../js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* Nickname Generator Styles */
+.nickname-generator {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-section {
+    background: var(--bs-body-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.result-section {
+    background: var(--bs-body-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.history-section {
+    background: var(--bs-body-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background: var(--bs-gray-100);
+    transition: all 0.3s ease;
+}
+
+.history-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.info-card {
+    background: var(--bs-body-bg);
+    border-radius: 15px;
+    padding: 1.5rem;
+    height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h4 {
+    color: var(--bs-primary);
+    margin-bottom: 1rem;
+}
+
+.nickname-result {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--bs-primary);
+    margin: 1rem 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.action-button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark mode adjustments */
+[data-bs-theme="dark"] .history-item {
+    background: var(--bs-gray-800);
+}
+
+[data-bs-theme="dark"] .info-card {
+    background: var(--bs-gray-900);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-section,
+    .result-section,
+    .history-section,
+    .info-card {
+        padding: 1.5rem;
+    }
+
+    .nickname-result {
+        font-size: 1.5rem;
+    }
+}
