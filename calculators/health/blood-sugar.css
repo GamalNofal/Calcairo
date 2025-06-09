@@ -1,0 +1,189 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #fff;
+    color: #212529;
+  }
+  
+  .range-indicator {
+    height: 30px;
+    border-radius: 15px;
+    position: relative;
+    margin: 20px 0;
+    background: linear-gradient(to right, 
+      #198754 0%, #198754 20%,    /* Normal */
+      #ffc107 20%, #ffc107 40%,   /* Pre-diabetes */
+      #dc3545 40%, #dc3545 100%   /* Diabetes */
+    );
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .range-marker {
+    position: absolute;
+    width: 4px;
+    height: 40px;
+    background-color: #000;
+    top: -5px;
+    transform: translateX(-50%);
+    transition: left 0.5s ease-in-out;
+  }
+  
+  .range-label {
+    position: absolute;
+    top: 40px;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .quick-convert {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .quick-convert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+  }
+  
+  .quick-convert-item:hover {
+    background-color: #fff;
+    transform: translateX(-5px);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+  }
+  
+  .quick-convert-item:last-child {
+    border-bottom: none;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .list-group-item {
+    transition: all 0.3s ease;
+  }
+  
+  .list-group-item:hover {
+    transform: translateX(-5px);
+    background-color: #f8f9fa;
+  }
+  
+  .card {
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .result-container {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  .conversion-result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #198754;
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .nav-pills .nav-link {
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 10px 20px;
+  }
+  
+  .nav-pills .nav-link:hover {
+    transform: translateY(-2px);
+  }
+  
+  .nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #198754, #157347);
+    box-shadow: 0 2px 4px rgba(25, 135, 84, 0.3);
+  }
+  
+  input[type="number"] {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 12px;
+  }
+  
+  input[type="number"]:focus {
+    box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+    transform: translateY(-2px);
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #198754, #157347);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(25, 135, 84, 0.3);
+    background: linear-gradient(135deg, #157347, #115c39);
+  }
+  
+  .bi-arrow-left-right.text-primary,
+  .bi-bookmark-check.text-primary,
+  .bi-check2-circle.text-primary {
+    color: #198754 !important;
+  }
+  .site-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #198754;
+  }
+  
+  .site-logo:hover {
+    text-decoration: none;
+    color: #157347;
+  }
+  
+  .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #198754;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin-left: 10px;
+  }
+  
+  .logo-text {
+    font-family: 'Cairo', sans-serif;
+  }
+    
